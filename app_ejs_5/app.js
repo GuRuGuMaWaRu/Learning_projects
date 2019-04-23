@@ -88,4 +88,21 @@ app.post("/update/:id", async (req, res) => {
   );
 });
 
+app.post("/done/:id", async (req, res) => {
+  const id = req.params.id;
+  const { list, done } = req.body;
+
+  await List.findOneAndUpdate(
+    { name: list, "items._id": id },
+    { $set: { "items.$.finished": done ? true : false } },
+    err => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.redirect("/");
+      }
+    }
+  );
+});
+
 app.listen(3000, () => console.log("Server is running on port 3000..."));

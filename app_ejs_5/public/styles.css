@@ -8,3 +8,8 @@ form.check-item {
   display: inline-block;
   margin-right: 1rem;
 }
+
+.checked {
+  color: tomato;
+  text-decoration: line-through;
+}

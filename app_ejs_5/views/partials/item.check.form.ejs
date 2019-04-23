@@ -1,0 +1,4 @@
+<form class="check-item" action="/done/<%= id %>" method="POST">
+  <input type="hidden" name="list" value="<%= list %>" >
+  <input type="checkbox" name="done" onChange="this.form.submit()" <%= checked %>>
+</form>

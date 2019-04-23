@@ -4,20 +4,18 @@
 <div class="list-group">
   <% list.items.forEach(item => { %>
     <li class="list-group-item my-list-item">
+      <% const checked = item.finished ? "checked" : ""; %>
       <% if (editId == item._id ) { %>
         <%- include('partials/item.edit.form.ejs', { id: item._id, item: item.name, list: list.name }) -%>
       <% } else { %>
         <span >
-          <form class="check-item" action="/done/<%= item._id %>" method="POST">
-            <input type="checkbox" name="done" onChange="submit()">
-          </form>
-          <span>
+          <%- include('partials/item.check.form.ejs', {id: item._id, list: list.name, checked: checked }) -%>
+          <span class=<%= checked %>>
             <%= item.name %>
           </span>
         </span>
       <% } %>
         <span>
-          <span><a class="btn btn-primary" href="/done/<%= item._id %>/<%= list.name %>">Mark as done</a></span>
           <span><a class="btn btn-primary" href="/edit/<%= item._id %>/<%= list.name %>">Edit</a></span>
           <span><a class="btn btn-danger" href="/delete/<%= item._id %>/<%= list.name %>">Delete</a></span>
         </span>
