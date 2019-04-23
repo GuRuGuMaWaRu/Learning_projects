@@ -1,0 +1,13 @@
+<%- include('partials/header.ejs') -%>
+
+<h1>Order details</h1>
+<div>
+  <h5>Product: <span class="order-details"><%= order.product %></span></h5>
+  <h5>Quantity: <span class="order-details"><%= order.quantity %></span></h5>
+  <h5>Date: <span class="order-details"><%= order.date %></span></h5>
+  <h5>Comments:</h5>
+  <p><%= order.comments %></p>
+</div>
+<a class="btn btn-large btn-danger" href="/cancel/<%= order._id %>">Cancel Order</a>
+
+<%- include('partials/footer.ejs') -%>

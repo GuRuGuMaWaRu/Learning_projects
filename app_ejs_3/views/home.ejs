@@ -1,0 +1,22 @@
+<%- include('partials/header.ejs') -%>
+
+<h1>Orders</h1>
+
+<div>
+  <% orders.forEach(order => { %>
+
+    <div class="order">
+      <span class="order-product">
+        <b><%= order.product %>: <%= order.quantity %></b>
+      </span>
+      <span><%= order.date %></span>
+      <span>
+        <a class="btn btn-primary" href="/orders/<%= order._id %>">Show Details</a>
+        <a class="btn btn-danger" href="/cancel/<%= order._id %>">Cancel Order</a>
+      </span>
+    </div>
+
+  <% }) %>
+</div>
+
+<%- include('partials/footer.ejs') -%>

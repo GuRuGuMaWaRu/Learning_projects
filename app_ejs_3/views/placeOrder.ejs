@@ -1,0 +1,30 @@
+<%- include('partials/header.ejs') -%>
+
+<h1>Order</h1>
+<form action="/order" method="POST">
+  <div class="form-group">
+    <label for="dateInput">Date:</label>
+    <input type="Text" class="form-control" id="dateInput" name="date" value="<%= date%>">
+  </div>
+  <div class="form-group">
+    <label for="productInput">Fruit:</label>
+    <select class="form-control" id="productInput" name="product">
+      <option>Apple</option>
+      <option>Mango</option>
+      <option>Banana</option>
+      <option>Orange</option>
+      <option>Kiwi</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="quantityInput">Quantity:</label>
+    <input type="number" class="form-control" id="quantityInput" name="quantity">
+  </div>
+  <div class="form-group">
+    <label for="commentsInput">Comments:</label>
+    <textarea class="form-control" id="commentsInput" name="comments"></textarea>
+  </div>
+  <button class="btn btn-lg btn-success" type="submit">Place an Order</button>
+</form>
+
+<%- include('partials/footer.ejs') -%>
