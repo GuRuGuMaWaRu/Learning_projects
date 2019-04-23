@@ -1,0 +1,20 @@
+<%- include('partials/header.ejs') -%>
+
+<h1>Ratings</h1>
+<p>Please see below all available ratings and reviews. You can easily update or delete any one of them.</p>
+
+<div class="container">
+  <% ratings.forEach(rating => { %>
+    <div class="rating">
+      <div class="rating-data">
+        <div><b>Date:</b> <%= rating.date %></div>
+        <div><b>Product:</b> <%= rating.product %></div>
+        <div><b>Rating:</b> <%= rating.rating %></div>
+      </div>
+      <a class="btn btn-primary" href="/rating/<%= rating._id %>">Details</a>
+      <a class="btn btn-danger" href="/delete/<%= rating._id %>">Delete</a>
+    </div>
+  <% }) %>
+</div>
+
+<%- include('partials/footer.ejs') -%>

@@ -1,0 +1,35 @@
+<%- include('partials/header.ejs') -%>
+
+<form action="/rating/<%= rating._id %>" method="POST">
+  <div class="form-group">
+    <label for="inputProduct">Product:</label>
+    <select class="form-control" id="inputProduct" name="product" value="<%= rating.product%>">
+      <option>Dragon</option>
+      <option>Griffon</option>
+      <option>Pegasus</option>
+      <option>Giant Eagle</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="inputRating">Rating:</label>
+    <select class="form-control" id="inputRating" name="rating">
+      <%
+        const options = [5, 4, 3, 2, 1];
+        options.forEach(option => {
+          const selected = option === rating.rating ? "selected" : "";
+      %>
+        <option <%= selected %> ><%= option%></option>
+      <%
+        })
+      %>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="inputFeedback">Feedback:</label>
+    <textarea class="form-control" id="inputFeedback" name="feedback"><%= rating.feedback %></textarea>
+  </div>
+  <button class="btn btn-primary" type="submit">Update</button>
+  <a class="btn btn-danger" href="/delete/<%= rating._id %>" >Delete</a>
+</form>
+
+<%- include('partials/footer.ejs') -%>

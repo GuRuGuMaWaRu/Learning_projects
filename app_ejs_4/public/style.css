@@ -1,0 +1,9 @@
+.rating {
+  margin-bottom: 2rem;
+}
+
+.rating-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
