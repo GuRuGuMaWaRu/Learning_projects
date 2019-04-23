@@ -41,6 +41,19 @@ app.get("/", async (req, res) => {
   });
 });
 
+app.get("/:listId", async (req, res) => {
+  const listId = req.params.listId;
+  const lists = await List.find();
+
+  await List.findOne({ _id: listId }, (err, list) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("main", { list: list, editId: null, lists: lists });
+    }
+  });
+});
+
 app.post("/addItem", async (req, res) => {
   const data = req.body;
   const item = new Item({ name: data.item });
