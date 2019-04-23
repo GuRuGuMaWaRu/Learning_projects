@@ -129,11 +129,11 @@ app.post("/addList", async (req, res) => {
       name: list.slice(0, 1).toUpperCase() + lowerCase(list.slice(1)),
       items: []
     },
-    err => {
+    (err, newList) => {
       if (err) {
         console.log(err);
       } else {
-        res.redirect("/");
+        res.redirect(`/${newList._id}`);
       }
     }
   );
