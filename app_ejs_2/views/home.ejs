@@ -1,0 +1,19 @@
+<%- include('partials/header.ejs') -%>
+
+<% posts.forEach(post => { %>
+	<div class="post">
+		<h4 class="post-header">
+			<span><%= post.title %></span>
+			<span><%= post.date %></span>
+		</h4>
+		<p>
+			<%= post.body.slice(0, 100) + " ..." %>
+			<% if (post.body.length > 100) { %> 
+			<a class="btn btn-primary" href="/posts/<%= post.id %>">Read more</a>
+			<a class="btn btn-warning" href="/delete/<%= post.id %>">Delete</a>
+			<% } %>
+		</p>
+	</div>
+<% }) %>
+
+<%- include('partials/footer.ejs') -%>

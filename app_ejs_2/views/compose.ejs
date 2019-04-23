@@ -1,0 +1,19 @@
+<%- include('partials/header.ejs') -%>
+
+<form class="form" action="/compose" method="POST">
+	<div class="form-group">
+		<label for="inputDate">Date:</label>
+		<input class="form-control form-control-lg" type="text" id="inputDate" name="date" value="<%= date %>">
+	</div>
+	<div class="form-group">
+		<label for="inputTitle">Title:</label>
+		<input class="form-control form-control-lg" type="text" id="inputTitle" name="title">
+	</div>
+	<div class="form-group">
+		<label for="bodyInput">Body:</label>
+		<textarea class="form-control form-control-lg" id="bodyInput" name="body" rows="6"></textarea>
+	</div>
+	<button class="btn btn-lg btn-primary" type="submit">Post</button>
+</form>
+
+<%- include('partials/footer.ejs') -%>

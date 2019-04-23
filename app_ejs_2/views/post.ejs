@@ -1,0 +1,12 @@
+<%- include('partials/header.ejs') -%>
+
+<div class="post">
+	<h1 class="post-header">
+		<span><%= post.title %></span>
+		<span><%= post.date %></span>
+	</h1>
+	<p><%= post.body %></p>
+	<a href="/delete/<%= post.id %>">Delete</a>
+</div>
+
+<%- include('partials/footer.ejs') -%>
