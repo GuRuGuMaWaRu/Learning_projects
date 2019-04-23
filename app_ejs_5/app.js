@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const lowerCase = require("lodash.lowercase");
 const { Item, List } = require(__dirname + "/models.js");
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.get("/", async (req, res) => {
+  const lists = await List.find();
   await List.findOne({ name: "Home" }, async (err, homeList) => {
     if (err) {
       console.log(err);
@@ -32,7 +34,7 @@ app.get("/", async (req, res) => {
         await home.save();
         res.redirect("/");
       } else {
-        res.render("main", { list: homeList, editId: null });
+        res.render("main", { list: homeList, editId: null, lists: lists });
       }
     }
   });
@@ -95,6 +97,24 @@ app.post("/done/:id", async (req, res) => {
   await List.findOneAndUpdate(
     { name: list, "items._id": id },
     { $set: { "items.$.finished": done ? true : false } },
+    err => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.redirect("/");
+      }
+    }
+  );
+});
+
+app.post("/addList", async (req, res) => {
+  const list = req.body.list;
+
+  await List.create(
+    {
+      name: list.slice(0, 1).toUpperCase() + lowerCase(list.slice(1)),
+      items: []
+    },
     err => {
       if (err) {
         console.log(err);
