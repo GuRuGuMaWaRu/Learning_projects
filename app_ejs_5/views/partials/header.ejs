@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <ul class="navbar-nav mr-auto">
         <% lists.forEach(list => { %>
-        <% const selected = currentList === list._id ? "active" : "" %>
+        <% const selected = String(currentList) === String(list._id) ? "active" : "" %>
           <li class="nav-item <%= selected %>">
             <a href="/<%= list._id %>" class="nav-link"><%= list.name %></a>
           </li>

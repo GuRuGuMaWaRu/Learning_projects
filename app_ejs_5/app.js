@@ -20,6 +20,7 @@ app.use(express.static("public"));
 
 app.get("/", async (req, res) => {
   const lists = await List.find();
+
   await List.findOne({ name: "Home" }, async (err, homeList) => {
     if (err) {
       console.log(err);
