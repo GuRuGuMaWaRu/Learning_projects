@@ -1,0 +1,12 @@
+<%- include("partials/header") -%>
+
+<div>
+	<h4>
+		<span class="post-title"><%= post.title %></span>
+		<span class="post-date"><%= post.date %></span>
+	</h4>
+	<p><%= post.body %></p>
+	<a class="delete-button" href="delete/<%= post.id %>">Delete</a>
+</div>
+
+<%- include("partials/footer") -%>

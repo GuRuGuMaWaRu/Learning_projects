@@ -1,0 +1,21 @@
+<%- include("partials/header.ejs") -%>
+
+	<h1>Home</h1>
+
+	<% posts.forEach(post => { %>
+
+		<div>
+			<h4>
+				<span class="post-title"><%= post.title %></span>
+				<span class="post-date"><%= post.date %></span>
+			</h4>
+			<p>
+				<%= post.body.slice(0,100) + " ..." %>
+				<a href="posts/<%= post.id %>">Read more</a>
+				<a class="delete-button" href="delete/<%= post.id %>">Delete</a>
+			</p>
+		</div>
+
+	<% }) %>
+
+<%- include("partials/footer.ejs") -%>
