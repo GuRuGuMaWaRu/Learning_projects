@@ -35,28 +35,25 @@ app.get("/:listId", async (req, res) => {
 
 app.post("/addItem", async (req, res) => {
   const { currentList, createdItem } = req.body;
-  console.log(currentList);
-  // await List.findOneAndUpdate(
-  //   { _id: currentList },
-  //   { $push: { items: new Item({ name: createdItem }) } }
-  // );
-  // await List.findOne({ _id: currentList }, (err, foundList) => {
-  //   if (!err) {
-  //     console.log(foundList);
-  //   }
-  // });
-  // res.redirect(`/${currentList}`);
-});
-
-app.get("/delete/:id/:list", async (req, res) => {
-  const { id, list } = req.params;
+  const newItem = new Item({ name: createdItem });
 
   await List.findOneAndUpdate(
-    { name: list },
-    { $pull: { items: { _id: id } } }
+    { _id: currentList },
+    { $push: { items: newItem } }
   );
 
-  res.redirect(list === "Home" ? "/" : `/${list}`);
+  res.redirect(`/${currentList}`);
+});
+
+app.get("/delete/:itemId/:listId", async (req, res) => {
+  const { itemId, listId } = req.params;
+
+  await List.findOneAndUpdate(
+    { _id: listId },
+    { $pull: { items: { _id: itemId } } }
+  );
+
+  res.redirect(`/${listId}`);
 });
 
 app.get("/edit/:id/:list", async (req, res) => {
@@ -78,11 +75,10 @@ app.post("/update/:id", async (req, res) => {
 
   await List.findOneAndUpdate(
     { name: list, "items._id": id },
-    { $set: { "items.$.name": item } },
-    err => {
-      if (!err) res.redirect("/");
-    }
+    { $set: { "items.$.name": item } }
   );
+
+  res.redirect("/");
 });
 
 app.post("/done/:id", async (req, res) => {
@@ -91,33 +87,21 @@ app.post("/done/:id", async (req, res) => {
 
   await List.findOneAndUpdate(
     { name: list, "items._id": id },
-    { $set: { "items.$.finished": done ? true : false } },
-    err => {
-      if (err) {
-        console.log(err);
-      } else {
-        res.redirect("/");
-      }
-    }
+    { $set: { "items.$.finished": done ? true : false } }
   );
+
+  res.redirect("/");
 });
 
 app.post("/addList", async (req, res) => {
   const list = req.body.list;
 
-  await List.create(
-    {
-      name: list.slice(0, 1).toUpperCase() + lowerCase(list.slice(1)),
-      items: []
-    },
-    (err, newList) => {
-      if (err) {
-        console.log(err);
-      } else {
-        res.redirect(`/${newList._id}`);
-      }
-    }
-  );
+  const newList = await List.create({
+    name: list.slice(0, 1).toUpperCase() + lowerCase(list.slice(1)),
+    items: []
+  });
+
+  res.redirect(`/${newList._id}`);
 });
 
 app.listen(3000, () => console.log("Server is running on port 3000..."));
