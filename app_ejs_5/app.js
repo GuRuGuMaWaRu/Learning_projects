@@ -21,24 +21,7 @@ app.use(express.static("public"));
 app.get("/", async (req, res) => {
   const lists = await List.find();
 
-  await List.findOne({ name: "Home" }, async (err, homeList) => {
-    if (err) {
-      console.log(err);
-    } else {
-      if (!homeList) {
-        // populate default to-do list on first load
-        const item1 = new Item({ name: "This is an example to-do list." });
-        const item2 = new Item({ name: "You can mark items as finished." });
-        const item3 = new Item({ name: "And you can also delete items." });
-        const home = new List({ name: "Home", items: [item1, item2, item3] });
-
-        await home.save();
-        res.redirect("/");
-      } else {
-        res.render("main", { list: homeList, editId: null, lists: lists });
-      }
-    }
-  });
+  res.render("home", { lists: lists });
 });
 
 app.get("/:listId", async (req, res) => {
@@ -46,21 +29,23 @@ app.get("/:listId", async (req, res) => {
   const lists = await List.find();
 
   await List.findOne({ _id: listId }, (err, list) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.render("main", { list: list, editId: null, lists: lists });
-    }
+    if (!err) res.render("list", { list: list, editId: null, lists: lists });
   });
 });
 
 app.post("/addItem", async (req, res) => {
-  const data = req.body;
-  const item = new Item({ name: data.item });
-
-  await List.findOneAndUpdate({ name: data.list }, { $push: { items: item } });
-
-  res.redirect(data.list === "Home" ? "/" : `/${data.list}`);
+  const { currentList, createdItem } = req.body;
+  console.log(currentList);
+  // await List.findOneAndUpdate(
+  //   { _id: currentList },
+  //   { $push: { items: new Item({ name: createdItem }) } }
+  // );
+  // await List.findOne({ _id: currentList }, (err, foundList) => {
+  //   if (!err) {
+  //     console.log(foundList);
+  //   }
+  // });
+  // res.redirect(`/${currentList}`);
 });
 
 app.get("/delete/:id/:list", async (req, res) => {
@@ -95,11 +80,7 @@ app.post("/update/:id", async (req, res) => {
     { name: list, "items._id": id },
     { $set: { "items.$.name": item } },
     err => {
-      if (err) {
-        console.log(err);
-      } else {
-        res.redirect("/");
-      }
+      if (!err) res.redirect("/");
     }
   );
 });
