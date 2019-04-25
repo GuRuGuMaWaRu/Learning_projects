@@ -7,6 +7,7 @@ const { Item, List } = require(__dirname + "/models.js");
 const app = express();
 
 //:: Set up DB
+mongoose.set("useFindAndModify", false);
 mongoose.connect(
   "mongodb+srv://GuRuGu:i44iYtewBM21noYb@cluster0-z8edg.mongodb.net/app_ejs_5",
   {
