@@ -1,0 +1,31 @@
+<%- include('partials/header.ejs', { lists: lists, currentList: currentList._id }) -%>
+
+<h1><%= currentList.name %></h1>
+<div class="list-group">
+  <% items.forEach(item => { %>
+    <li class="list-group-item my-list-item">
+      <% const checked = item.finished ? "checked" : ""; %>
+      <% if (editId == item._id ) { %>
+        <%- include('partials/item.edit.form.ejs', { itemId: item._id, item: item.name, listId: currentList._id }) -%>
+      <% } else { %>
+        <span >
+          <%- include('partials/item.check.form.ejs', {itemId: item._id, listId: currentList._id, checked: checked }) -%>
+          <span class=<%= checked %>>
+            <%= item.name %>
+          </span>
+        </span>
+      <% } %>
+        <span>
+          <span><a class="btn btn-primary" href="/edit/<%= item._id %>/<%= currentList._id %>">Edit</a></span>
+          <span><a class="btn btn-danger" href="/delete/<%= item._id %>/<%= currentList._id %>">Delete</a></span>
+        </span>
+    </li>
+  <% }) %>
+  <li class="list-group-item list-group-item-action">
+    <%- include('partials/item.add.form.ejs', { listId: currentList._id }) -%>
+  </li>
+</div>
+
+<a class="btn btn-danger btn-delete-list" href="/deleteList/<%= currentList._id %>">Delete list</a>
+
+<%- include('partials/footer.ejs') -%>
