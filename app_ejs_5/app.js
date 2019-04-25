@@ -102,4 +102,12 @@ app.post("/addList", async (req, res) => {
   res.redirect(`/${newList._id}`);
 });
 
+app.get("/deleteList/:listId", async (req, res) => {
+  const listId = req.params.listId;
+
+  await List.findOneAndDelete({ _id: listId });
+
+  res.redirect("/");
+});
+
 app.listen(3000, () => console.log("Server is running on port 3000..."));
