@@ -57,29 +57,26 @@ app.get("/delete/:itemId/:listId", async (req, res) => {
   res.redirect(`/${listId}`);
 });
 
-app.get("/edit/:id/:list", async (req, res) => {
-  const { id, list } = req.params;
+app.get("/edit/:itemId/:listId", async (req, res) => {
+  const { itemId, listId } = req.params;
+  const lists = await List.find();
+  const currentList = await List.findOne({ _id: listId });
 
-  await List.findOne({ name: list }, (err, foundList) => {
-    if (!err) {
-      res.render("main", {
-        list: foundList,
-        editId: id
-      });
-    }
-  });
+  res.render("list", { list: currentList, editId: itemId, lists: lists });
 });
 
-app.post("/update/:id", async (req, res) => {
-  const id = req.params.id;
-  const { list, item } = req.body;
+app.post("/update/:itemId", async (req, res) => {
+  const itemId = req.params.itemId;
+  const { listId, item } = req.body;
+  const lists = await List.find();
 
-  await List.findOneAndUpdate(
-    { name: list, "items._id": id },
-    { $set: { "items.$.name": item } }
+  const updatedList = await List.findOneAndUpdate(
+    { _id: listId, "items._id": itemId },
+    { $set: { "items.$.name": item } },
+    { new: true }
   );
 
-  res.redirect("/");
+  res.render("list", { list: updatedList, editId: null, lists: lists });
 });
 
 app.post("/done/:id", async (req, res) => {
