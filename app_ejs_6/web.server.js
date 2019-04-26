@@ -1,12 +1,14 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const routes = require("./routes");
 
 module.exports = class WebServer {
   constructor() {
     this.app = express();
-    this.app.set("view engine", "views");
+    this.app.set("view engine", "ejs");
     this.app.use(express.static("public"));
     this.app.use(bodyParser.urlencoded({ extended: true }));
+    this.app.use("/", routes);
   }
 
   start() {
