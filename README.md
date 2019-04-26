@@ -30,4 +30,4 @@ Basic full-stack web app with extensive use of Mongoose
 
 #### Goal:
 
-Many pages, CRUD, Mongoose, external DB, object-based server, modular routes and controllers layout
+Multi-page app, CRUD, Mongoose, Atlas DB, class-based server, modular routes and controllers layout
