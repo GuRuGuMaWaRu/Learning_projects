@@ -11,9 +11,10 @@
 ## App EJS-5
 
 Tech stack:
-[ ] - Node
-[ ] - EJS
-[ ] - Mongo
+
+- [ ] Node
+- [ ] EJS
+- [ ] Mongo
 
 Goal:
 Basic full-stack web app with extensive use of Mongoose
@@ -21,9 +22,10 @@ Basic full-stack web app with extensive use of Mongoose
 ## App EJS-6
 
 Tech stack:
-[ ] - Node
-[ ] - EJS
-[ ] - Mongo
+
+- [ ] Node
+- [ ] EJS
+- [ ] Mongo
 
 Goal:
 Many pages, CRUD, Mongoose, external DB, object-based server, modular routes and controllers layout
