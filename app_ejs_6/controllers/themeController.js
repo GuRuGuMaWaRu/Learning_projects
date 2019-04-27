@@ -1,5 +1,9 @@
-exports.addTheme = (req, res) => {
+const mongoose = require("mongoose");
+const Theme = require("../models/Theme");
+// const Theme = mongoose.model("Theme");
+
+exports.addTheme = async (req, res) => {
   const themeName = req.body.themeName;
-  console.log(themeName);
+  await Theme.create({ name: themeName });
   res.redirect("/");
 };
