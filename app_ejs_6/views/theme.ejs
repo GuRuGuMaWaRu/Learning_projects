@@ -1,0 +1,21 @@
+<%- include('./partials/header.ejs', { themes: themes }) -%>
+
+<h1><%= theme.name %></h1>
+<div class="container">
+  <% items.forEach(item => { %>
+    <div><%= item.name %></div>
+  <% }) %>
+</div>
+<form action="/theme" method="POST">
+  <div class="form-group">
+    <label for="inputTitle">Title:</label>
+    <input class="form-control" type="text" name="title" id="inputTitle" />
+  </div>
+  <div class="form-group">
+    <label for="inputText">Text:</label>
+    <textarea class="form-control" name="text" id="inputText"></textarea>
+  </div>
+  <button class="btn btn-success" type="submit" name="themeId" value="<%= theme._id %>">Save</button>
+</form>
+
+<%- include('./partials/footer.ejs') -%>

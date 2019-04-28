@@ -2,11 +2,13 @@ const express = require("express");
 const router = express.Router();
 const appController = require("../controllers/appController");
 const themeController = require("../controllers/themeController");
-const postController = require("../controllers/postController");
+const itemController = require("../controllers/itemController");
 
 // theme routes
 router.post("/", themeController.addTheme);
-// post routes
+router.get("/:id", themeController.selectTheme);
+// item routes
+router.post("/theme", itemController.saveItem);
 // app routes
 router.get("/", appController.mainPage);
 
