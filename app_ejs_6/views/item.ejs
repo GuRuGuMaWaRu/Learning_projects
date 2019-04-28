@@ -4,5 +4,6 @@
 <h5><%= item.created.toLocaleDateString() %></h5>
 <p><%= item.text %></p>
 <a class="btn btn-danger btn-sm" href="/item/delete/<%= item._id %>/<%= item.theme %>">Delete item</a>
+<a class="btn btn-success btn-sm" href="/item/edit/<%= item._id %>">Edit item</a>
 
 <%- include('./partials/footer.ejs') -%>

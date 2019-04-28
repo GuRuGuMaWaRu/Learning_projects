@@ -12,6 +12,8 @@ router.get("/theme/delete/:id", themeController.deleteTheme);
 router.post("/item/add", itemController.saveItem);
 router.get("/item/select/:id", itemController.selectItem);
 router.get("/item/delete/:itemId/:themeId", itemController.deleteItem);
+router.get("/item/edit/:id", itemController.editItem);
+router.post("/item/update/:id", itemController.updateItem);
 // app routes
 router.get("/", appController.mainPage);
 
