@@ -1,6 +1,9 @@
 <%- include('./partials/header.ejs', { themes: themes }) -%>
 
-<h1><%= theme.name %></h1>
+<h1>
+  <span><%= theme.name %></span>
+  <a class="btn btn-danger btn-sm" href="/theme/delete/<%= theme._id %>">Delete theme</a>
+</h1>
 <div class="container">
   <% items.forEach(item => { %>
     <div class="item">

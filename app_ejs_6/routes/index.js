@@ -5,8 +5,9 @@ const themeController = require("../controllers/themeController");
 const itemController = require("../controllers/itemController");
 
 // theme routes
-router.post("/", themeController.addTheme);
-router.get("/:id", themeController.selectTheme);
+router.post("/theme/add", themeController.addTheme);
+router.get("/theme/:id", themeController.selectTheme);
+router.get("/theme/delete/:id", themeController.deleteTheme);
 // item routes
 router.post("/theme", itemController.saveItem);
 // app routes

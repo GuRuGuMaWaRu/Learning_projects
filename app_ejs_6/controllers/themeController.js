@@ -18,6 +18,14 @@ exports.selectTheme = async (req, res) => {
   const themes = await Theme.find();
   const theme = await Theme.findById(id);
   const items = await Item.find({ theme: id });
-  console.log(items);
+
   res.render("theme", { themes: themes, theme: theme, items: items });
+};
+
+exports.deleteTheme = async (req, res) => {
+  const id = req.params.id;
+
+  await Theme.deleteOne({ _id: id });
+
+  res.redirect("/");
 };
