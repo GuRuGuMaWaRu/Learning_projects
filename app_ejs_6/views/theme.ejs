@@ -3,7 +3,16 @@
 <h1><%= theme.name %></h1>
 <div class="container">
   <% items.forEach(item => { %>
-    <div><%= item.name %></div>
+    <div class="item">
+      <h5 class="item-header">
+        <span><%= item.title %></span>
+        <span><%= item.created.toLocaleDateString('en-Us') %></span>
+      </h5>
+      <p>
+        <%= item.text.slice(0, 100) %>...
+        <a href="/item/<%= item._id %>">Read more</a>
+      </p>
+    </div>
   <% }) %>
 </div>
 <form action="/theme" method="POST">

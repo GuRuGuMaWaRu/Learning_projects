@@ -1,17 +1,17 @@
 const mongoose = require("mongoose");
 
-const postSchema = new mongoose.Schema({
+const itemSchema = new mongoose.Schema({
   created: {
     type: Date,
     default: Date.now
   },
   title: {
     type: String,
-    required: "You must supply a post title"
+    required: "You must supply a item title"
   },
   text: {
     type: String,
-    required: "You must supply a post text"
+    required: "You must supply a item text"
   },
   theme: {
     type: mongoose.Schema.ObjectId,
@@ -19,4 +19,4 @@ const postSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model("Post", postSchema);
+module.exports = mongoose.model("Item", itemSchema);
