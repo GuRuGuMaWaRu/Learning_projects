@@ -1,4 +1,4 @@
-<%- include('./partials/header.ejs', { themes: themes }) -%>
+<%- include('./partials/header.ejs', { themes: themes, selectedTheme: item.theme }) -%>
 
 <h1><%= item.title %></h1>
 <h5><%= item.created.toLocaleDateString() %></h5>
