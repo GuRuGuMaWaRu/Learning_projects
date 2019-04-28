@@ -1,4 +1,3 @@
-// const mongoose = require("mongoose");
 const Theme = require("../models/Theme");
 const Item = require("../models/Item");
 

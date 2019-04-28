@@ -1,4 +1,3 @@
-const mongoose = require("mongoose");
 const Theme = require("../models/Theme");
 const Item = require("../models/Item");
 
@@ -7,5 +6,14 @@ exports.saveItem = async (req, res) => {
 
   await Item.create({ title: title, text: text, theme: themeId });
 
-  res.redirect(`/${themeId}`);
+  res.redirect(`/theme/${themeId}`);
+};
+
+exports.selectItem = async (req, res) => {
+  const id = req.params.id;
+
+  const item = await Item.findById(id);
+  const themes = await Theme.find();
+
+  res.render("item", { themes: themes, item: item });
 };

@@ -9,7 +9,8 @@ router.post("/theme/add", themeController.addTheme);
 router.get("/theme/:id", themeController.selectTheme);
 router.get("/theme/delete/:id", themeController.deleteTheme);
 // item routes
-router.post("/theme", itemController.saveItem);
+router.post("/item/add", itemController.saveItem);
+router.get("/item/:id", itemController.selectItem);
 // app routes
 router.get("/", appController.mainPage);
 
