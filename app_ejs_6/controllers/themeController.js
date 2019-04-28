@@ -4,6 +4,10 @@ const Theme = require("../models/Theme");
 
 exports.addTheme = async (req, res) => {
   const themeName = req.body.themeName;
-  await Theme.create({ name: themeName });
+  const themeNameFirstPart = themeName.slice(0, 1).toUpperCase();
+  const themeNameSecondPart = themeName.slice(1).toLowerCase();
+  const processedThemeName = themeNameFirstPart + themeNameSecondPart;
+
+  await Theme.create({ name: processedThemeName });
   res.redirect("/");
 };
