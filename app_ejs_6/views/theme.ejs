@@ -1,0 +1,33 @@
+<%- include('./partials/header.ejs', { themes: themes, selectedTheme: theme._id }) -%>
+
+<h1>
+  <span><%= theme.name %></span>
+  <a class="btn btn-danger btn-sm" href="/theme/delete/<%= theme._id %>">Delete theme</a>
+</h1>
+<div class="container">
+  <% items.forEach(item => { %>
+    <div class="item">
+      <h5 class="item-header">
+        <span><%= item.title %></span>
+        <span><%= item.created.toLocaleDateString('en-Us') %></span>
+      </h5>
+      <p>
+        <%= item.text.slice(0, 100) %>...
+        <a href="/item/select/<%= item._id %>">Read more</a>
+      </p>
+    </div>
+  <% }) %>
+</div>
+<form action="/item/add" method="POST">
+  <div class="form-group">
+    <label for="inputTitle">Title:</label>
+    <input class="form-control" type="text" name="title" id="inputTitle" />
+  </div>
+  <div class="form-group">
+    <label for="inputText">Text:</label>
+    <textarea class="form-control" name="text" id="inputText"></textarea>
+  </div>
+  <button class="btn btn-success" type="submit" name="themeId" value="<%= theme._id %>">Save</button>
+</form>
+
+<%- include('./partials/footer.ejs') -%>
