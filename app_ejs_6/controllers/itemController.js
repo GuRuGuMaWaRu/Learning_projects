@@ -17,3 +17,11 @@ exports.selectItem = async (req, res) => {
 
   res.render("item", { themes: themes, item: item });
 };
+
+exports.deleteItem = async (req, res) => {
+  const { itemId, themeId } = req.params;
+
+  await Item.deleteOne({ _id: itemId });
+
+  res.redirect(`/theme/${themeId}`);
+};

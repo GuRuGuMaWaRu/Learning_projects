@@ -3,6 +3,6 @@
 <h1><%= item.title %></h1>
 <h5><%= item.created.toLocaleDateString() %></h5>
 <p><%= item.text %></p>
-<a class="btn btn-danger btn-sm" href="/item/delete/<%= item._id %>">Delete item</a>
+<a class="btn btn-danger btn-sm" href="/item/delete/<%= item._id %>/<%= item.theme %>">Delete item</a>
 
 <%- include('./partials/footer.ejs') -%>
