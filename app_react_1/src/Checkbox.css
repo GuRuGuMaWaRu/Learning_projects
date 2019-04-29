@@ -1,0 +1,12 @@
+.checkbox {
+  padding: 1rem 1.4rem 1rem 0;
+  cursor: pointer;
+  transition: 0.2s all;
+}
+.checkbox:hover {
+  background-color: rgb(229, 224, 149);
+}
+.checkbox-selected {
+  color: #fff;
+  background-color: green;
+}
