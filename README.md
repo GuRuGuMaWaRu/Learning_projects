@@ -31,3 +31,13 @@ Basic full-stack web app with extensive use of Mongoose
 #### Goal:
 
 Multi-page app, CRUD, Mongoose, Atlas DB, class-based server, modular routes and controllers layout
+
+## App React-1
+
+#### Tech stack:
+
+- [ ] React
+
+#### Goal:
+
+Build an order-your-meal page with multiple interlinked components
