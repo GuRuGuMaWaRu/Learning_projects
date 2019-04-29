@@ -1,33 +1,22 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import "./Checkbox.css";
 
-export default class Checkbox extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selected: false
-    };
-  }
+const Checkbox = ({ item, selected, onSelect }) => {
+  const selectedClass = selected ? "checkbox-selected" : "";
 
-  handleClick = e => {
-    this.setState(state => ({
-      selected: !state.selected
-    }));
-  };
-
-  render() {
-    const selected = this.state.selected ? "checkbox-selected" : "";
-
-    return (
-      <div className={`checkbox ${selected}`} onClick={this.handleClick}>
-        <input type="checkbox" />
-        <label>{this.props.item}</label>
-      </div>
-    );
-  }
-}
+  return (
+    <div className={`checkbox ${selectedClass}`} onClick={onSelect}>
+      <input type="checkbox" />
+      <label>{item}</label>
+    </div>
+  );
+};
 
 Checkbox.propTypes = {
-  item: PropTypes.string.isRequired
+  item: PropTypes.string.isRequired,
+  onSelect: PropTypes.func.isRequired,
+  selected: PropTypes.bool.isRequired
 };
+
+export default Checkbox;
