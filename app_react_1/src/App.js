@@ -10,7 +10,7 @@ function App() {
   };
 
   return (
-    <div class="App">
+    <div className="App">
       <h1>Choose your own meal:</h1>
       <p>You've chosen the following meal: </p>
       <div className="main">

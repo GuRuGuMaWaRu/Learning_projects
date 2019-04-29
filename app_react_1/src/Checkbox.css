@@ -6,3 +6,7 @@
 .checkbox:hover {
   background-color: rgb(229, 224, 149);
 }
+.checkbox-selected {
+  color: #fff;
+  background-color: green;
+}
