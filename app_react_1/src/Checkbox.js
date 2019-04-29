@@ -1,12 +1,18 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import "./Checkbox.css";
 
 export default class Checkbox extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    return <div>{this.props.item}</div>;
+    return (
+      <div className="checkbox">
+        <input type="checkbox" />
+        <label>{this.props.item}</label>
+      </div>
+    );
   }
 }
+
+Checkbox.propTypes = {
+  item: PropTypes.string.isRequired
+};

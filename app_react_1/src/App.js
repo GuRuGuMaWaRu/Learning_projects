@@ -10,11 +10,15 @@ function App() {
   };
 
   return (
-    <>
-      <CheckboxContainer items={items.main} />
-      <CheckboxContainer items={items.side1} />
-      <CheckboxContainer items={items.side2} />
-    </>
+    <div class="App">
+      <h1>Choose your own meal:</h1>
+      <p>You've chosen the following meal: </p>
+      <div className="main">
+        <CheckboxContainer dishType="Main" items={items.main} />
+        <CheckboxContainer dishType="Side 1" items={items.side1} />
+        <CheckboxContainer dishType="Side 2" items={items.side2} />
+      </div>
+    </div>
   );
 }
 
