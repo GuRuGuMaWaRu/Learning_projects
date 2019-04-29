@@ -7,14 +7,11 @@ export default class CheckboxContainer extends Component {
     super(props);
   }
 
+  setupCheckboxes = () => {
+    return this.props.items.map(item => <Checkbox item={item} />);
+  };
+
   render() {
-    return (
-      <>
-        <Checkbox />
-        <Checkbox />
-        <Checkbox />
-        <Checkbox />
-      </>
-    );
+    return <>{this.setupCheckboxes()}</>;
   }
 }

@@ -7,6 +7,6 @@ export default class Checkbox extends Component {
   }
 
   render() {
-    return <div>Item</div>;
+    return <div>{this.props.item}</div>;
   }
 }
