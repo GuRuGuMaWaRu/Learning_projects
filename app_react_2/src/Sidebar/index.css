@@ -4,6 +4,16 @@
   margin-top: 3rem;
 }
 
-.Sidebar > ul > li {
+.Sidebar-item {
   padding: 1rem 0;
+  cursor: pointer;
+  transition: 0.2s all;
+}
+
+.Sidebar-item:hover {
+  background-color: rgb(252, 242, 212);
+}
+.Sidebar-item.selected {
+  font-weight: 800;
+  background-color: rgb(255, 223, 128);
 }

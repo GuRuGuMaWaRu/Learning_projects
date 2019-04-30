@@ -1,5 +1,6 @@
 exports.brands = [
   {
+    id: 0,
     brand: "Swords & Bucklers",
     products: [
       {
@@ -17,6 +18,7 @@ exports.brands = [
     ]
   },
   {
+    id: 1,
     brand: "Dungeoneering",
     products: [
       {
@@ -34,6 +36,7 @@ exports.brands = [
     ]
   },
   {
+    id: 2,
     brand: "Adventuring Extraordinaire",
     products: [
       {

@@ -1,9 +1,19 @@
 import React from "react";
 import "./index.css";
 
-const Sidebar = ({ brands }) => {
+const Sidebar = ({ brands, selected }) => {
   const showBrands = () => {
-    return brands.map(brand => <li key={brand.brand}>{brand.brand}</li>);
+    return brands.map(brand => {
+      const className = `Sidebar-item ${
+        brand.id === selected ? "selected" : ""
+      }`;
+
+      return (
+        <li key={brand.id} className={className}>
+          {brand.brand}
+        </li>
+      );
+    });
   };
 
   return (

@@ -9,18 +9,19 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      brands: brands
+      brands: brands,
+      selected: 0
     };
   }
 
   render() {
-    const { brands } = this.state;
+    const { brands, selected } = this.state;
 
     return (
       <div className="App">
         <Header />
         <div className="main-area">
-          <Sidebar brands={brands} />
+          <Sidebar brands={brands} selected={selected} />
           <ProductList />
         </div>
       </div>
