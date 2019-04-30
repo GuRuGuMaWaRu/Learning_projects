@@ -14,6 +14,13 @@ class App extends React.Component {
     };
   }
 
+  selectBrand = id => {
+    console.log("object");
+    this.setState({
+      selected: id
+    });
+  };
+
   render() {
     const { brands, selected } = this.state;
 
@@ -21,7 +28,11 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <div className="main-area">
-          <Sidebar brands={brands} selected={selected} />
+          <Sidebar
+            brands={brands}
+            selected={selected}
+            selectBrand={this.selectBrand}
+          />
           <ProductList />
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.css";
 
-const Sidebar = ({ brands, selected }) => {
+const Sidebar = ({ brands, selected, selectBrand }) => {
   const showBrands = () => {
     return brands.map(brand => {
       const className = `Sidebar-item ${
@@ -9,7 +9,11 @@ const Sidebar = ({ brands, selected }) => {
       }`;
 
       return (
-        <li key={brand.id} className={className}>
+        <li
+          key={brand.id}
+          className={className}
+          onClick={() => selectBrand(brand.id)}
+        >
           {brand.brand}
         </li>
       );
