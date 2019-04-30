@@ -1,15 +1,15 @@
 import React from "react";
 import "./index.css";
 
-const Sidebar = () => {
+const Sidebar = ({ brands }) => {
+  const showBrands = () => {
+    return brands.map(brand => <li key={brand.brand}>{brand.brand}</li>);
+  };
+
   return (
     <div className="Sidebar">
       <h4>Producers</h4>
-      <ul>
-        <li>Swords & Bucklers</li>
-        <li>Adventuring Extraordinarie</li>
-        <li>Dungeoneering</li>
-      </ul>
+      <ul>{showBrands()}</ul>
     </div>
   );
 };

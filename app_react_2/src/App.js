@@ -14,11 +14,13 @@ class App extends React.Component {
   }
 
   render() {
+    const { brands } = this.state;
+
     return (
       <div className="App">
         <Header />
         <div className="main-area">
-          <Sidebar />
+          <Sidebar brands={brands} />
           <ProductList />
         </div>
       </div>
