@@ -27,13 +27,19 @@ class App extends React.Component {
     }));
   };
 
+  clearCart = () => {
+    this.setState({
+      inCart: []
+    });
+  };
+
   render() {
     const { brands, selected, inCart } = this.state;
     const selectedBrand = brands.filter(brand => brand.id === selected)[0];
 
     return (
       <div className="App">
-        <Header inCart={inCart} />
+        <Header inCart={inCart} clearCart={this.clearCart} />
         <div className="main-area">
           <Sidebar
             brands={brands}

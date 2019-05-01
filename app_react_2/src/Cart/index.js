@@ -1,12 +1,12 @@
 import React from "react";
 import "./index.css";
 
-const Cart = ({ totalItems, totalPrice }) => {
+const Cart = ({ totalItems, totalPrice, clearCart }) => {
   return (
     <div className="Cart">
       <div>Selected:{totalItems}</div>
       <div>Total: {totalPrice}</div>
-      <button>Clear Cart</button>
+      <button onClick={() => clearCart()}>Clear Cart</button>
     </div>
   );
 };
