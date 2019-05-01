@@ -1,0 +1,9 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(184, 188, 209, 0.788);
+}
+.Header > h1 {
+  flex: 2;
+}
