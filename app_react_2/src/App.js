@@ -15,7 +15,6 @@ class App extends React.Component {
   }
 
   selectBrand = id => {
-    console.log("object");
     this.setState({
       selected: id
     });
@@ -23,6 +22,7 @@ class App extends React.Component {
 
   render() {
     const { brands, selected } = this.state;
+    const selectedBrand = brands.filter(brand => brand.id === selected)[0];
 
     return (
       <div className="App">
@@ -33,7 +33,7 @@ class App extends React.Component {
             selected={selected}
             selectBrand={this.selectBrand}
           />
-          <ProductList />
+          <ProductList products={selectedBrand.products} />
         </div>
       </div>
     );
