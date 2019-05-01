@@ -1,24 +1,26 @@
 # Collection of learning projects
 
-## App EJS-1
-
-## App EJS-2
-
-## App EJS-3
-
-## App EJS-4
-
-## App EJS-5
+## App React-2
 
 #### Tech stack:
 
-- [ ] Node
-- [ ] EJS
-- [ ] Mongo
+- [ ] React
+- [ ] React Context
 
 #### Goal:
 
-Basic full-stack web app with extensive use of Mongoose
+Build a basic ecommerce page. Use React Context to update prices
+in different components when currency is selected via Currency Selector.
+
+## App React-1
+
+#### Tech stack:
+
+- [ ] React
+
+#### Goal:
+
+Build an order-your-meal page with multiple interlinked components.
 
 ## App EJS-6
 
@@ -30,14 +32,24 @@ Basic full-stack web app with extensive use of Mongoose
 
 #### Goal:
 
-Multi-page app, CRUD, Mongoose, Atlas DB, class-based server, modular routes and controllers layout
+Multi-page app, CRUD, Mongoose, Atlas DB, class-based server, modular routes and controllers layout.
 
-## App React-1
+## App EJS-5
 
 #### Tech stack:
 
-- [ ] React
+- [ ] Node
+- [ ] EJS
+- [ ] Mongo
 
 #### Goal:
 
-Build an order-your-meal page with multiple interlinked components
+Basic full-stack web app with extensive use of Mongoose.
+
+## App EJS-4
+
+## App EJS-3
+
+## App EJS-2
+
+## App EJS-1
