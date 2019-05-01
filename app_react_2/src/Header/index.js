@@ -3,11 +3,14 @@ import Cart from "../Cart";
 import CurrencySelector from "../CurrencySelector";
 import "./index.css";
 
-const Header = () => {
+const Header = ({ inCart }) => {
+  const totalItems = inCart.length;
+  const totalPrice = inCart.reduce((total, price) => total + price, 0);
+
   return (
     <div className="Header">
       <h1>Delux Adventure</h1>
-      <Cart />
+      <Cart totalItems={totalItems} totalPrice={totalPrice} />
       <CurrencySelector />
     </div>
   );

@@ -10,7 +10,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       brands: brands,
-      selected: 0
+      selected: 0,
+      inCart: []
     };
   }
 
@@ -20,20 +21,29 @@ class App extends React.Component {
     });
   };
 
+  addToCart = price => {
+    this.setState(prevState => ({
+      inCart: [...prevState.inCart, price]
+    }));
+  };
+
   render() {
-    const { brands, selected } = this.state;
+    const { brands, selected, inCart } = this.state;
     const selectedBrand = brands.filter(brand => brand.id === selected)[0];
 
     return (
       <div className="App">
-        <Header />
+        <Header inCart={inCart} />
         <div className="main-area">
           <Sidebar
             brands={brands}
             selected={selected}
             selectBrand={this.selectBrand}
           />
-          <ProductList products={selectedBrand.products} />
+          <ProductList
+            products={selectedBrand.products}
+            addToCart={this.addToCart}
+          />
         </div>
       </div>
     );
