@@ -4,14 +4,27 @@ import Sidebar from "./Sidebar";
 import ProductList from "./ProductList";
 import "./App.css";
 import { brands } from "./data";
+import { CurrencyContext } from "./context";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+
+    this.toggleCurrency = () => {
+      this.setState(prevState => ({
+        currency:
+          prevState.currency === "Redanian Orens"
+            ? "Temerian Crowns"
+            : "Redanian Orens"
+      }));
+    };
+
     this.state = {
       brands: brands,
       selected: 0,
-      inCart: []
+      inCart: [],
+      currency: "Redanian Orens",
+      toggleCurrency: this.toggleCurrency
     };
   }
 
@@ -34,24 +47,26 @@ class App extends React.Component {
   };
 
   render() {
-    const { brands, selected, inCart } = this.state;
+    const { brands, selected, inCart, currency, toggleCurrency } = this.state;
     const selectedBrand = brands.filter(brand => brand.id === selected)[0];
 
     return (
-      <div className="App">
-        <Header inCart={inCart} clearCart={this.clearCart} />
-        <div className="main-area">
-          <Sidebar
-            brands={brands}
-            selected={selected}
-            selectBrand={this.selectBrand}
-          />
-          <ProductList
-            products={selectedBrand.products}
-            addToCart={this.addToCart}
-          />
+      <CurrencyContext.Provider value={{ currency, toggleCurrency }}>
+        <div className="App">
+          <Header inCart={inCart} clearCart={this.clearCart} />
+          <div className="main-area">
+            <Sidebar
+              brands={brands}
+              selected={selected}
+              selectBrand={this.selectBrand}
+            />
+            <ProductList
+              products={selectedBrand.products}
+              addToCart={this.addToCart}
+            />
+          </div>
         </div>
-      </div>
+      </CurrencyContext.Provider>
     );
   }
 }
