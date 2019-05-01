@@ -1,3 +1,5 @@
 .ProductList {
+  display: flex;
+  justify-content: space-between;
   flex: 2;
 }
