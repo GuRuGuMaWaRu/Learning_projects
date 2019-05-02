@@ -1,5 +1,17 @@
 # Collection of learning projects
 
+## App EJS-7
+
+#### Tech stack:
+
+- [ ] Node
+- [ ] EJS
+- [ ] Mongo
+
+#### Goal:
+
+Multi-page basic ecommerce app, CRUD, Mongoose, Atlas DB, class-based server, modular routes and controllers layout.
+
 ## App React-2
 
 #### Tech stack:
