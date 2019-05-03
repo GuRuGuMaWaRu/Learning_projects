@@ -11,10 +11,7 @@ module.exports = class WebServer {
   start() {
     return new Promise((resolve, reject) => {
       try {
-        this.app.listen(3000, () => {
-          console.log("Server is running on port 3000");
-        });
-        resolve();
+        this.server = this.app.listen(3000, () => resolve());
       } catch (e) {
         console.error(e);
         reject(e);
@@ -25,10 +22,9 @@ module.exports = class WebServer {
   stop() {
     return new Promise((resolve, reject) => {
       try {
-        this.app.stop();
-        resolve();
+        this.server.close(() => resolve());
       } catch (e) {
-        console.error(e);
+        console.error(e.message);
         reject(e);
       }
     });
