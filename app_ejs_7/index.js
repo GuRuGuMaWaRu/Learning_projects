@@ -7,8 +7,6 @@ mongoose.connect(
   "mongodb+srv://GuRuGu:i44iYtewBM21noYb@cluster0-z8edg.mongodb.net/app_ejs_7",
   { useNewUrlParser: true }
 );
-require("./models/Shop");
-require("./models/Product");
 
 const webServer = new WebServer();
 
