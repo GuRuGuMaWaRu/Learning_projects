@@ -13,12 +13,17 @@
       <option>Potions</option>
       <option>Equipment</option>
       <option>Magic</option>
-      <option>Services</option>     
+      <option>Services</option>
     </select>
   </div>
   <div class="form-group">
     <label for="descInput">Description:</label>
     <textarea class="form-control" id="descInput" name="description"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="productsInput">Products:</label>
+    <input class="form-control" type="text" id="productsInput" name="products" aria-describedby="productsHelp">
+    <small id="productsHelp" class="form-text text-muted">List all products in the format of "product, price" separated by semicolon (;). E.g.: "sword, 10; helmet, 5"</small>
   </div>
   <button type="submit">Add</button>
 </form>
