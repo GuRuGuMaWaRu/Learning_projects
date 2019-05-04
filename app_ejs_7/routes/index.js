@@ -51,7 +51,14 @@ router.get("/", async (req, res) => {
   });
 
   const shops = await Shop.find();
-  res.render("shopping", { shops: shops });
+  const selectedShop = shops.filter(shop => shop.selected)[0];
+
+  const selectedShopProducts = await Product.find({ shop: selectedShop._id });
+
+  res.render("shopping", {
+    shops: shops,
+    products: selectedShopProducts
+  });
 });
 
 module.exports = router;
