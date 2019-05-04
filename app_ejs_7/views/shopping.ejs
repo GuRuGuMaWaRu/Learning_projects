@@ -2,11 +2,9 @@
 
 <div class="shopping">
   <div class="side-menu">
-    <ul>
     <% shops.forEach(shop => { %>
-      <li class="side-menu-item <%= shop.selected ? "selected" : "" %>"><%= shop.name %></li>
+    <a class="side-menu-item <%= shop.selected ? "selected" : "" %>" href="/shop/select/<%= shop._id %>"><%= shop.name %></a>
     <% }) %>
-    </ul>
   </div>
   <div class="product-listing"></div>
 </div>

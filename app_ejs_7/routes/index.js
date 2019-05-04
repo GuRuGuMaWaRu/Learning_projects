@@ -32,6 +32,15 @@ router.post("/shop/create", async (req, res) => {
   res.redirect("/");
 });
 
+router.get("/shop/select/:id", async (req, res) => {
+  const id = req.params.id;
+
+  await Shop.updateMany({ selected: true }, { selected: false });
+  await Shop.findByIdAndUpdate(id, { selected: true });
+
+  res.redirect("/");
+});
+
 router.get("/", async (req, res) => {
   // set at least one shop as selected so that
   // it will be displayed on Shopping page

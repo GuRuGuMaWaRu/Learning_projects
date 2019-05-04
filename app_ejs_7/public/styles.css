@@ -7,23 +7,24 @@
 }
 
 .side-menu {
+  display: flex;
+  flex-direction: column;
   padding-right: 5rem;
   border-right: 1px rgb(129, 126, 126) solid;
 }
 
-.side-menu > ul {
-  padding: 0;
-  list-style-type: none;
-}
-
 .side-menu-item {
+  color: rgb(61, 61, 61);
   width: 200px;
   padding: 0.8rem 0.8rem 0.8rem 0;
   transition: 0.4s all;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .side-menu-item:hover {
+  color: rgb(61, 61, 61);
+  text-decoration: none;
   background-color: rgb(190, 245, 179);
 }
 
