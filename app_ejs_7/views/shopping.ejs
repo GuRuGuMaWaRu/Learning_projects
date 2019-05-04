@@ -15,7 +15,7 @@
           <img src="https://picsum.photos/200"/>
           <div><strong><%= product.name %></strong></div>
           <div>Price: <%= product.price %></div>
-          <button class="btn btn-success">Add to Cart</button>
+          <a class="btn btn-success" href="/product/addToCart/<%= product._id %>">Add to Cart</a>
         </div>
       <% }) %>
     </div>
