@@ -3,12 +3,10 @@ const Schema = mongoose.Schema;
 
 const productSchema = new Schema({
   name: {
-    type: String,
-    required: "You must provide a product name"
+    type: String
   },
   price: {
-    type: Number,
-    required: "You must provide a price"
+    type: Number
   },
   shop: {
     type: Schema.Types.ObjectId,

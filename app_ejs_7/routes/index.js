@@ -33,8 +33,15 @@ router.post("/shop/create", async (req, res) => {
 });
 
 router.get("/", async (req, res) => {
-  const shops = await Shop.find();
+  // set at least one shop as selected so that
+  // it will be displayed on Shopping page
+  await Shop.findOne({ selected: true }, async (err, found) => {
+    if (!found) {
+      await Shop.findOneAndUpdate({ selected: false }, { selected: true });
+    }
+  });
 
+  const shops = await Shop.find();
   res.render("shopping", { shops: shops });
 });
 

@@ -12,6 +12,10 @@ const shopSchema = new Schema({
   },
   description: {
     type: String
+  },
+  selected: {
+    type: Boolean,
+    default: false
   }
 });
 

@@ -4,7 +4,7 @@
   <div class="side-menu">
     <ul>
     <% shops.forEach(shop => { %>
-      <li class="side-menu-item"><%= shop.name %></li>
+      <li class="side-menu-item <%= shop.selected ? "selected" : "" %>"><%= shop.name %></li>
     <% }) %>
     </ul>
   </div>

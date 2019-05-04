@@ -17,6 +17,7 @@
 }
 
 .side-menu-item {
+  width: 200px;
   padding: 0.8rem 0.8rem 0.8rem 0;
   transition: 0.4s all;
   cursor: pointer;
