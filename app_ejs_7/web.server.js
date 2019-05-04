@@ -7,6 +7,7 @@ module.exports = class WebServer {
     this.app = express();
     this.app.set("view engine", "ejs");
     this.app.use(bodyParser.urlencoded({ extended: true }));
+    this.app.use(express.static("public"));
     this.app.use("/", routes);
   }
 

@@ -1,0 +1,14 @@
+<%- include('partials/header.ejs') -%>
+
+<div class="shopping">
+  <div class="side-menu">
+    <ul>
+    <% shops.forEach(shop => { %>
+      <li class="side-menu-item"><%= shop.name %></li>
+    <% }) %>
+    </ul>
+  </div>
+  <div class="product-listing"></div>
+</div>
+
+<%- include('partials/footer.ejs') -%>

@@ -6,6 +6,7 @@ const Product = require("../models/Product");
 router.get("/shop/create", (req, res) => {
   res.render("shopCreate");
 });
+
 router.post("/shop/create", async (req, res) => {
   const data = req.body;
   const shopData = {
@@ -31,8 +32,10 @@ router.post("/shop/create", async (req, res) => {
   res.redirect("/");
 });
 
-router.get("/", (req, res) => {
-  res.render("home");
+router.get("/", async (req, res) => {
+  const shops = await Shop.find();
+
+  res.render("shopping", { shops: shops });
 });
 
 module.exports = router;
