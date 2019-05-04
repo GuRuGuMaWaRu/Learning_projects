@@ -69,11 +69,14 @@ router.get("/", async (req, res) => {
   const shops = await Shop.find();
   const selectedShop = shops.filter(shop => shop.selected)[0];
 
-  const selectedShopProducts = await Product.find({ shop: selectedShop._id });
+  const selectedShopProducts = selectedShop
+    ? await Product.find({ shop: selectedShop._id })
+    : [];
 
   console.log(selectedShopProducts);
   res.render("shopping", {
     shops: shops,
+    selectedShop: selectedShop,
     products: selectedShopProducts
   });
 });

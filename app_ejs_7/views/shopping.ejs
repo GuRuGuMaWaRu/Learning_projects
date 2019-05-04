@@ -3,10 +3,23 @@
 <div class="shopping">
   <div class="side-menu">
     <% shops.forEach(shop => { %>
-    <a class="side-menu-item <%= shop.selected ? "selected" : "" %>" href="/shop/select/<%= shop._id %>"><%= shop.name %></a>
+      <a class="side-menu-item <%= shop.selected ? "selected" : "" %>" href="/shop/select/<%= shop._id %>"><%= shop.name %></a>
     <% }) %>
   </div>
-  <div class="product-listing"></div>
+  <div class="selected-shop">
+    <h4><%= selectedShop.name %></h4>
+    <p><%= selectedShop.description %></p>
+    <div class="product-listing">
+      <% products.forEach(product => { %>
+        <div class="product">
+          <img src="https://picsum.photos/200"/>
+          <div><strong><%= product.name %></strong></div>
+          <div>Price: <%= product.price %></div>
+          <button class="btn btn-success">Add to Cart</button>
+        </div>
+      <% }) %>
+    </div>
+  </div>
 </div>
 
 <%- include('partials/footer.ejs') -%>

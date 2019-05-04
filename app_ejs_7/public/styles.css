@@ -32,3 +32,21 @@
   font-weight: 800;
   background-color: rgb(116, 199, 99);
 }
+
+.selected-shop {
+  margin-left: 5rem;
+}
+
+.product-listing {
+  display: flex;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.product:first-child {
+  margin-left: 0;
+}
