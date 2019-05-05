@@ -41,7 +41,6 @@ router.post("/shop/create", async (req, res) => {
         }
       }, []);
 
-    console.log(products);
     await Product.insertMany(products);
   }
 
@@ -73,12 +72,15 @@ router.get("/", async (req, res) => {
     ? await Product.find({ shop: selectedShop._id })
     : [];
 
-  console.log(selectedShopProducts);
   res.render("shopping", {
     shops: shops,
     selectedShop: selectedShop,
     products: selectedShopProducts
   });
+});
+
+router.get("/cart", (req, res) => {
+  res.render("cart");
 });
 
 module.exports = router;
