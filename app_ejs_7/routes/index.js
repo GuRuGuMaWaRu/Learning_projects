@@ -11,5 +11,6 @@ router.get("/shop/select/:id", shopController.selectShop);
 router.get("/", shopController.loadShoppingPage);
 
 router.get("/cart", cartController.loadCartPage);
+router.get("/product/addToCart/:productId", cartController.addToCart);
 
 module.exports = router;
