@@ -1,7 +1,10 @@
 const CartItem = require("../models/CartItem");
+const { getCartTotals } = require("../models/helpers");
 
-exports.loadCartPage = (req, res) => {
-  res.render("cart");
+exports.loadCartPage = async (req, res) => {
+  const totals = await getCartTotals();
+
+  res.render("cart", { totals: totals[0] });
 };
 
 exports.addToCart = async (req, res) => {

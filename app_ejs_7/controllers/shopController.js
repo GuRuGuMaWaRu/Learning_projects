@@ -1,8 +1,11 @@
 const Shop = require("../models/Shop");
 const Product = require("../models/Product");
+const { getCartTotals } = require("../models/helpers");
 
-exports.loadCreateShopPage = (req, res) => {
-  res.render("shopCreate");
+exports.loadCreateShopPage = async (req, res) => {
+  const totals = await getCartTotals();
+
+  res.render("shopCreate", { totals: totals[0] });
 };
 
 exports.createShop = async (req, res) => {
@@ -65,6 +68,7 @@ exports.loadShoppingPage = async (req, res) => {
 
   const shops = await Shop.find();
   const selectedShop = shops.filter(shop => shop.selected)[0];
+  const totals = await getCartTotals();
 
   const selectedShopProducts = selectedShop
     ? await Product.find({ shop: selectedShop._id })
@@ -73,6 +77,7 @@ exports.loadShoppingPage = async (req, res) => {
   res.render("shopping", {
     shops: shops,
     selectedShop: selectedShop,
-    products: selectedShopProducts
+    products: selectedShopProducts,
+    totals: totals[0]
   });
 };

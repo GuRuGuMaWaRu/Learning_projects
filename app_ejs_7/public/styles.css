@@ -50,3 +50,10 @@
 .product:first-child {
   margin-left: 0;
 }
+
+.header-cart-details {
+  display: flex;
+  flex-direction: column;
+  color: rgb(179, 177, 177);
+  width: 100px;
+}

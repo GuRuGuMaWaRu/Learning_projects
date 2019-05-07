@@ -26,12 +26,14 @@
         <li class="nav-item">
           <a class="nav-link" href="/shop/edit">Edit Shops</a>
         </li>
-      </ul>
-      <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" href="/cart">View Cart</a>
         </li>
       </ul>
+      <div class="header-cart-details">
+        <span>Qty: <%= totals.totalQty %></span>
+        <span>Total: <%= totals.totalPrice %></span>
+      </div>
     </div>
   </nav>
   <div class="container">
