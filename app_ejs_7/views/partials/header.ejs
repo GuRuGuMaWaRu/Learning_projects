@@ -31,8 +31,8 @@
         </li>
       </ul>
       <div class="header-cart-details">
-        <span>Qty: <%= totals.totalQty %></span>
-        <span>Total: <%= totals.totalPrice %></span>
+        <span>Qty: <%= totals ? totals.totalQty : 0 %></span>
+        <span>Total: <%= totals ? totals.totalPrice : 0 %></span>
       </div>
     </div>
   </nav>

@@ -19,3 +19,9 @@ exports.addToCart = async (req, res) => {
 
   res.redirect("/");
 };
+
+exports.clearCart = async (req, res) => {
+  await CartItem.deleteMany();
+
+  res.redirect("/");
+};

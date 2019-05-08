@@ -11,6 +11,7 @@ router.get("/shop/select/:id", shopController.selectShop);
 
 router.get("/cart", cartController.loadCartPage);
 router.get("/product/addToCart/:productId", cartController.addToCart);
+router.get("/cart/deleteAll", cartController.clearCart);
 
 router.get("/", shopController.loadShoppingPage);
 
