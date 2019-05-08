@@ -1,7 +1,24 @@
 <%- include('partials/header.ejs', { totals: totals }) -%>
 
-<div class="cart">
+<div>
   <h1>Cart</h1>
+  <div class="cart-content">
+    <% cartItems.forEach(cartItem => { %>
+      <div class="cart-item">
+        <div class="cart-item-name"><strong>Name:</strong> <%= cartItem.name %></div>
+        <div class="cart-item-price"><strong>Price:</strong> <%= cartItem.price %></div>
+        <div class="cart-item-qty">
+          <span><strong>Qty:</strong> <%= cartItem.qty %></span>
+          <button class="btn btn-secondary">+</button>
+          <button class="btn btn-secondary">-</button>
+        </div>
+        <div>
+          <button class="btn btn-danger">Remove</button>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+  <button class="btn btn-danger">Remove All Items</button>
 </div>
 
 <%- include('partials/footer.ejs') -%>

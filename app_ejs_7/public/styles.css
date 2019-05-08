@@ -57,3 +57,22 @@
   color: rgb(179, 177, 177);
   width: 100px;
 }
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.cart-item-name {
+  flex: 1;
+}
+
+.cart-item-price {
+  flex: 1;
+}
+
+.cart-item-qty {
+  flex: 1;
+}

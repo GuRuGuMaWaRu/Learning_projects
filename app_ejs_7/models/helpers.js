@@ -28,3 +28,26 @@ exports.getCartTotals = () => {
     }
   ]);
 };
+
+exports.getCartItems = () => {
+  return CartItem.aggregate([
+    {
+      $lookup: {
+        from: "products",
+        as: "productData",
+        localField: "item",
+        foreignField: "_id"
+      }
+    },
+    {
+      $unwind: "$productData"
+    },
+    {
+      $project: {
+        qty: 1,
+        name: "$productData.name",
+        price: "$productData.price"
+      }
+    }
+  ]);
+};
