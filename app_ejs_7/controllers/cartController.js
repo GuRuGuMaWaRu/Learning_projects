@@ -20,8 +20,16 @@ exports.addToCart = async (req, res) => {
   res.redirect("/");
 };
 
-exports.clearCart = async (req, res) => {
+exports.deleteAll = async (req, res) => {
   await CartItem.deleteMany();
 
   res.redirect("/");
+};
+
+exports.deleteOne = async (req, res) => {
+  const itemId = req.params.itemId;
+
+  await CartItem.deleteOne({ _id: itemId });
+
+  res.redirect("/cart");
 };
