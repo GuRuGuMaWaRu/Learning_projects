@@ -81,3 +81,26 @@ exports.loadShoppingPage = async (req, res) => {
     totals: totals[0]
   });
 };
+
+exports.loadEditShopsPage = async (req, res) => {
+  const totals = await getCartTotals();
+  const shops = await Shop.aggregate([
+    {
+      $project: {
+        name: 1,
+        description: 1
+      }
+    }
+  ]);
+
+  res.render("editShops", { shops: shops, totals: totals[0] });
+};
+
+exports.editShop = async (req, res) => {
+  const shopId = req.params.shopId;
+
+  const totals = await getCartTotals();
+  const shop = await Shop.findById(shopId);
+
+  res.render("editShop", { shop: shop, totals: totals[0] });
+};

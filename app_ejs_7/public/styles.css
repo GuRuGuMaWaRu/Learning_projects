@@ -76,3 +76,20 @@
 .cart-item-qty {
   flex: 1;
 }
+
+.edit-shops-title {
+  margin-bottom: 3rem;
+}
+
+.edit-shops-item {
+  display: flex;
+  margin: 1rem 0;
+}
+
+.edit-shops-item-name {
+  margin-right: 2rem;
+}
+
+.edit-shops-item-desc {
+  flex: 1;
+}
