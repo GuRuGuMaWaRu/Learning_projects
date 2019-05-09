@@ -1,6 +1,6 @@
 const Shop = require("../models/Shop");
 const Product = require("../models/Product");
-const { getCartTotals } = require("../models/helpers");
+const { getCartTotals, getProductData } = require("../models/helpers");
 
 exports.loadCreateShopPage = async (req, res) => {
   const totals = await getCartTotals();
@@ -100,7 +100,11 @@ exports.editShop = async (req, res) => {
   const shopId = req.params.shopId;
 
   const totals = await getCartTotals();
-  const shop = await Shop.findById(shopId);
+  const shop = await getProductData(shopId);
 
-  res.render("editShop", { shop: shop, totals: totals[0] });
+  res.render("editShop", { shop: shop[0], totals: totals[0] });
+};
+
+exports.updateShop = async (req, res) => {
+  res.redirect("/");
 };

@@ -8,6 +8,7 @@ router.post("/shop/create", shopController.createShop);
 router.get("/shop/select/:id", shopController.selectShop);
 router.get("/shop/edit", shopController.loadEditShopsPage);
 router.get("/shop/edit/:shopId", shopController.editShop);
+router.post("/shop/update", shopController.updateShop);
 
 router.get("/cart", cartController.loadCartPage);
 router.get("/product/addToCart/:productId", cartController.addToCart);
