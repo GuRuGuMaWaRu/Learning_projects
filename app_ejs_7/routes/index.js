@@ -13,6 +13,8 @@ router.get("/cart", cartController.loadCartPage);
 router.get("/product/addToCart/:productId", cartController.addToCart);
 router.get("/cart/deleteAll", cartController.deleteAll);
 router.get("/cart/deleteOne/:itemId", cartController.deleteOne);
+router.get("/cart/increase/:itemId", cartController.increase);
+router.get("/cart/decrease/:itemId", cartController.decrease);
 
 router.get("/", shopController.loadShoppingPage);
 

@@ -33,3 +33,19 @@ exports.deleteOne = async (req, res) => {
 
   res.redirect("/cart");
 };
+
+exports.increase = async (req, res) => {
+  const itemId = req.params.itemId;
+
+  await CartItem.updateOne({ _id: itemId }, { $inc: { qty: 1 } });
+
+  res.redirect("/cart");
+};
+
+exports.decrease = async (req, res) => {
+  const itemId = req.params.itemId;
+
+  await CartItem.updateOne({ _id: itemId }, { $inc: { qty: -1 } });
+
+  res.redirect("/cart");
+};
