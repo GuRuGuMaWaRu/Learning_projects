@@ -96,3 +96,31 @@ exports.getProductData = shopId => {
     }
   ]);
 };
+
+exports.addProducts = (newProducts, shopId) => {
+  // validation: has products in proper format
+  if (newProducts.includes(";") || newProducts.includes(",")) {
+    // save new products for this shop
+    const products = newProducts
+      .split(";")
+      .reduce((processedProducts, product) => {
+        // validation: has product name/price separation
+        if (product.includes(",")) {
+          const [name, price] = product
+            .split(",")
+            .map(dataItem => dataItem.trim());
+
+          // validation: price
+          if (isNaN(price)) {
+            return processedProducts;
+          }
+
+          return [...processedProducts, { name, price, shop: shopId }];
+        } else {
+          return processedProducts;
+        }
+      }, []);
+
+    Product.insertMany(products);
+  }
+};

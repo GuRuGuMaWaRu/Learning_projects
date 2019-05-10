@@ -31,7 +31,7 @@
       }, "") %></textarea>
     <small id="productsHelp" class="form-text text-muted">List all products in the format of "product, price" separated by semicolon (;). E.g.: "sword, 10; helmet, 5"</small>
   </div>
-  <button type="submit">Update</button>
+  <button type="submit" name="shopId" value="<%= shop._id %>">Update</button>
 </form>
 
 <%- include('partials/footer.ejs') -%>

@@ -1,6 +1,10 @@
 const Shop = require("../models/Shop");
 const Product = require("../models/Product");
-const { getCartTotals, getProductData } = require("../models/helpers");
+const {
+  getCartTotals,
+  getProductData,
+  addProducts
+} = require("../models/helpers");
 
 exports.loadCreateShopPage = async (req, res) => {
   const totals = await getCartTotals();
@@ -18,32 +22,8 @@ exports.createShop = async (req, res) => {
 
   // save new shop
   const savedShop = await new Shop(shopData).save();
-
-  // validation: has products in proper format
-  if (data.products.includes(";") || data.products.includes(",")) {
-    // save new products for this shop
-    const products = data.products
-      .split(";")
-      .reduce((processedProducts, product) => {
-        // validation: has product name/price separation
-        if (product.includes(",")) {
-          const [name, price] = product
-            .split(",")
-            .map(dataItem => dataItem.trim());
-
-          // validation: price
-          if (isNaN(price)) {
-            return processedProducts;
-          }
-
-          return [...processedProducts, { name, price, shop: savedShop._id }];
-        } else {
-          return processedProducts;
-        }
-      }, []);
-
-    await Product.insertMany(products);
-  }
+  // save new shop products
+  await addProducts(data.products, savedShop._id);
 
   res.redirect("/");
 };
@@ -106,5 +86,13 @@ exports.editShop = async (req, res) => {
 };
 
 exports.updateShop = async (req, res) => {
+  const { shopId, name, type, description, products } = req.body;
+
+  await Shop.findOneAndUpdate({ _id: shopId }, { name, type, description });
+  // clear old shop products before adding updated ones
+  await Product.deleteMany({ shop: shopId });
+  // add old and updated products
+  await addProducts(products, shopId);
+
   res.redirect("/");
 };
