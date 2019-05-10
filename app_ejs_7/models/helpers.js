@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const CartItem = require("../models/CartItem");
 const Product = require("../models/Product");
+const Currency = require("../models/Currency");
 const Shop = require("../models/Shop");
 
 exports.getCartTotals = () => {
@@ -123,4 +124,8 @@ exports.addProducts = (newProducts, shopId) => {
 
     Product.insertMany(products);
   }
+};
+
+exports.getCurrency = () => {
+  return Currency.find();
 };

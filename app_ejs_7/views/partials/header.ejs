@@ -7,6 +7,7 @@
   <title>App EJS-7</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="/styles.css" />
+  <script src="/utils.js"></script>
 </head>
 <body>
   <nav class="navbar navbar-expand navbar-dark bg-dark">
@@ -32,7 +33,21 @@
       </ul>
       <div class="header-cart-details">
         <span>Qty: <%= totals ? totals.totalQty : 0 %></span>
-        <span>Total: <%= totals ? totals.totalPrice : 0 %></span>
+        <span>Total: <%= totals ? currency === "Redanian Florins" ?`${totals.totalPrice} RF` : `${totals.totalPrice * 1.25} TC` : 0 %></span>
+      </div>
+      <div class="header-currency-selector">
+        <form action="/changeCurrency" method="POST">
+          <select class="form-control" name="selectedCurrency" onChange="this.form.submit()">
+            <% const currencies = ["Redanian Florins", "Temerian Crowns"]; 
+              currencies.forEach(curr => { 
+                if (curr === currency) { %>
+                  <option selected><%= curr %></option>
+            <%  } else { %>
+                  <option><%= curr %></option>
+            <%  }
+              }) %>
+          </select>
+        </form>
       </div>
     </div>
   </nav>

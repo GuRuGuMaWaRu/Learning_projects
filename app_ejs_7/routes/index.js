@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const appController = require("../controllers/appController");
 const shopController = require("../controllers/shopController");
 const cartController = require("../controllers/cartController");
 
@@ -17,6 +18,7 @@ router.get("/cart/deleteOne/:itemId", cartController.deleteOne);
 router.get("/cart/increase/:itemId", cartController.increase);
 router.get("/cart/decrease/:itemId", cartController.decrease);
 
-router.get("/", shopController.loadShoppingPage);
+router.post("/changeCurrency", appController.changeCurrency);
+router.get("/", appController.loadShoppingPage);
 
 module.exports = router;

@@ -3,13 +3,18 @@ const Product = require("../models/Product");
 const {
   getCartTotals,
   getProductData,
-  addProducts
+  addProducts,
+  getCurrency
 } = require("../models/helpers");
 
 exports.loadCreateShopPage = async (req, res) => {
   const totals = await getCartTotals();
+  const currency = await getCurrency();
 
-  res.render("shopCreate", { totals: totals[0] });
+  res.render("shopCreate", {
+    totals: totals[0],
+    currency: currency[0].currency
+  });
 };
 
 exports.createShop = async (req, res) => {
@@ -37,33 +42,9 @@ exports.selectShop = async (req, res) => {
   res.redirect("/");
 };
 
-exports.loadShoppingPage = async (req, res) => {
-  // set at least one shop as selected so that
-  // it will be displayed on Shopping page
-  await Shop.findOne({ selected: true }, async (err, found) => {
-    if (!found) {
-      await Shop.findOneAndUpdate({ selected: false }, { selected: true });
-    }
-  });
-
-  const shops = await Shop.find();
-  const selectedShop = shops.filter(shop => shop.selected)[0];
-  const totals = await getCartTotals();
-
-  const selectedShopProducts = selectedShop
-    ? await Product.find({ shop: selectedShop._id })
-    : [];
-
-  res.render("shopping", {
-    shops: shops,
-    selectedShop: selectedShop,
-    products: selectedShopProducts,
-    totals: totals[0]
-  });
-};
-
 exports.loadEditShopsPage = async (req, res) => {
   const totals = await getCartTotals();
+  const currency = await getCurrency();
   const shops = await Shop.aggregate([
     {
       $project: {
@@ -73,16 +54,25 @@ exports.loadEditShopsPage = async (req, res) => {
     }
   ]);
 
-  res.render("editShops", { shops: shops, totals: totals[0] });
+  res.render("editShops", {
+    shops: shops,
+    currency: currency[0].currency,
+    totals: totals[0]
+  });
 };
 
 exports.editShop = async (req, res) => {
   const shopId = req.params.shopId;
 
   const totals = await getCartTotals();
+  const currency = await getCurrency();
   const shop = await getProductData(shopId);
 
-  res.render("editShop", { shop: shop[0], totals: totals[0] });
+  res.render("editShop", {
+    shop: shop[0],
+    currency: currency[0].currency,
+    totals: totals[0]
+  });
 };
 
 exports.updateShop = async (req, res) => {
