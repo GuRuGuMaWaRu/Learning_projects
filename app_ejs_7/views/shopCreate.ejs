@@ -9,12 +9,10 @@
     <div class="form-group">
     <label for="typeInput">Type:</label>
     <select class="form-control" id="typeInput" name="type">
-      <option>Weapons</option>
-      <option>Potions</option>
-      <option>Equipment</option>
-      <option>Magic</option>
-      <option>Services</option>
-      <option>Other</option>
+      <% const types = ["Weapons", "Potions", "Equipment", "Magic", "Services", "Other"];
+        types.forEach(type => { %>
+        <option><%= type %></option>
+      <% }) %>
     </select>
   </div>
   <div class="form-group">

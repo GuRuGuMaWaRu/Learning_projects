@@ -9,8 +9,8 @@
     <div class="form-group">
     <label for="typeInput">Type:</label>
     <select class="form-control" id="typeInput" name="type">
-      <% const types = ["Weapons", "Potions", "Equipment", "Magic", "Services", "Other"] %>
-      <% types.forEach(type => {
+      <% const types = ["Weapons", "Potions", "Equipment", "Magic", "Services", "Other"];
+        types.forEach(type => {
           if (type === shop.type) { %>
         <option selected><%= type %></option>
       <%  } else { %>
@@ -18,12 +18,6 @@
       <%  }
         })
       %>
-      <option>Weapons</option>
-      <option>Potions</option>
-      <option>Equipment</option>
-      <option>Magic</option>
-      <option>Services</option>
-      <option>Other</option>
     </select>
   </div>
   <div class="form-group">
@@ -37,7 +31,7 @@
       }, "") %></textarea>
     <small id="productsHelp" class="form-text text-muted">List all products in the format of "product, price" separated by semicolon (;). E.g.: "sword, 10; helmet, 5"</small>
   </div>
-  <button type="submit">Add</button>
+  <button type="submit">Update</button>
 </form>
 
 <%- include('partials/footer.ejs') -%>
