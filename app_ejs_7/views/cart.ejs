@@ -1,4 +1,4 @@
-<%- include('partials/header.ejs', { totals: totals }) -%>
+<%- include('partials/header.ejs', { totals: totals, currency: currency }) -%>
 
 <div>
   <h1>Cart</h1>
@@ -7,7 +7,7 @@
     <% const disabledState = cartItem.qty < 1 ? "disabled" : "" %>
       <div class="cart-item">
         <div class="cart-item-name"><strong>Name:</strong> <%= cartItem.name %></div>
-        <div class="cart-item-price"><strong>Price:</strong> <%= cartItem.price %></div>
+        <div class="cart-item-price"><strong>Price:</strong> <%= currency === "Redanian Florins" ? `${cartItem.price} RF` : `${cartItem.price * 1.25} TC` %></div>
         <div class="cart-item-qty">
           <span><strong>Qty:</strong> <%= cartItem.qty %></span>
           <a class="btn btn-secondary" href="/cart/increase/<%= cartItem._id %>">+</a>
