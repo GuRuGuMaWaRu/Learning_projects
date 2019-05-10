@@ -14,7 +14,7 @@
         <div class="product">
           <img src="https://picsum.photos/200"/>
           <div><strong><%= product.name %></strong></div>
-          <div>Price: <%= product.price %></div>
+          <div>Price: <%= currency === "Redanian Florins" ? `${product.price} RF` : `${product.price * 1.25} TC` %></div>
           <a class="btn btn-success" href="/product/addToCart/<%= product._id %>">Add to Cart</a>
         </div>
       <% }) %>
