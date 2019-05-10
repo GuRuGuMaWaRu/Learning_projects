@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>App EJS-7</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Amazon for Adventures</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample02">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Shopping</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/shop/create">Add New Shop</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/shop/edit">Edit Shops</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/cart">View Cart</a>
+        </li>
+      </ul>
+      <div class="header-cart-details">
+        <span>Qty: <%= totals ? totals.totalQty : 0 %></span>
+        <span>Total: <%= totals ? currency === "Redanian Florins" ?`${totals.totalPrice} RF` : `${totals.totalPrice * 1.25} TC` : 0 %></span>
+      </div>
+      <div class="header-currency-selector">
+        <form action="/changeCurrency" method="POST">
+          <input name="currentPage" value="<%= currentPage %>" hidden>
+          <select class="form-control" name="selectedCurrency" onChange="this.form.submit()">
+            <% const currencies = ["Redanian Florins", "Temerian Crowns"]; 
+              currencies.forEach(curr => { 
+                if (curr === currency) { %>
+                  <option selected><%= curr %></option>
+            <%  } else { %>
+                  <option><%= curr %></option>
+            <%  }
+              }) %>
+          </select>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div class="container">

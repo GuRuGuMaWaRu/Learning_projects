@@ -1,0 +1,37 @@
+<%- include('partials/header.ejs', { totals: totals, currency: currency, currentPage: currentPage }) -%>
+
+<h1>Edit Shop</h1>
+<form action="/shop/update" method="POST">
+  <div class="form-group">
+    <label for="nameInput">Name:</label>
+    <input class="form-control" type="text" id="nameInput" name="name" value="<%= shop.name %>" />
+  </div>
+    <div class="form-group">
+    <label for="typeInput">Type:</label>
+    <select class="form-control" id="typeInput" name="type">
+      <% const types = ["Weapons", "Potions", "Equipment", "Magic", "Services", "Other"];
+        types.forEach(type => {
+          if (type === shop.type) { %>
+        <option selected><%= type %></option>
+      <%  } else { %>
+        <option><%= type %></option>
+      <%  }
+        })
+      %>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="descInput">Description:</label>
+    <textarea class="form-control" id="descInput" name="description"><%= shop.description %></textarea>
+  </div>
+  <div class="form-group">
+    <label for="productsInput">Products:</label>
+    <textarea class="form-control" id="productsInput" name="products"><%= shop.productData.reduce((final, product) => {
+        return `${final}${product.name}, ${product.price}; `;
+      }, "") %></textarea>
+    <small id="productsHelp" class="form-text text-muted">List all products in the format of "product, price" separated by semicolon (;). E.g.: "sword, 10; helmet, 5"</small>
+  </div>
+  <button type="submit" name="shopId" value="<%= shop._id %>">Update</button>
+</form>
+
+<%- include('partials/footer.ejs') -%>

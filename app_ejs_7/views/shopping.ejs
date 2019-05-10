@@ -1,0 +1,25 @@
+<%- include('partials/header.ejs', { totals: totals, currency: currency, currentPage: currentPage }) -%>
+
+<div class="shopping">
+  <div class="side-menu">
+    <% shops.forEach(shop => { %>
+      <a class="side-menu-item <%= shop.selected ? "selected" : "" %>" href="/shop/select/<%= shop._id %>"><%= shop.name %></a>
+    <% }) %>
+  </div>
+  <div class="selected-shop">
+    <h4><%= selectedShop.name %></h4>
+    <p><%= selectedShop.description %></p>
+    <div class="product-listing">
+      <% products.forEach(product => { %>
+        <div class="product">
+          <img src="https://picsum.photos/200"/>
+          <div><strong><%= product.name %></strong></div>
+          <div>Price: <%= currency === "Redanian Florins" ? `${product.price} RF` : `${product.price * 1.25} TC` %></div>
+          <a class="btn btn-success" href="/product/addToCart/<%= product._id %>">Add to Cart</a>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer.ejs') -%>

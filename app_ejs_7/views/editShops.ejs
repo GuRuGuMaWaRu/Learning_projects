@@ -1,0 +1,15 @@
+<%- include('partials/header.ejs', { totals: totals, currency: currency, currentPage: currentPage }) -%>
+
+<h1 class="edit-shops-title">Edit Shops</h1>
+
+<div>
+  <% shops.forEach(shop => { %>
+    <div class="edit-shops-item">
+      <strong class="edit-shops-item-name"><%= shop.name %></strong>
+      <span class="edit-shops-item-desc"><%= `${shop.description.slice(0, 100)}...` %></span>
+      <a class="btn btn-success" href="/shop/edit/<%= shop._id %>">Edit</a>
+    </div>
+  <% }) %>
+</div>
+
+<%- include('partials/footer.ejs') -%>

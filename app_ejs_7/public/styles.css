@@ -1,0 +1,95 @@
+.container {
+  margin-top: 3rem;
+}
+
+.shopping {
+  display: flex;
+}
+
+.side-menu {
+  display: flex;
+  flex-direction: column;
+  padding-right: 5rem;
+  border-right: 1px rgb(129, 126, 126) solid;
+}
+
+.side-menu-item {
+  color: rgb(61, 61, 61);
+  width: 200px;
+  padding: 0.8rem 0.8rem 0.8rem 0;
+  transition: 0.4s all;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.side-menu-item:hover {
+  color: rgb(61, 61, 61);
+  text-decoration: none;
+  background-color: rgb(190, 245, 179);
+}
+
+.side-menu-item.selected {
+  font-weight: 800;
+  background-color: rgb(116, 199, 99);
+}
+
+.selected-shop {
+  margin-left: 5rem;
+}
+
+.product-listing {
+  display: flex;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.product:first-child {
+  margin-left: 0;
+}
+
+.header-cart-details {
+  display: flex;
+  flex-direction: column;
+  color: rgb(179, 177, 177);
+  width: 100px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.cart-item-name {
+  flex: 1;
+}
+
+.cart-item-price {
+  flex: 1;
+}
+
+.cart-item-qty {
+  flex: 1;
+}
+
+.edit-shops-title {
+  margin-bottom: 3rem;
+}
+
+.edit-shops-item {
+  display: flex;
+  margin: 1rem 0;
+}
+
+.edit-shops-item-name {
+  margin-right: 2rem;
+}
+
+.edit-shops-item-desc {
+  flex: 1;
+}

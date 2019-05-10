@@ -1,0 +1,25 @@
+<%- include('partials/header.ejs', { totals: totals, currency: currency, currentPage: currentPage }) -%>
+
+<div>
+  <h1>Cart</h1>
+  <div class="cart-content">
+    <% cartItems.forEach(cartItem => { %>
+    <% const disabledState = cartItem.qty < 1 ? "disabled" : "" %>
+      <div class="cart-item">
+        <div class="cart-item-name"><strong>Name:</strong> <%= cartItem.name %></div>
+        <div class="cart-item-price"><strong>Price:</strong> <%= currency === "Redanian Florins" ? `${cartItem.price} RF` : `${cartItem.price * 1.25} TC` %></div>
+        <div class="cart-item-qty">
+          <span><strong>Qty:</strong> <%= cartItem.qty %></span>
+          <a class="btn btn-secondary" href="/cart/increase/<%= cartItem._id %>">+</a>
+          <a class="btn btn-secondary <%= disabledState %>" href="/cart/decrease/<%= cartItem._id %>">-</a>
+        </div>
+        <div>
+          <a class="btn btn-danger" href="/cart/deleteOne/<%= cartItem._id %>">Remove</a>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+  <a class="btn btn-danger" href="/cart/deleteAll">Remove All Items</a>
+</div>
+
+<%- include('partials/footer.ejs') -%>
