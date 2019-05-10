@@ -9,6 +9,15 @@
     <div class="form-group">
     <label for="typeInput">Type:</label>
     <select class="form-control" id="typeInput" name="type">
+      <% const types = ["Weapons", "Potions", "Equipment", "Magic", "Services", "Other"] %>
+      <% types.forEach(type => {
+          if (type === shop.type) { %>
+        <option selected><%= type %></option>
+      <%  } else { %>
+        <option><%= type %></option>
+      <%  }
+        })
+      %>
       <option>Weapons</option>
       <option>Potions</option>
       <option>Equipment</option>
