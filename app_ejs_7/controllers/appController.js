@@ -26,14 +26,19 @@ exports.loadShoppingPage = async (req, res) => {
     selectedShop: selectedShop,
     products: selectedShopProducts,
     totals: totals[0],
-    currency: currency[0].currency
+    currency: currency[0].currency,
+    currentPage: req.originalUrl
   });
 };
 
 exports.changeCurrency = async (req, res) => {
-  const newCurrency = req.body.selectedCurrency;
+  const { selectedCurrency, currentPage } = req.body;
 
-  await Currency.updateOne({}, { currency: newCurrency }, { upsert: true });
+  await Currency.updateOne(
+    {},
+    { currency: selectedCurrency },
+    { upsert: true }
+  );
 
-  res.redirect("/");
+  res.redirect(`${currentPage}`);
 };

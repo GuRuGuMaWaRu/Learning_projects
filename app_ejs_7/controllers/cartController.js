@@ -10,11 +10,11 @@ exports.loadCartPage = async (req, res) => {
   const currency = await getCurrency();
   const cartItems = await getCartItems();
 
-  console.log(cartItems);
   res.render("cart", {
+    cartItems: cartItems,
     totals: totals[0],
     currency: currency[0].currency,
-    cartItems: cartItems
+    currentPage: req.originalUrl
   });
 };
 

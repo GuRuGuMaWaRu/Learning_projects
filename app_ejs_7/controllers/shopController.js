@@ -13,7 +13,8 @@ exports.loadCreateShopPage = async (req, res) => {
 
   res.render("shopCreate", {
     totals: totals[0],
-    currency: currency[0].currency
+    currency: currency[0].currency,
+    currentPage: req.originalUrl
   });
 };
 
@@ -56,8 +57,9 @@ exports.loadEditShopsPage = async (req, res) => {
 
   res.render("editShops", {
     shops: shops,
+    totals: totals[0],
     currency: currency[0].currency,
-    totals: totals[0]
+    currentPage: req.originalUrl
   });
 };
 
@@ -70,8 +72,9 @@ exports.editShop = async (req, res) => {
 
   res.render("editShop", {
     shop: shop[0],
+    totals: totals[0],
     currency: currency[0].currency,
-    totals: totals[0]
+    currentPage: req.originalUrl
   });
 };
 
