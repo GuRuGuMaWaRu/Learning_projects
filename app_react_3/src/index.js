@@ -1,18 +1,30 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { Route, Link } from "react-router-dom";
+import { ConnectedRouter } from "connected-react-router";
 
 import "./index.css";
-import App from "./App";
+import App from "./components/app/app";
+import Shopping from "./components/pages/shopping/shopping";
+import CreateShop from "./components/pages/create-shop/create-shop";
+import EditShop from "./components/pages/edit-shop/edit-shop";
+import Cart from "./components/pages/cart/cart";
+import configureStore, { history } from "./configureStore";
 import * as serviceWorker from "./serviceWorker";
 
-const store = createStore(() => {},
-typeof window !== "undefined" && window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ConnectedRouter history={history}>
+      <App>
+        <Route exact path="/" render={Shopping} />
+        <Route exact path="/createshop" render={CreateShop} />
+        <Route exact path="/editshop" render={EditShop} />
+        <Route exact path="/cart" render={Cart} />
+      </App>
+    </ConnectedRouter>
   </Provider>,
   document.getElementById("root")
 );
