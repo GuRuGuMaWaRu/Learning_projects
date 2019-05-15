@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styles from "./navigation-item.css";
 
 const NavigationItem = ({ path, onClick, isCurrent, children }) => {
   return (
     <a
+      className={styles.link}
       href={path}
       onClick={e => {
         e.preventDefault();

@@ -27,7 +27,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  navigate: path => dispatch(push([path]))
+  navigate: path => dispatch(push(path))
 });
 
 export default connect(

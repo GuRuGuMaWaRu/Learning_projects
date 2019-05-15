@@ -20,8 +20,8 @@ ReactDOM.render(
     <ConnectedRouter history={history}>
       <App>
         <Route exact path="/" render={Shopping} />
-        <Route exact path="/createshop" render={CreateShop} />
-        <Route exact path="/editshop" render={EditShop} />
+        <Route exact path="/createstore" render={CreateShop} />
+        <Route exact path="/editstore" render={EditShop} />
         <Route exact path="/cart" render={Cart} />
       </App>
     </ConnectedRouter>
