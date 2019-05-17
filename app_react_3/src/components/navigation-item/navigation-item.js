@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
-// import styles from "./navigation-item.css";
 
 const NavigationItem = ({ path, onClick, isCurrent, children }) => {
   const linkStyles = classnames("nav-link", {
