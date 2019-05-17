@@ -14,7 +14,7 @@ const Navigation = ({ navigate, pages, currentPath }) => {
     </NavigationItem>
   ));
 
-  return <div>{links}</div>;
+  return <ul className="nav nav-tabs">{links}</ul>;
 };
 
 Navigation.propTypes = {

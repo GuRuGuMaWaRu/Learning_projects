@@ -1,19 +1,26 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styles from "./navigation-item.css";
+import classnames from "classnames";
+// import styles from "./navigation-item.css";
 
 const NavigationItem = ({ path, onClick, isCurrent, children }) => {
+  const linkStyles = classnames("nav-link", {
+    active: isCurrent
+  });
+
   return (
-    <a
-      className={styles.link}
-      href={path}
-      onClick={e => {
-        e.preventDefault();
-        onClick(path);
-      }}
-    >
-      {children}
-    </a>
+    <li className="nav-item">
+      <a
+        className={linkStyles}
+        href={path}
+        onClick={e => {
+          e.preventDefault();
+          onClick(path);
+        }}
+      >
+        {children}
+      </a>
+    </li>
   );
 };
 
