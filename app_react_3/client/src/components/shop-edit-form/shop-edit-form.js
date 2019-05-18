@@ -4,11 +4,11 @@ const ShopEditForm = () => {
   return (
     <form>
       <div className="form-group">
-        <label for="shopNameInput">Shop name</label>
+        <label htmlFor="shopNameInput">Shop name</label>
         <input type="text" className="form-control" id="shopNameInput" />
       </div>
       <div className="form-group">
-        <label for="typeSelect">Type</label>
+        <label htmlFor="typeSelect">Type</label>
         <select className="form-control" id="typeSelect">
           <option>1</option>
           <option>2</option>
@@ -18,7 +18,7 @@ const ShopEditForm = () => {
         </select>
       </div>
       <div className="form-group">
-        <label for="descriptionInput">Description</label>
+        <label htmlFor="descriptionInput">Description</label>
         <textarea className="form-control" id="descriptionInput" rows="3" />
       </div>
       <button className="btn btn-success">Save</button>
