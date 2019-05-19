@@ -2,14 +2,31 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import styles from "./shop-edit-form.css";
 
-const ShopEditForm = () => {
+const SelectName = ({ field }) => (
+  <div className="form-group">
+    <label htmlFor="shopNameInput">Shop name</label>
+    <input {...field} type="text" className="form-control" id="shopNameInput" />
+  </div>
+);
+
+const SelectType = ({ field }) => {
   const shopTypes = ["Weapons", "Magic", "Armor", "Travel gear", "Other"];
 
-  const test = e => {
-    e.preventDefault();
-    console.log(e.target);
-  };
+  return (
+    <div className="form-group">
+      <label htmlFor="typeSelect">Type</label>
+      <select {...field} className="form-control" id="typeSelect">
+        {shopTypes.map(shopType => (
+          <option key={shopType}>{shopType}</option>
+        ))}
+      </select>
+    </div>
+  );
+};
 
+const ErrorText = msg => <div className={styles.error}>{msg}</div>;
+
+const ShopEditForm = () => {
   return (
     <Formik
       initialValues={{ name: "", type: "Magic", description: "" }}
@@ -24,26 +41,11 @@ const ShopEditForm = () => {
         // actions.setSubmitting = false;
       }}
     >
-      {({ isSubmitting }) => (
+      {({ isSubmitting }, shopTypes) => (
         <Form>
-          <Field
-            name="name"
-            render={({ field }) => (
-              <div className="form-group">
-                <label htmlFor="shopNameInput">Shop name</label>
-                <input
-                  {...field}
-                  type="text"
-                  className="form-control"
-                  id="shopNameInput"
-                />
-              </div>
-            )}
-          />
-          <ErrorMessage
-            name="name"
-            render={msg => <div className={styles.error}>{msg}</div>}
-          />
+          <Field name="name" render={SelectName} />
+          <ErrorMessage name="name" render={ErrorText} />
+          <Field name="type" render={SelectType} />
         </Form>
       )}
     </Formik>
@@ -56,14 +58,6 @@ export default ShopEditForm;
 //   <label htmlFor="shopNameInput">Shop name</label>
 //   <input type="text" className="form-control" id="shopNameInput" />
 // </div>
-//   <div className="form-group">
-//     <label htmlFor="typeSelect">Type</label>
-//     <select className="form-control" id="typeSelect">
-//       {shopTypes.map(shopType => (
-//         <option key={shopType}>{shopType}</option>
-//       ))}
-//     </select>
-//   </div>
 //   <div className="form-group">
 //     <label htmlFor="descriptionInput">Description</label>
 //     <textarea className="form-control" id="descriptionInput" rows="3" />
