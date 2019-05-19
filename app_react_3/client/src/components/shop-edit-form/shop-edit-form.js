@@ -1,6 +1,8 @@
 import React from "react";
 
 const ShopEditForm = () => {
+  const shopTypes = ["Weapons", "Magic", "Armor", "Travel gear", "Other"];
+
   return (
     <form>
       <div className="form-group">
@@ -10,11 +12,9 @@ const ShopEditForm = () => {
       <div className="form-group">
         <label htmlFor="typeSelect">Type</label>
         <select className="form-control" id="typeSelect">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+          {shopTypes.map(shopType => (
+            <option key={shopType}>{shopType}</option>
+          ))}
         </select>
       </div>
       <div className="form-group">
