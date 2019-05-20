@@ -10,10 +10,13 @@ import Shopping from "./components/pages/shopping/shopping";
 import CreateShop from "./components/pages/create-shop/create-shop";
 import EditShop from "./components/pages/edit-shop/edit-shop";
 import Cart from "./components/pages/cart/cart";
-import configureStore, { history } from "./configureStore";
+import configureStore, { history, sagaMiddleware } from "./configureStore";
 import * as serviceWorker from "./serviceWorker";
+import saveShopSaga from "./sagas/saveShop";
 
 const store = configureStore();
+
+sagaMiddleware.run(saveShopSaga);
 
 ReactDOM.render(
   <Provider store={store}>

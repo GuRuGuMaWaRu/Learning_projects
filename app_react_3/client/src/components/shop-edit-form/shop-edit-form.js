@@ -4,7 +4,6 @@ import classNames from "classnames";
 import styles from "./shop-edit-form.css";
 
 const Name = ({ field }) => {
-  console.log("styles:", styles);
   return (
     <div className="form-group">
       <label htmlFor="shopNameInput">Shop name</label>
@@ -61,6 +60,7 @@ const ShopEditForm = () => {
         return errors;
       }}
       onSubmit={(values, actions) => {
+        console.log(values);
         // actions.setSubmitting = false;
       }}
     >
