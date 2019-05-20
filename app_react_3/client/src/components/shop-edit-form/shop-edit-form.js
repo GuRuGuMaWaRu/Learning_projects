@@ -1,15 +1,24 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import classNames from "classnames";
 import styles from "./shop-edit-form.css";
 
-const SelectName = ({ field }) => (
-  <div className="form-group">
-    <label htmlFor="shopNameInput">Shop name</label>
-    <input {...field} type="text" className="form-control" id="shopNameInput" />
-  </div>
-);
+const Name = ({ field }) => {
+  console.log("styles:", styles);
+  return (
+    <div className="form-group">
+      <label htmlFor="shopNameInput">Shop name</label>
+      <input
+        {...field}
+        type="text"
+        className="form-control"
+        id="shopNameInput"
+      />
+    </div>
+  );
+};
 
-const SelectType = ({ field }) => {
+const Type = ({ field }) => {
   const shopTypes = ["Weapons", "Magic", "Armor", "Travel gear", "Other"];
 
   return (
@@ -24,7 +33,21 @@ const SelectType = ({ field }) => {
   );
 };
 
-const ErrorText = msg => <div className={styles.error}>{msg}</div>;
+const Description = ({ field }) => (
+  <div className="form-group">
+    <label htmlFor="descriptionInput">Description</label>
+    <textarea
+      {...field}
+      className="form-control"
+      id="descriptionInput"
+      rows="3"
+    />
+  </div>
+);
+
+const ErrorText = msg => (
+  <div className={classNames(styles.withError)}>{msg}</div>
+);
 
 const ShopEditForm = () => {
   return (
@@ -43,9 +66,13 @@ const ShopEditForm = () => {
     >
       {({ isSubmitting }, shopTypes) => (
         <Form>
-          <Field name="name" render={SelectName} />
+          <Field name="name" render={Name} />
           <ErrorMessage name="name" render={ErrorText} />
-          <Field name="type" render={SelectType} />
+          <Field name="type" render={Type} />
+          <Field name="description" render={Description} />
+          <button className="btn btn-success" type="submit">
+            Save
+          </button>
         </Form>
       )}
     </Formik>
@@ -53,16 +80,3 @@ const ShopEditForm = () => {
 };
 
 export default ShopEditForm;
-// {/* <form>
-// <div className="form-group">
-//   <label htmlFor="shopNameInput">Shop name</label>
-//   <input type="text" className="form-control" id="shopNameInput" />
-// </div>
-//   <div className="form-group">
-//     <label htmlFor="descriptionInput">Description</label>
-//     <textarea className="form-control" id="descriptionInput" rows="3" />
-//   </div>
-//   <button className="btn btn-success" type="submit">
-//     Save
-//   </button>
-// </form> */}
