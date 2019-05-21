@@ -1,15 +1,18 @@
 const express = require("express");
-const proxy = require("http-proxy-middleware");
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 
 const app = express();
 
-app.use(
-  "/api",
-  proxy({
-    target: "http://localhost:5000",
-    changeOrigin: true
-  })
+// set up DB
+mongoose.set("useFindAndModify", false);
+mongoose.connect(
+  "mongodb+srv://GuRuGu:i44iYtewBM21noYb@cluster0-z8edg.mongodb.net/app_react_3",
+  { useNewUrlParser: true }
 );
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json()); // without this my axios.post wasn't working!!!
 
 require("./routes")(app);
 

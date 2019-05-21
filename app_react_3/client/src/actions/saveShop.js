@@ -1,5 +1,5 @@
 export const SAVE_SHOP_FORM = "SAVE_SHOP_FORM";
-export const SAVE_SHOP = "SAVE_SHOP";
+export const SAVE_SHOP_DATA = "SAVE_SHOP_DATA";
 export const SAVE_SHOP_SUCCESS = "SAVE_SHOP_SUCCESS";
 export const SAVE_SHOP_ERROR = "SAVE_SHOP_ERROR";
 
@@ -8,8 +8,8 @@ export const saveShopForm = data => ({
   data
 });
 
-export const saveShop = () => ({
-  type: SAVE_SHOP
+export const saveShopData = () => ({
+  type: SAVE_SHOP_DATA
 });
 
 export const saveShopSuccess = () => ({

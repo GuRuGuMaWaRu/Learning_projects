@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import classNames from "classnames";
 import styles from "./shop-edit-form.css";
@@ -48,7 +49,7 @@ const ErrorText = msg => (
   <div className={classNames(styles.withError)}>{msg}</div>
 );
 
-const ShopEditForm = () => {
+const ShopEditForm = ({ onSaveShop }) => {
   return (
     <Formik
       initialValues={{ name: "", type: "Magic", description: "" }}
@@ -60,11 +61,11 @@ const ShopEditForm = () => {
         return errors;
       }}
       onSubmit={(values, actions) => {
-        console.log(values);
+        onSaveShop(values);
         // actions.setSubmitting = false;
       }}
     >
-      {({ isSubmitting }, shopTypes) => (
+      {({ isSubmitting }) => (
         <Form>
           <Field name="name" render={Name} />
           <ErrorMessage name="name" render={ErrorText} />
@@ -77,6 +78,10 @@ const ShopEditForm = () => {
       )}
     </Formik>
   );
+};
+
+ShopEditForm.propTypes = {
+  onSaveShop: PropTypes.func.isRequired
 };
 
 export default ShopEditForm;
