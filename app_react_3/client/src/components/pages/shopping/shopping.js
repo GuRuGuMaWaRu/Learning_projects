@@ -1,5 +1,6 @@
 import React from "react";
 import SideMenu from "../../side-menu/side-menu.container";
+import "./shopping.css";
 
 const Shopping = () => {
   // componentDidMount() {
@@ -7,9 +8,9 @@ const Shopping = () => {
   // }
 
   return (
-    <div>
+    <div className="shopping-container">
       <SideMenu />
-      <div>Shopping</div>
+      <div className="shopping-window">Shopping</div>
     </div>
   );
 };

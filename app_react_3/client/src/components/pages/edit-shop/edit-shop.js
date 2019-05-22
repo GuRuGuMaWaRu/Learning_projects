@@ -1,11 +1,12 @@
 import React from "react";
 import SideMenu from "../../side-menu/side-menu.container";
+import "./edit-shop.css";
 
 const EditShop = () => {
   return (
-    <div>
+    <div className="edit-shop-container">
       <SideMenu />
-      <div>Edit Shop</div>
+      <div className="edit-shop-window">Edit Shop</div>
     </div>
   );
 };
