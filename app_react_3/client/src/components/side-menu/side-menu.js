@@ -1,14 +1,25 @@
 import React from "react";
+import PropTypes from "prop-types";
 import SideMenuItem from "../side-menu-item/side-menu-item";
 
-const SideMenu = () => {
-  const shopNames = ["Shop 1", "Shop 2", "Shop 3"];
+class SideMenu extends React.Component {
+  componentDidMount() {
+    this.props.getShopNames();
+  }
 
-  const shopList = shopNames.map(shopName => (
-    <SideMenuItem shopName={shopName} />
-  ));
+  render() {
+    const { shopNames } = this.props;
+    const shopList = shopNames.map((shopName, i) => (
+      <SideMenuItem key={`${shopName}-${i}`} shopName={shopName} />
+    ));
 
-  return <div>{shopList}</div>;
+    return <div>{shopList}</div>;
+  }
+}
+
+SideMenu.propTypes = {
+  shopNames: PropTypes.arrayOf(PropTypes.string),
+  getShopNames: PropTypes.func.isRequired
 };
 
 export default SideMenu;

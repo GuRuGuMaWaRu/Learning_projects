@@ -1,12 +1,13 @@
 import { connect } from "react-redux";
+import { loadShopNames } from "../../actions/loadShopNames";
 import SideMenu from "./side-menu";
 
 const mapStateToProps = state => ({
-  shops: state.shops.shops
+  shopNames: state.shopNames
 });
 
 const mapDispatchToProps = dispatch => ({
-  getShops: () => dispatch(() => console.log("running"))
+  getShopNames: () => dispatch(loadShopNames())
 });
 
 export default connect(
