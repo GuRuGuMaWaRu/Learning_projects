@@ -6,14 +6,10 @@ import {
   loadShopNamesError
 } from "../actions/loadShopNames";
 
-const processShopNamesData = data => {
-  return data.map(item => item.name);
-};
-
 function* handleLoadShopNames() {
   try {
     const shopNames = yield call(axios.get, "/api/shop/getNames");
-    yield put(loadShopNamesSuccess(processShopNamesData(shopNames.data)));
+    yield put(loadShopNamesSuccess(shopNames.data));
   } catch (error) {
     yield put(loadShopNamesError());
   }

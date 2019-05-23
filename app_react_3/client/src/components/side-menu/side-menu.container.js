@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { loadShopNames } from "../../actions/loadShopNames";
+import { selectShop } from "../../actions/selectShop";
 import SideMenu from "./side-menu";
 
 const mapStateToProps = state => ({
@@ -7,7 +8,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getShopNames: () => dispatch(loadShopNames())
+  getShopNames: () => dispatch(loadShopNames()),
+  selectShop: id => dispatch(selectShop(id))
 });
 
 export default connect(
