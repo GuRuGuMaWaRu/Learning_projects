@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, FieldArray, ErrorMessage } from "formik";
 import classNames from "classnames";
 import styles from "./shop-edit-form.css";
 
@@ -45,6 +45,54 @@ const Description = ({ field }) => (
   </div>
 );
 
+const ProductName = ({ field }) => {
+  return (
+    <div className="form-group col-md-6">
+      <input {...field} type="text" className="form-control" />
+    </div>
+  );
+};
+
+const ProductPrice = ({ field }) => {
+  return (
+    <div className="form-group col-md-6">
+      <input {...field} type="number" className="form-control" min={0} />
+    </div>
+  );
+};
+
+const ProductList = ({ values }) => (
+  <FieldArray
+    name="products"
+    render={arrayHelpers => (
+      <div>
+        {values.products.map((product, index) => (
+          <div key={index}>
+            <div className="form-row">
+              <Field name={`products.${index}.name`} render={ProductName} />
+              <Field name={`products.${index}.price`} render={ProductPrice} />
+            </div>
+          </div>
+        ))}
+        <button
+          className="btn btn-primary product-input-button"
+          type="button"
+          onClick={() => arrayHelpers.push("")}
+        >
+          Add Product Field
+        </button>
+        <button
+          className="btn btn-primary product-input-button"
+          type="button"
+          onClick={() => arrayHelpers.pop()}
+        >
+          Remove Product Field
+        </button>
+      </div>
+    )}
+  />
+);
+
 const ErrorText = msg => (
   <div className={classNames(styles.withError)}>{msg}</div>
 );
@@ -52,7 +100,12 @@ const ErrorText = msg => (
 const ShopEditForm = ({ onSaveShop }) => {
   return (
     <Formik
-      initialValues={{ name: "", type: "Magic", description: "" }}
+      initialValues={{
+        name: "",
+        type: "Magic",
+        description: "",
+        products: [{ name: "", price: 0 }]
+      }}
       validate={values => {
         let errors = {};
         if (!values.name) {
@@ -61,16 +114,19 @@ const ShopEditForm = ({ onSaveShop }) => {
         return errors;
       }}
       onSubmit={(values, actions) => {
+        console.log(values);
         onSaveShop(values);
         // actions.setSubmitting = false;
       }}
     >
-      {({ isSubmitting }) => (
+      {({ values, isSubmitting }) => (
         <Form>
           <Field name="name" render={Name} />
           <ErrorMessage name="name" render={ErrorText} />
           <Field name="type" render={Type} />
           <Field name="description" render={Description} />
+          <label>Products (name and price)</label>
+          <ProductList values={values} />
           <button className="btn btn-success" type="submit">
             Save
           </button>

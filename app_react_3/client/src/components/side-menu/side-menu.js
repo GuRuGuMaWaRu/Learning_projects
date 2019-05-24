@@ -14,7 +14,7 @@ class SideMenu extends React.Component {
   };
 
   render() {
-    const { shopNames, highlighted, selectShop } = this.props;
+    const { shopNames, highlighted } = this.props;
 
     const shopList = shopNames.map(shop => (
       <SideMenuItem

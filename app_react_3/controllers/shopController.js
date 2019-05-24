@@ -1,4 +1,5 @@
 const Shop = require("../models/Shop");
+const Product = require("../models/Product");
 
 exports.saveShop = async (req, res) => {
   const shopData = req.body;
