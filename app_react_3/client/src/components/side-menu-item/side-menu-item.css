@@ -1,9 +1,16 @@
 .side-menu-item {
-  max-width: 150px;
+  width: 300px;
   padding: 1rem 2rem;
   margin: 0.5rem;
   cursor: pointer;
 }
 .side-menu-item:hover {
   background-color: rgb(139, 156, 233);
+}
+.side-menu-item:first-child {
+  margin-top: 0;
+}
+.highlighted {
+  color: #fff;
+  background-color: rgb(61, 81, 170);
 }

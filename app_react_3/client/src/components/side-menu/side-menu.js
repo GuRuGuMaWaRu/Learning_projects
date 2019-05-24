@@ -7,14 +7,21 @@ class SideMenu extends React.Component {
     this.props.getShopNames();
   }
 
+  handleSelectShop = shopId => {
+    const { selectShop, highlightShop } = this.props;
+    selectShop(shopId);
+    highlightShop(shopId);
+  };
+
   render() {
-    const { shopNames, selectShop } = this.props;
+    const { shopNames, highlighted, selectShop } = this.props;
 
     const shopList = shopNames.map(shop => (
       <SideMenuItem
         key={shop._id}
         shopName={shop.name}
-        onSelectShop={() => selectShop(shop._id)}
+        highlighted={highlighted === shop._id}
+        onSelectShop={() => this.handleSelectShop(shop._id)}
       />
     ));
 
@@ -24,8 +31,10 @@ class SideMenu extends React.Component {
 
 SideMenu.propTypes = {
   shopNames: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
+  highlighted: PropTypes.string.isRequired,
   getShopNames: PropTypes.func.isRequired,
-  selectShop: PropTypes.func.isRequired
+  selectShop: PropTypes.func.isRequired,
+  highlightShop: PropTypes.func.isRequired
 };
 
 export default SideMenu;
