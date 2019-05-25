@@ -8,8 +8,8 @@ exports.saveShop = async (req, res) => {
 
   products.forEach(async product => {
     await Product.create({
-      name: product.name,
-      price: product.price,
+      name: product.name.length > 0 ? product.name : "Undefined",
+      price: product.price > 0 ? product.price : 0.01,
       shop: savedShop._id
     });
   });
