@@ -4,7 +4,7 @@ import Shop from "./shop";
 const mapStateToProps = state => {
   return {
     isLoading: state.selectedShop.shopIsLoading,
-    shop: state.selectedShop.shopData
+    shopData: state.selectedShop.shopData
   };
 };
 

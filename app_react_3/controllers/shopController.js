@@ -32,6 +32,7 @@ exports.getShopNames = async (req, res) => {
 exports.selectShop = async (req, res) => {
   const shopId = req.params.id;
   const shop = await Shop.findOne({ _id: shopId });
+  const products = await Product.find({ shop: shopId });
 
-  res.send(shop);
+  res.send({ shop, products });
 };

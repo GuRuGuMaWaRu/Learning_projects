@@ -9,6 +9,7 @@ import {
 function* handleSelectShop(action) {
   try {
     const shop = yield call(axios.get, `/api/shop/select/${action.id}`);
+
     yield put(selectShopSuccess(shop.data));
   } catch (error) {
     yield put(selectShopFailure());
