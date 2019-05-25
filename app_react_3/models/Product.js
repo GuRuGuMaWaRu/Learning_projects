@@ -9,6 +9,10 @@ const productSchema = new Schema({
   price: {
     type: Number,
     required: "Please provide a product price"
+  },
+  shop: {
+    type: Schema.Types.ObjectId,
+    ref: "Shop"
   }
 });
 

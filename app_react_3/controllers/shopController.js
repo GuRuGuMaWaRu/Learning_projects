@@ -2,8 +2,18 @@ const Shop = require("../models/Shop");
 const Product = require("../models/Product");
 
 exports.saveShop = async (req, res) => {
-  const shopData = req.body;
-  await Shop.create(shopData);
+  const { name, type, description, products } = req.body;
+
+  const savedShop = await Shop.create({ name, type, description });
+
+  products.forEach(async product => {
+    await Product.create({
+      name: product.name,
+      price: product.price,
+      shop: savedShop._id
+    });
+  });
+
   res.send();
 };
 

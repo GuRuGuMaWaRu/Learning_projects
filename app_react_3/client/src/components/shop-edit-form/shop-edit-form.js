@@ -114,7 +114,6 @@ const ShopEditForm = ({ onSaveShop }) => {
         return errors;
       }}
       onSubmit={(values, actions) => {
-        console.log(values);
         onSaveShop(values);
         // actions.setSubmitting = false;
       }}
