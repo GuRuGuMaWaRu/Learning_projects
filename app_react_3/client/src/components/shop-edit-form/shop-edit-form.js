@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Formik, Form, Field, FieldArray, ErrorMessage } from "formik";
 import classNames from "classnames";
+import Spinner from "../spinner/spinner";
 import styles from "./shop-edit-form.css";
 
 const Name = ({ field }) => {
@@ -97,14 +98,30 @@ const ErrorText = msg => (
   <div className={classNames(styles.withError)}>{msg}</div>
 );
 
-const ShopEditForm = ({ onSaveShop }) => {
+const ShopEditForm = ({
+  isLoading,
+  shopData: { shop, products },
+  onSaveShop
+}) => {
+  if (!shop) {
+    return null;
+  }
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  const displayedProducts = shop
+    ? products.map(product => ({ name: product.name, price: product.price }))
+    : [{ name: "", price: 0 }];
+
   return (
     <Formik
       initialValues={{
-        name: "",
-        type: "Magic",
-        description: "",
-        products: [{ name: "", price: 0 }]
+        name: shop ? shop.name : "",
+        type: shop ? shop.type : "Magic",
+        description: shop ? shop.description : "",
+        products: displayedProducts
       }}
       validate={values => {
         let errors = {};
@@ -136,6 +153,22 @@ const ShopEditForm = ({ onSaveShop }) => {
 };
 
 ShopEditForm.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  shopData: PropTypes.shape({
+    shop: PropTypes.shape({
+      _id: PropTypes.string,
+      name: PropTypes.string,
+      description: PropTypes.string,
+      type: PropTypes.string
+    }),
+    products: PropTypes.arrayOf(
+      PropTypes.shape({
+        _id: PropTypes.string,
+        name: PropTypes.string,
+        price: PropTypes.number
+      })
+    )
+  }),
   onSaveShop: PropTypes.func.isRequired
 };
 
