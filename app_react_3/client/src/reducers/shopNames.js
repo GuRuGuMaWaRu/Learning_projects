@@ -3,6 +3,7 @@ import {
   LOAD_SHOP_NAMES_ERROR
 } from "../actions/loadShopNames";
 import { HIGHLIGHT_SHOP } from "../actions/highlightShop";
+import { LOCATION_CHANGE } from "connected-react-router";
 
 const initialState = {
   names: [],
@@ -17,6 +18,8 @@ export default (state = initialState, action) => {
       return state;
     case HIGHLIGHT_SHOP:
       return { ...state, highlighted: action.shopId };
+    case LOCATION_CHANGE:
+      return { ...state, highlighted: "" };
     default:
       return state;
   }

@@ -3,6 +3,7 @@ import {
   SELECT_SHOP_SUCCESS,
   SELECT_SHOP_FAILURE
 } from "../actions/selectShop";
+import { LOCATION_CHANGE } from "connected-react-router";
 
 const initialState = {
   shopIsLoading: false,
@@ -24,7 +25,9 @@ export default (state = initialState, action) => {
         shopData: action.shop
       };
     case SELECT_SHOP_FAILURE:
-      return state;
+      return initialState;
+    case LOCATION_CHANGE:
+      return initialState;
     default:
       return state;
   }
