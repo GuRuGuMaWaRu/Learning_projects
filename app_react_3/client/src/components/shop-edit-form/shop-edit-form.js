@@ -100,12 +100,12 @@ const ErrorText = msg => (
 
 const ShopEditForm = ({
   isLoading,
-  shopData: { shop, products },
-  onSaveShop
+  shopData: { shop, products } = {},
+  onSubmit
 }) => {
-  if (!shop) {
-    return null;
-  }
+  // if (!shop) {
+  //   return null;
+  // }
 
   if (isLoading) {
     return <Spinner />;
@@ -131,7 +131,7 @@ const ShopEditForm = ({
         return errors;
       }}
       onSubmit={(values, actions) => {
-        onSaveShop(values);
+        onSubmit(values);
         // actions.setSubmitting = false;
       }}
     >
@@ -153,7 +153,7 @@ const ShopEditForm = ({
 };
 
 ShopEditForm.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool,
   shopData: PropTypes.shape({
     shop: PropTypes.shape({
       _id: PropTypes.string,
@@ -169,7 +169,7 @@ ShopEditForm.propTypes = {
       })
     )
   }),
-  onSaveShop: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired
 };
 
 export default ShopEditForm;

@@ -1,10 +1,9 @@
 import { connect } from "react-redux";
 import { saveShop } from "../../actions/saveShop";
-import ShopEditForm from "./shop-edit-form";
+import CreateShopSection from "./create-shop-section";
 
 const mapStateToProps = state => ({
-  isLoading: state.selectedShop.shopIsLoading,
-  shopData: state.selectedShop.shopData
+  isLoading: state.selectedShop.shopIsLoading
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -16,4 +15,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ShopEditForm);
+)(CreateShopSection);

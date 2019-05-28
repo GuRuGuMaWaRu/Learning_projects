@@ -1,10 +1,10 @@
 import React from "react";
-import ShopEditForm from "../../shop-edit-form/shop-edit-form.container";
+import CreateShopSection from "../../create-shop-section/create-shop-section.container";
 
 const CreateShop = () => {
   return (
     <div>
-      <ShopEditForm />
+      <CreateShopSection />
     </div>
   );
 };
