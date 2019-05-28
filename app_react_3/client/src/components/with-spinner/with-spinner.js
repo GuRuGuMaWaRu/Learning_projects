@@ -1,12 +1,16 @@
 import React from "react";
 import Spinner from "../spinner/spinner";
 
-const withSpinner = (WrappedComponent, isLoading, data) => {
+const withSpinner = ({ isLoading, hasData, render }) => {
   if (isLoading) {
     return <Spinner />;
   }
 
-  return <WrappedComponent data={data} />;
+  if (!hasData) {
+    return null;
+  }
+
+  return <div>{render()}</div>;
 };
 
 export default withSpinner;

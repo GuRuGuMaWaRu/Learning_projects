@@ -1,6 +1,6 @@
 import React from "react";
 import SideMenu from "../../side-menu/side-menu.container";
-import Shop from "../../shop/shop.container";
+import SelectShopSection from "../../select-shop-section/select-shop-section.container";
 import "./shopping.css";
 
 const Shopping = () => {
@@ -8,7 +8,7 @@ const Shopping = () => {
     <div className="shopping-container">
       <SideMenu />
       <div className="shopping-window">
-        <Shop />
+        <SelectShopSection />
       </div>
     </div>
   );

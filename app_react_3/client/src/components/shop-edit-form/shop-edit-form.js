@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Formik, Form, Field, FieldArray, ErrorMessage } from "formik";
 import classNames from "classnames";
-import Spinner from "../spinner/spinner";
 import styles from "./shop-edit-form.css";
 
 const Name = ({ field }) => {
@@ -98,19 +97,7 @@ const ErrorText = msg => (
   <div className={classNames(styles.withError)}>{msg}</div>
 );
 
-const ShopEditForm = ({
-  isLoading,
-  shopData: { shop, products } = {},
-  onSubmit
-}) => {
-  // if (!shop) {
-  //   return null;
-  // }
-
-  if (isLoading) {
-    return <Spinner />;
-  }
-
+const ShopEditForm = ({ shopData: { shop, products } = {}, onSubmit }) => {
   const displayedProducts = shop
     ? products.map(product => ({ name: product.name, price: product.price }))
     : [{ name: "", price: 0 }];

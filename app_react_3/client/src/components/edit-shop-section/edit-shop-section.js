@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ShopEditForm from "../shop-edit-form/shop-edit-form";
+import WithSpinner from "../with-spinner/with-spinner";
 import "./edit-shop-section.css";
 
 const EditShopSection = ({
@@ -8,21 +9,25 @@ const EditShopSection = ({
   shopData,
   onUpdateShop,
   onDeleteShop
-}) => (
-  <>
-    <ShopEditForm
+}) => {
+  return (
+    <WithSpinner
       isLoading={isLoading}
-      shopData={shopData}
-      onSubmit={onUpdateShop}
+      hasData={shopData.shop ? true : false}
+      render={() => (
+        <>
+          <ShopEditForm shopData={shopData} onSubmit={onUpdateShop} />
+          <button
+            className="btn btn-outline-danger delete-shop-button"
+            onClick={() => onDeleteShop(shopData.shop._id)}
+          >
+            Delete Shop
+          </button>
+        </>
+      )}
     />
-    <button
-      className="btn btn-outline-danger delete-shop-button"
-      onClick={() => onDeleteShop(shopData.shop._id)}
-    >
-      Delete Shop
-    </button>
-  </>
-);
+  );
+};
 
 EditShopSection.propTypes = {
   isLoading: PropTypes.bool.isRequired,
