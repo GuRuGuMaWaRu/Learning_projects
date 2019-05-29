@@ -14,7 +14,7 @@ exports.saveShop = async (req, res) => {
     });
   });
 
-  res.send();
+  res.send(savedShop._id);
 };
 
 exports.getShopNames = async (req, res) => {
