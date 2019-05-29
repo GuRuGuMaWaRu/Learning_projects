@@ -3,6 +3,7 @@ import {
   SELECT_SHOP_SUCCESS,
   SELECT_SHOP_FAILURE
 } from "../actions/selectShop";
+import { DELETE_SHOP_SUCCESS } from "../actions/deleteShop";
 import { LOCATION_CHANGE } from "connected-react-router";
 
 const initialState = {
@@ -25,6 +26,7 @@ export default (state = initialState, action) => {
         shopData: action.shop
       };
     case SELECT_SHOP_FAILURE:
+    case DELETE_SHOP_SUCCESS:
     case LOCATION_CHANGE:
       return initialState;
     default:

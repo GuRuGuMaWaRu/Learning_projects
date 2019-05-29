@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { updateShop } from "../../actions/updateShop";
 import { deleteShop } from "../../actions/deleteShop";
+import { loadShopNames } from "../../actions/loadShopNames";
 import EditShopSection from "./edit-shop-section";
 
 const mapStateToProps = state => ({
@@ -14,6 +15,7 @@ const mapDispatchToProps = dispatch => ({
   },
   onDeleteShop: shopId => {
     dispatch(deleteShop(shopId));
+    dispatch(loadShopNames());
   }
 });
 
