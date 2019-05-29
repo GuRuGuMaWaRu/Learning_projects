@@ -15,12 +15,14 @@ import * as serviceWorker from "./serviceWorker";
 import saveShopSaga from "./sagas/saveShop";
 import loadShopNamesSaga from "./sagas/loadShopNames";
 import selectShopSaga from "./sagas/selectShop";
+import deleteShopSaga from "./sagas/deleteShop";
 
 const store = configureStore();
 
 sagaMiddleware.run(saveShopSaga);
 sagaMiddleware.run(loadShopNamesSaga);
 sagaMiddleware.run(selectShopSaga);
+sagaMiddleware.run(deleteShopSaga);
 
 ReactDOM.render(
   <Provider store={store}>

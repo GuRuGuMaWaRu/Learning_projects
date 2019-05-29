@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import ShopEditForm from "../shop-edit-form/shop-edit-form";
 
-const CreateShopSection = ({ onSaveShop }) => (
+const CreateShopSection = ({ onSaveShop, history }) => (
   <ShopEditForm onSubmit={onSaveShop} />
 );
 

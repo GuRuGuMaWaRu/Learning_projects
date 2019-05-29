@@ -25,7 +25,6 @@ export default (state = initialState, action) => {
         shopData: action.shop
       };
     case SELECT_SHOP_FAILURE:
-      return initialState;
     case LOCATION_CHANGE:
       return initialState;
     default:

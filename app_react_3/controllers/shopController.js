@@ -36,3 +36,12 @@ exports.selectShop = async (req, res) => {
 
   res.send({ shop, products });
 };
+
+exports.deleteShop = async (req, res) => {
+  const shopId = req.params.shopId;
+
+  await Shop.findByIdAndDelete(shopId);
+  await Product.deleteMany({ shop: shopId });
+
+  res.send();
+};

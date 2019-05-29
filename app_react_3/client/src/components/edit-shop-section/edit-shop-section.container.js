@@ -12,8 +12,8 @@ const mapDispatchToProps = dispatch => ({
   onUpdateShop: data => {
     dispatch(updateShop(data));
   },
-  onDeleteShop: () => {
-    dispatch(deleteShop());
+  onDeleteShop: shopId => {
+    dispatch(deleteShop(shopId));
   }
 });
 
