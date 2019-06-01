@@ -57,5 +57,5 @@ exports.updateShop = async (req, res) => {
   await Product.deleteMany({ shop: shopId });
 
   await Product.create(processedProducts);
-  res.send();
+  res.send(shopId);
 };

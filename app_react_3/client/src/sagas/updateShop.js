@@ -5,11 +5,15 @@ import {
   updateShopSuccess,
   updateShopFailure
 } from "../actions/updateShop";
+import { selectShop } from "../actions/selectShop";
+import { highlightShop } from "../actions/highlightShop";
 
 function* handleUpdateShop(action) {
   try {
-    yield call(axios.post, "/api/shop/update", action.shopData);
+    const data = yield call(axios.post, "/api/shop/update", action.shopData);
     yield put(updateShopSuccess());
+    yield put(highlightShop(data.data));
+    yield put(selectShop(data.data));
   } catch (error) {
     yield put(updateShopFailure());
   }
