@@ -1,6 +1,10 @@
 import axios from "axios";
 import { put, call, takeLatest } from "redux-saga/effects";
-import { SAVE_SHOP, saveShopSuccess, saveShopError } from "../actions/saveShop";
+import {
+  SAVE_SHOP,
+  saveShopSuccess,
+  saveShopFailure
+} from "../actions/saveShop";
 import { selectShop } from "../actions/selectShop";
 import { highlightShop } from "../actions/highlightShop";
 
@@ -11,7 +15,7 @@ function* handleSaveShop(action) {
     yield put(highlightShop(data.data));
     yield put(selectShop(data.data));
   } catch (error) {
-    yield put(saveShopError());
+    yield put(saveShopFailure());
   }
 }
 

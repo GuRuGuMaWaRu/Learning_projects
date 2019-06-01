@@ -16,6 +16,7 @@ import saveShopSaga from "./sagas/saveShop";
 import loadShopNamesSaga from "./sagas/loadShopNames";
 import selectShopSaga from "./sagas/selectShop";
 import deleteShopSaga from "./sagas/deleteShop";
+import updateShopSaga from "./sagas/updateShop";
 
 const store = configureStore();
 
@@ -23,6 +24,7 @@ sagaMiddleware.run(saveShopSaga);
 sagaMiddleware.run(loadShopNamesSaga);
 sagaMiddleware.run(selectShopSaga);
 sagaMiddleware.run(deleteShopSaga);
+sagaMiddleware.run(updateShopSaga);
 
 ReactDOM.render(
   <Provider store={store}>

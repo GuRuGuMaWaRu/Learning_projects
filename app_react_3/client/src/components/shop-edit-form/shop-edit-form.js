@@ -105,6 +105,7 @@ const ShopEditForm = ({ shopData: { shop, products } = {}, onSubmit }) => {
   return (
     <Formik
       initialValues={{
+        shopId: shop ? shop._id : null,
         name: shop ? shop.name : "",
         type: shop ? shop.type : "Magic",
         description: shop ? shop.description : "",

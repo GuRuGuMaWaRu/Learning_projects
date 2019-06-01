@@ -11,6 +11,6 @@ export const deleteShopSuccess = () => ({
   type: DELETE_SHOP_SUCCESS
 });
 
-export const deleteShopError = () => ({
+export const deleteShopFailure = () => ({
   type: DELETE_SHOP_FAILURE
 });

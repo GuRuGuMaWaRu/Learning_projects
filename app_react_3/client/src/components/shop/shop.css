@@ -5,6 +5,7 @@
 .product-list {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .product-list-item {

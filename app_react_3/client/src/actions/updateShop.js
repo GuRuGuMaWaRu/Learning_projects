@@ -11,6 +11,6 @@ export const updateShopSuccess = () => ({
   type: UPDATE_SHOP_SUCCESS
 });
 
-export const updateShopError = () => ({
+export const updateShopFailure = () => ({
   type: UPDATE_SHOP_FAILURE
 });

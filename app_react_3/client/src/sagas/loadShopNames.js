@@ -3,7 +3,7 @@ import { put, call, takeLatest } from "redux-saga/effects";
 import {
   LOAD_SHOP_NAMES,
   loadShopNamesSuccess,
-  loadShopNamesError
+  loadShopNamesFailure
 } from "../actions/loadShopNames";
 
 function* handleLoadShopNames() {
@@ -11,7 +11,7 @@ function* handleLoadShopNames() {
     const shopNames = yield call(axios.get, "/api/shop/getNames");
     yield put(loadShopNamesSuccess(shopNames.data));
   } catch (error) {
-    yield put(loadShopNamesError());
+    yield put(loadShopNamesFailure());
   }
 }
 

@@ -3,7 +3,7 @@ import { put, call, takeLatest } from "redux-saga/effects";
 import {
   DELETE_SHOP,
   deleteShopSuccess,
-  deleteShopError
+  deleteShopFailure
 } from "../actions/deleteShop";
 
 function* handleDeleteShop(action) {
@@ -11,7 +11,7 @@ function* handleDeleteShop(action) {
     yield call(axios.get, `/api/shop/delete/${action.shopId}`);
     yield put(deleteShopSuccess());
   } catch (error) {
-    yield put(deleteShopError(error));
+    yield put(deleteShopFailure(error));
   }
 }
 

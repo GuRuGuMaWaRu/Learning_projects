@@ -45,3 +45,17 @@ exports.deleteShop = async (req, res) => {
 
   res.send();
 };
+
+exports.updateShop = async (req, res) => {
+  const { shopId, name, type, description, products } = req.body;
+  const processedProducts = products.map(product => ({
+    ...product,
+    shop: shopId
+  }));
+
+  await Shop.findOneAndUpdate({ _id: shopId }, { name, type, description });
+  await Product.deleteMany({ shop: shopId });
+
+  await Product.create(processedProducts);
+  res.send();
+};
