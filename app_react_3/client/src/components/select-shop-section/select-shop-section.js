@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Shop from "../shop/shop";
+import Shop from "../shop/shop.container";
 import WithSpinner from "../with-spinner/with-spinner";
 
 const SelectShopSection = ({ isLoading, shopData }) => {

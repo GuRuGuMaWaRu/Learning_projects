@@ -2,12 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./shop.css";
 
-const Shop = ({ shopData: { shop, products } }) => {
+const Shop = ({ shopData: { shop, products }, handleAddToCart }) => {
   const productList = products.map(product => (
     <div className="product-list-item" key={product._id}>
       <img src="https://picsum.photos/200" alt={product.name} />
       <h6>{product.name}</h6>
       <p>Price: {product.price}</p>
+      <button
+        className="btn btn-success"
+        onClick={() => handleAddToCart(product._id)}
+      >
+        Add To Cart
+      </button>
     </div>
   ));
 
@@ -37,7 +43,8 @@ Shop.propTypes = {
         price: PropTypes.number
       })
     )
-  })
+  }),
+  handleAddToCart: PropTypes.func.isRequired
 };
 
 export default Shop;
