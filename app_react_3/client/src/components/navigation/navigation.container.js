@@ -23,6 +23,7 @@ const pages = [
 
 const mapStateToProps = state => ({
   pages,
+  cart: state.cart,
   currentPath: state.router.location.pathname
 });
 
