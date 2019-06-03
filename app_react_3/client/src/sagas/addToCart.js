@@ -7,10 +7,10 @@ import {
 } from "../actions/addToCart";
 
 function* handleAddToCart(action) {
-  const { itemId, itemCost } = action.payload;
+  const { itemId, itemPrice, itemName } = action.itemData;
   try {
-    yield call(axios.post, "/api/cart/add", { itemId: itemId });
-    yield put(addToCartSuccess(itemCost));
+    yield call(axios.post, "/api/cart/add", { itemId, itemName });
+    yield put(addToCartSuccess({ itemId, itemPrice, itemName }));
   } catch (error) {
     yield put(addToCartFailure());
   }

@@ -1,17 +1,16 @@
 import { ADD_TO_CART_SUCCESS } from "../actions/addToCart";
 
 const initialState = {
-  totalItems: 0,
-  totalCost: 0
+  items: []
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART_SUCCESS:
+      const { itemId, itemPrice, itemName } = action.itemData;
       return {
         ...state,
-        totalItems: state.totalItems + 1,
-        totalCost: state.totalCost + action.itemCost
+        items: [...state.items, { itemId, itemPrice, itemName }]
       };
     default:
       return state;

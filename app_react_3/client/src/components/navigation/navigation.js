@@ -14,12 +14,17 @@ const Navigation = ({ navigate, pages, currentPath, cart }) => {
       {title}
     </NavigationItem>
   ));
+  const totalItems = cart.items.reduce((total, item) => total + 1, 0);
+  const totalPrice = cart.items.reduce(
+    (total, item) => total + item.itemPrice,
+    0
+  );
 
   return (
     <nav className="navbar">
       <ul className="nav nav-tabs mr-auto">{links}</ul>
-      <div className="cart-items">CART ITEMS: {cart.totalItems}</div>
-      <div className="cart-total-cost">CART TOTAL COST: {cart.totalCost}</div>
+      <div className="cart-items">CART ITEMS: {totalItems}</div>
+      <div className="cart-total-cost">CART TOTAL COST: {totalPrice}</div>
     </nav>
   );
 };
@@ -34,8 +39,13 @@ Navigation.propTypes = {
   ).isRequired,
   currentPath: PropTypes.string.isRequired,
   cart: PropTypes.shape({
-    totalItems: PropTypes.number.isRequired,
-    totalCost: PropTypes.number.isRequired
+    items: PropTypes.arrayOf(
+      PropTypes.shape({
+        itemId: PropTypes.string.isRequired,
+        itemPrice: PropTypes.number.isRequired,
+        itemName: PropTypes.string.isRequired
+      })
+    )
   })
 };
 

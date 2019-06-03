@@ -10,7 +10,13 @@ const Shop = ({ shopData: { shop, products }, handleAddToCart }) => {
       <p>Price: {product.price}</p>
       <button
         className="btn btn-success"
-        onClick={() => handleAddToCart(product._id, product.price)}
+        onClick={() =>
+          handleAddToCart({
+            itemId: product._id,
+            itemPrice: product.price,
+            itemName: product.name
+          })
+        }
       >
         Add To Cart
       </button>
