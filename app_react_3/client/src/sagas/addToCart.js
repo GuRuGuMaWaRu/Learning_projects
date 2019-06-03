@@ -9,7 +9,7 @@ import {
 function* handleAddToCart(action) {
   const { itemId, itemPrice, itemName } = action.itemData;
   try {
-    yield call(axios.post, "/api/cart/add", { itemId, itemName });
+    yield call(axios.post, "/api/cart/add", { itemId, itemPrice, itemName });
     yield put(addToCartSuccess({ itemId, itemPrice, itemName }));
   } catch (error) {
     yield put(addToCartFailure());

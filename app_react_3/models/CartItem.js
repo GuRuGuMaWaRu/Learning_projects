@@ -10,6 +10,10 @@ const cartItemSchema = new Schema({
     type: String,
     required: true
   },
+  itemPrice: {
+    type: Number,
+    required: true
+  },
   qty: {
     type: Number,
     default: 0
