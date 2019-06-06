@@ -18,6 +18,7 @@ import selectShopSaga from "./sagas/selectShop";
 import deleteShopSaga from "./sagas/deleteShop";
 import updateShopSaga from "./sagas/updateShop";
 import addToCartSaga from "./sagas/addToCart";
+import loadCartItemsSaga from "./sagas/loadCartItems";
 
 const store = configureStore();
 
@@ -27,6 +28,7 @@ sagaMiddleware.run(selectShopSaga);
 sagaMiddleware.run(deleteShopSaga);
 sagaMiddleware.run(updateShopSaga);
 sagaMiddleware.run(addToCartSaga);
+sagaMiddleware.run(loadCartItemsSaga);
 
 ReactDOM.render(
   <Provider store={store}>
