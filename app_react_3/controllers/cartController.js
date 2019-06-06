@@ -17,3 +17,10 @@ exports.addToCart = async (req, res) => {
 
   res.send();
 };
+
+exports.getCartItems = async (req, res) => {
+  const cartItems = await CartItem.find();
+
+  console.log(cartItems);
+  res.send(cartItems);
+};
