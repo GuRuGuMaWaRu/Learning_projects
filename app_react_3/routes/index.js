@@ -14,5 +14,5 @@ module.exports = app => {
   app.get("/api/shop/select/:id", selectShop);
   app.get("/api/shop/delete/:shopId", deleteShop);
   app.post("/api/cart/add", addToCart);
-  app.get("api/cart/get", getCartItems);
+  app.get("/api/cart/get", getCartItems);
 };

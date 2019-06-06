@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
+import { loadCartItems } from "../../actions/loadCartItems";
 import Navigation from "./navigation";
 
 const pages = [
@@ -28,7 +29,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  navigate: path => dispatch(push(path))
+  navigate: path => dispatch(push(path)),
+  loadCartItems: () => dispatch(loadCartItems())
 });
 
 export default connect(
