@@ -6,7 +6,7 @@ export default class CartSection extends React.Component {
     const { items } = this.props;
     const itemList = items.map(item => (
       <div key={item.itemId}>
-        {item.itemName} - {item.itemPrice}
+        {item.itemName} - {item.itemPrice} - Qty: {item.qty}
       </div>
     ));
     return <div>{itemList}</div>;
