@@ -21,6 +21,12 @@ exports.addToCart = async (req, res) => {
 exports.getCartItems = async (req, res) => {
   const cartItems = await CartItem.find();
 
-  console.log(cartItems);
-  res.send(cartItems);
+  const preparedCartItems = cartItems.map(item => ({
+    itemId: item.itemId,
+    itemName: item.itemName,
+    itemPrice: item.itemPrice,
+    qty: item.qty
+  }));
+
+  res.send(preparedCartItems);
 };

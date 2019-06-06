@@ -1,4 +1,5 @@
 import { ADD_TO_CART_SUCCESS } from "../actions/addToCart";
+import { LOAD_CART_ITEMS_SUCCESS } from "../actions/loadCartItems";
 
 const initialState = {
   items: []
@@ -14,7 +15,7 @@ const addCartItem = (prevItems, newItem) => {
       ...prevItems,
       {
         ...newItem,
-        itemQty: 1
+        qty: 1
       }
     ];
   } else {
@@ -22,7 +23,7 @@ const addCartItem = (prevItems, newItem) => {
       if (item.itemId === newItem.itemId) {
         return {
           ...item,
-          itemQty: item.itemQty + 1
+          qty: item.qty + 1
         };
       } else {
         return item;
@@ -34,10 +35,14 @@ const addCartItem = (prevItems, newItem) => {
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART_SUCCESS:
-      // const { itemId, itemPrice, itemName } = action.itemData;
       return {
         ...state,
         items: addCartItem(state.items, action.itemData)
+      };
+    case LOAD_CART_ITEMS_SUCCESS:
+      return {
+        ...state,
+        items: action.cartItems
       };
     default:
       return state;

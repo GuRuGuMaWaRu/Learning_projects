@@ -9,7 +9,8 @@ import {
 function* handleLoadCartItems(aciton) {
   try {
     const cartItems = yield call(axios.get, "/api/cart/get");
-    yield put(loadCartItemsSuccess(cartItems));
+
+    yield put(loadCartItemsSuccess(cartItems.data));
   } catch (error) {
     yield put(loadCartItemsFailure());
   }

@@ -25,9 +25,9 @@ class Navigation extends React.Component {
 
   render() {
     const { cart } = this.props;
-    const totalItems = cart.items.reduce((total, item) => total + 1, 0);
+    const totalItems = cart.items.reduce((total, item) => total + item.qty, 0);
     const totalPrice = cart.items.reduce(
-      (total, item) => total + item.itemPrice,
+      (total, item) => total + item.qty * item.itemPrice,
       0
     );
 
@@ -56,7 +56,8 @@ Navigation.propTypes = {
       PropTypes.shape({
         itemId: PropTypes.string.isRequired,
         itemPrice: PropTypes.number.isRequired,
-        itemName: PropTypes.string.isRequired
+        itemName: PropTypes.string.isRequired,
+        qty: PropTypes.number.isRequired
       })
     )
   })
