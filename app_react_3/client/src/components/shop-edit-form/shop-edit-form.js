@@ -69,6 +69,7 @@ const ProductList = ({ values }) => (
         {values.products.map((product, index) => (
           <div key={index}>
             <div className="form-row">
+              <Field name={`products.${index}._id`} type="hidden" />
               <Field name={`products.${index}.name`} render={ProductName} />
               <Field name={`products.${index}.price`} render={ProductPrice} />
             </div>
@@ -99,7 +100,11 @@ const ErrorText = msg => (
 
 const ShopEditForm = ({ shopData: { shop, products } = {}, onSubmit }) => {
   const displayedProducts = shop
-    ? products.map(product => ({ name: product.name, price: product.price }))
+    ? products.map(product => ({
+        name: product.name,
+        price: product.price,
+        itemId: product._id
+      }))
     : [{ name: "", price: 0 }];
 
   return (
