@@ -48,24 +48,16 @@ exports.deleteShop = async (req, res) => {
 
 exports.updateShop = async (req, res) => {
   const { shopId, name, type, description, products } = req.body;
-  // const processedProducts = products.map(product => ({
-  //   ...product,
-  //   shop: shopId
-  // }));
 
+  // get all product Ids from the form data
+  const productIds = products.map(product => product.itemId);
+
+  // update shop
   await Shop.findOneAndUpdate({ _id: shopId }, { name, type, description });
 
-  // get all existing products
-  const existingProducts = await Product.find({ shop: shopId });
-  // delete those products that were edited out
-  existingProducts.forEach(async existingProduct => {
-    const productExists = products.some(
-      product => product.itemId === String(existingProduct._id)
-    );
-
-    if (!productExists) {
-      await Product.deleteOne({ _id: existingProduct._id });
-    }
+  // renove deleted products
+  await Product.deleteMany({
+    $and: [{ shop: shopId }, { _id: { $nin: productIds } }]
   });
 
   products.forEach(async product => {
@@ -90,5 +82,3 @@ exports.updateShop = async (req, res) => {
 
   res.send(shopId);
 };
-// 5cfab2e6ba588d2c54763b01
-// 5cfab2e6ba588d2c54763b01
