@@ -47,7 +47,7 @@ const Description = ({ field }) => (
 
 const ProductName = ({ field }) => {
   return (
-    <div className="form-group col-md-6">
+    <div className="form-group col-md-5">
       <input {...field} type="text" className="form-control" />
     </div>
   );
@@ -55,7 +55,7 @@ const ProductName = ({ field }) => {
 
 const ProductPrice = ({ field }) => {
   return (
-    <div className="form-group col-md-6">
+    <div className="form-group col-md-5">
       <input {...field} type="number" className="form-control" min={0} />
     </div>
   );
@@ -68,10 +68,19 @@ const ProductList = ({ values }) => (
       <div>
         {values.products.map((product, index) => (
           <div key={index}>
-            <div className="form-row">
+            <div className="form-row align-items-center">
               <Field name={`products.${index}._id`} type="hidden" />
               <Field name={`products.${index}.name`} render={ProductName} />
               <Field name={`products.${index}.price`} render={ProductPrice} />
+              <div className="form-group col-md-2">
+                <button
+                  className="btn btn-danger "
+                  type="button"
+                  onClick={() => arrayHelpers.remove(index)}
+                >
+                  X
+                </button>
+              </div>
             </div>
           </div>
         ))}
@@ -81,13 +90,6 @@ const ProductList = ({ values }) => (
           onClick={() => arrayHelpers.push("")}
         >
           Add Product Field
-        </button>
-        <button
-          className="btn btn-primary product-input-button"
-          type="button"
-          onClick={() => arrayHelpers.pop()}
-        >
-          Remove Product Field
         </button>
       </div>
     )}
