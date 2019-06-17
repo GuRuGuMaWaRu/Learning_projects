@@ -55,7 +55,7 @@ exports.updateShop = async (req, res) => {
   // update shop
   await Shop.findOneAndUpdate({ _id: shopId }, { name, type, description });
 
-  // renove deleted products
+  // remove deleted products
   await Product.deleteMany({
     $and: [{ shop: shopId }, { _id: { $nin: productIds } }]
   });

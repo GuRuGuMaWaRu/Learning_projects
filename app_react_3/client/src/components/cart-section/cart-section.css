@@ -1,0 +1,25 @@
+.cart-listing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.cart-listing:nth-child(even) {
+  background-color: rgb(212, 212, 212);
+}
+.cart-listing-name {
+  flex: 3;
+}
+.cart-listing-price {
+  flex: 2;
+}
+.cart-listing-qty {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 150px;
+  padding-right: 2rem;
+}
+/* .cart-listing-remove {
+  flex-basis: 50px;
+} */
