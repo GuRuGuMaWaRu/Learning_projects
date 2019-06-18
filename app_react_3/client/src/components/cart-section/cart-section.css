@@ -20,6 +20,12 @@
   flex-basis: 150px;
   padding-right: 2rem;
 }
-/* .cart-listing-remove {
-  flex-basis: 50px;
-} */
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding-top: 1rem;
+}
