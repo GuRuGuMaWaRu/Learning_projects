@@ -30,3 +30,16 @@ exports.getCartItems = async (req, res) => {
 
   res.send(preparedCartItems);
 };
+
+exports.changeCartItemQty = async (req, res) => {
+  const { cartItemId, changeType } = req.body;
+
+  await CartItem.updateOne(
+    {
+      itemId: cartItemId
+    },
+    { $inc: { qty: changeType === "increase" ? 1 : -1 } }
+  );
+
+  res.send();
+};

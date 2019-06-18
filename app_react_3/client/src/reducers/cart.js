@@ -1,5 +1,6 @@
 import { ADD_TO_CART_SUCCESS } from "../actions/addToCart";
 import { LOAD_CART_ITEMS_SUCCESS } from "../actions/loadCartItems";
+import { CHANGE_CART_ITEM_QTY_SUCCESS } from "../actions/changerCartItemQty";
 
 const initialState = {
   items: []
@@ -32,6 +33,25 @@ const addCartItem = (prevItems, newItem) => {
   }
 };
 
+const updateCartItemQty = (cartItems, qtyChangeData) => {
+  const { cartItemId, changeType } = qtyChangeData;
+
+  return cartItems.map(cartItem => {
+    if (cartItem.itemId === cartItemId) {
+      return {
+        ...cartItem,
+        qty:
+          changeType === "increase"
+            ? cartItem.qty + 1
+            : cartItem.qty - 1 < 0
+            ? 0
+            : cartItem.qty - 1
+      };
+    }
+    return cartItem;
+  });
+};
+
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART_SUCCESS:
@@ -43,6 +63,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         items: action.cartItems
+      };
+    case CHANGE_CART_ITEM_QTY_SUCCESS:
+      return {
+        ...state,
+        items: updateCartItemQty(state.items, action.qtyChangeData)
       };
     default:
       return state;

@@ -5,7 +5,11 @@ const {
   selectShop,
   deleteShop
 } = require("../controllers/shopController");
-const { addToCart, getCartItems } = require("../controllers/cartController");
+const {
+  addToCart,
+  getCartItems,
+  changeCartItemQty
+} = require("../controllers/cartController");
 
 module.exports = app => {
   app.post("/api/shop/save", saveShop);
@@ -15,4 +19,5 @@ module.exports = app => {
   app.get("/api/shop/delete/:shopId", deleteShop);
   app.post("/api/cart/add", addToCart);
   app.get("/api/cart/get", getCartItems);
+  app.post("/api/cart/changeQty", changeCartItemQty);
 };
