@@ -16,7 +16,9 @@ export default class CartSection extends React.Component {
     const itemList = items.map(item => (
       <div className="cart-listing" key={item.itemId}>
         <span className="cart-listing-name">{item.itemName}</span>
-        <span className="cart-listing-price">{item.itemPrice}</span>
+        <span className="cart-listing-price">
+          {item.itemPrice} / {item.itemPrice * item.qty}
+        </span>
         <span className="cart-listing-qty">
           <button className="btn btn-outline-primary">-</button>
           {item.qty}
