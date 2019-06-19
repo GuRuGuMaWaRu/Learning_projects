@@ -1,0 +1,7 @@
+.edit-shop-container {
+  display: flex;
+}
+.edit-shop-window {
+  width: 100%;
+  margin: 0 6em;
+}

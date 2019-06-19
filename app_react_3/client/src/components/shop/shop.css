@@ -1,0 +1,13 @@
+.shop-card {
+  width: 100%;
+}
+
+.product-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.product-list-item {
+  margin: 0 1rem 1rem 0;
+}
