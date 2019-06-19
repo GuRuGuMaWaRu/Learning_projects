@@ -4,10 +4,12 @@ import "./cart-section.css";
 
 const CartSection = ({
   items,
+  currency,
   changeCartItemQty,
   deleteCartItem,
   clearCart
 }) => {
+  const currencyModifier = currency.rf ? 1.15 : 1;
   const totalPrice =
     items.length < 1
       ? 0
@@ -17,7 +19,8 @@ const CartSection = ({
     <div className="cart-listing" key={item.itemId}>
       <span className="cart-listing-name">{item.itemName}</span>
       <span className="cart-listing-price">
-        {item.itemPrice} / {item.itemPrice * item.qty}
+        {Math.round(item.itemPrice * currencyModifier)} /{" "}
+        {Math.round(item.itemPrice * item.qty * currencyModifier)}
       </span>
       <span className="cart-listing-qty">
         <button
@@ -57,7 +60,7 @@ const CartSection = ({
     <>
       {itemList}
       <div className="cart-total">
-        <span>TOTAL: {totalPrice}</span>
+        <span>TOTAL: {Math.round(totalPrice * currencyModifier)}</span>
         <button className="btn btn-danger" onClick={clearCart}>
           Clear Cart
         </button>
@@ -68,6 +71,10 @@ const CartSection = ({
 
 CartSection.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  currency: PropTypes.shape({
+    rf: PropTypes.bool.isRequired,
+    tc: PropTypes.bool.isRequired
+  }),
   changeCartItemQty: PropTypes.func.isRequired,
   deleteCartItem: PropTypes.func.isRequired,
   clearCart: PropTypes.func.isRequired

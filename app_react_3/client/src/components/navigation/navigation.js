@@ -24,7 +24,8 @@ class Navigation extends React.Component {
   };
 
   render() {
-    const { cart } = this.props;
+    const { cart, changeCurrency, currency } = this.props;
+    const currencyModifier = currency.rf ? 1.15 : 1;
     const totalItems = cart.items.reduce((total, item) => total + item.qty, 0);
     const totalPrice = cart.items.reduce(
       (total, item) => total + item.qty * item.itemPrice,
@@ -35,7 +36,21 @@ class Navigation extends React.Component {
       <nav className="navbar">
         <ul className="nav nav-tabs mr-auto">{this.createLinks()}</ul>
         <div className="cart-items">CART ITEMS: {totalItems}</div>
-        <div className="cart-total-cost">CART TOTAL COST: {totalPrice}</div>
+        <div className="cart-total-cost">
+          CART TOTAL COST: {Math.round(totalPrice * currencyModifier)}
+        </div>
+        <div
+          className={`currency ${currency.rf ? "selected" : ""}`}
+          onClick={() => changeCurrency("rf")}
+        >
+          Redanian Florins
+        </div>
+        <div
+          className={`currency ${currency.tc ? "selected" : ""}`}
+          onClick={() => changeCurrency("tc")}
+        >
+          Temerian Crowns
+        </div>
       </nav>
     );
   }
@@ -60,7 +75,12 @@ Navigation.propTypes = {
         qty: PropTypes.number.isRequired
       })
     )
-  })
+  }),
+  currency: PropTypes.shape({
+    rf: PropTypes.bool.isRequired,
+    tc: PropTypes.bool.isRequired
+  }),
+  changeCurrency: PropTypes.func.isRequired
 };
 
 export default Navigation;

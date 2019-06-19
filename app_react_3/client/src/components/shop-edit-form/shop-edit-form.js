@@ -100,11 +100,17 @@ const ErrorText = msg => (
   <div className={classNames(styles.withError)}>{msg}</div>
 );
 
-const ShopEditForm = ({ shopData: { shop, products } = {}, onSubmit }) => {
+const ShopEditForm = ({
+  shopData: { shop, products } = {},
+  currency,
+  onSubmit
+}) => {
+  const currencyModifier = currency.rf ? 1.15 : 1;
+
   const displayedProducts = shop
     ? products.map(product => ({
         name: product.name,
-        price: product.price,
+        price: Math.round(product.price * currencyModifier),
         itemId: product._id
       }))
     : [{ name: "", price: 0 }];
@@ -163,6 +169,10 @@ ShopEditForm.propTypes = {
         price: PropTypes.number
       })
     )
+  }),
+  currency: PropTypes.shape({
+    rf: PropTypes.bool.isRequired,
+    tc: PropTypes.bool.isRequired
   }),
   onSubmit: PropTypes.func.isRequired
 };

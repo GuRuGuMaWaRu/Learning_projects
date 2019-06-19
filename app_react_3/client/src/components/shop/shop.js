@@ -2,12 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./shop.css";
 
-const Shop = ({ shopData: { shop, products }, handleAddToCart }) => {
+const Shop = ({ shopData: { shop, products }, currency, handleAddToCart }) => {
+  const currencyModifier = currency.rf ? 1.15 : 1;
+
   const productList = products.map(product => (
     <div className="product-list-item" key={product._id}>
       <img src="https://picsum.photos/200" alt={product.name} />
       <h6>{product.name}</h6>
-      <p>Price: {product.price}</p>
+      <p>Price: {Math.round(product.price * currencyModifier)}</p>
       <button
         className="btn btn-success"
         onClick={() =>
@@ -49,6 +51,10 @@ Shop.propTypes = {
         price: PropTypes.number
       })
     )
+  }),
+  currency: PropTypes.shape({
+    rf: PropTypes.bool.isRequired,
+    tc: PropTypes.bool.isRequired
   }),
   handleAddToCart: PropTypes.func.isRequired
 };

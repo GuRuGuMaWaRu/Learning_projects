@@ -5,7 +5,8 @@ import { deleteCartItem } from "../../actions/deleteCartItem";
 import { clearCart } from "../../actions/clearCart";
 
 const mapStateToProps = state => ({
-  items: state.cart.items
+  items: state.cart.items,
+  currency: state.currency
 });
 
 const mapDispatchToProps = dispatch => ({

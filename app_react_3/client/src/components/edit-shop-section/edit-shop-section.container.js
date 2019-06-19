@@ -6,7 +6,8 @@ import EditShopSection from "./edit-shop-section";
 
 const mapStateToProps = state => ({
   isLoading: state.selectedShop.shopIsLoading,
-  shopData: state.selectedShop.shopData
+  shopData: state.selectedShop.shopData,
+  currency: state.currency
 });
 
 const mapDispatchToProps = dispatch => ({

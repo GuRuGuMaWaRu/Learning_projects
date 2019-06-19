@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import Shop from "../shop/shop.container";
 import WithSpinner from "../with-spinner/with-spinner";
 
-const SelectShopSection = ({ isLoading, shopData }) => {
+const SelectShopSection = ({ isLoading, shopData, currency }) => {
   return (
     <WithSpinner
       isLoading={isLoading}
       hasData={shopData.shop ? true : false}
-      render={() => <Shop shopData={shopData} />}
+      render={() => <Shop shopData={shopData} currency={currency} />}
     />
   );
 };
@@ -29,6 +29,10 @@ SelectShopSection.propTypes = {
         price: PropTypes.number
       })
     )
+  }),
+  currency: PropTypes.shape({
+    rf: PropTypes.bool.isRequired,
+    tc: PropTypes.bool.isRequired
   })
 };
 

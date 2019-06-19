@@ -7,6 +7,7 @@ import "./edit-shop-section.css";
 const EditShopSection = ({
   isLoading,
   shopData,
+  currency,
   onUpdateShop,
   onDeleteShop
 }) => {
@@ -16,7 +17,11 @@ const EditShopSection = ({
       hasData={shopData.shop ? true : false}
       render={() => (
         <>
-          <ShopEditForm shopData={shopData} onSubmit={onUpdateShop} />
+          <ShopEditForm
+            shopData={shopData}
+            currency={currency}
+            onSubmit={onUpdateShop}
+          />
           <button
             className="btn btn-outline-danger delete-shop-button"
             onClick={() => onDeleteShop(shopData.shop._id)}
@@ -45,6 +50,10 @@ EditShopSection.propTypes = {
         price: PropTypes.number
       })
     )
+  }),
+  currency: PropTypes.shape({
+    rf: PropTypes.bool.isRequired,
+    tc: PropTypes.bool.isRequired
   }),
   onUpdateShop: PropTypes.func.isRequired,
   onDeleteShop: PropTypes.func.isRequired

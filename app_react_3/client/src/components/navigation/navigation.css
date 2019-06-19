@@ -2,3 +2,13 @@
 .cart-total-cost {
   margin: 0 2rem;
 }
+
+.currency {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.currency.selected {
+  color: rgb(214, 214, 214);
+  background-color: rgb(84, 162, 235);
+}
