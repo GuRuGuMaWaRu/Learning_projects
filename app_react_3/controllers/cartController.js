@@ -43,3 +43,11 @@ exports.changeCartItemQty = async (req, res) => {
 
   res.send();
 };
+
+exports.deleteCartItem = async (req, res) => {
+  const { itemId } = req.body;
+
+  await CartItem.deleteOne({ itemId });
+
+  res.send();
+};

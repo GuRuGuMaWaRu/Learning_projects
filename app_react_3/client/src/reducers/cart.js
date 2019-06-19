@@ -1,6 +1,7 @@
 import { ADD_TO_CART_SUCCESS } from "../actions/addToCart";
 import { LOAD_CART_ITEMS_SUCCESS } from "../actions/loadCartItems";
 import { CHANGE_CART_ITEM_QTY_SUCCESS } from "../actions/changerCartItemQty";
+import { DELETE_CART_ITEM_SUCCESS } from "../actions/deleteCartItem";
 
 const initialState = {
   items: []
@@ -52,6 +53,10 @@ const updateCartItemQty = (cartItems, qtyChangeData) => {
   });
 };
 
+const deleteCartItem = (cartItems, itemId) => {
+  return cartItems.filter(cartItem => cartItem.itemId !== itemId);
+};
+
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART_SUCCESS:
@@ -68,6 +73,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         items: updateCartItemQty(state.items, action.qtyChangeData)
+      };
+    case DELETE_CART_ITEM_SUCCESS:
+      return {
+        ...state,
+        items: deleteCartItem(state.items, action.itemId)
       };
     default:
       return state;

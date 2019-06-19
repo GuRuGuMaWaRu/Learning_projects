@@ -20,6 +20,7 @@ import updateShopSaga from "./sagas/updateShop";
 import addToCartSaga from "./sagas/addToCart";
 import loadCartItemsSaga from "./sagas/loadCartItems";
 import changeCartItemQtySaga from "./sagas/changeCartItemQty";
+import deleteCartItemSaga from "./sagas/deleteCartItem";
 
 const store = configureStore();
 
@@ -31,6 +32,7 @@ sagaMiddleware.run(updateShopSaga);
 sagaMiddleware.run(addToCartSaga);
 sagaMiddleware.run(loadCartItemsSaga);
 sagaMiddleware.run(changeCartItemQtySaga);
+sagaMiddleware.run(deleteCartItemSaga);
 
 ReactDOM.render(
   <Provider store={store}>
