@@ -9,7 +9,8 @@ const {
   addToCart,
   getCartItems,
   changeCartItemQty,
-  deleteCartItem
+  deleteCartItem,
+  clearCart
 } = require("../controllers/cartController");
 
 module.exports = app => {
@@ -22,4 +23,5 @@ module.exports = app => {
   app.get("/api/cart/get", getCartItems);
   app.post("/api/cart/changeQty", changeCartItemQty);
   app.post("/api/cart/deleteItem", deleteCartItem);
+  app.get("/api/cart/clear", clearCart);
 };

@@ -51,3 +51,9 @@ exports.deleteCartItem = async (req, res) => {
 
   res.send();
 };
+
+exports.clearCart = async (req, res) => {
+  await CartItem.deleteMany({});
+
+  res.send();
+};

@@ -2,6 +2,7 @@ import { ADD_TO_CART_SUCCESS } from "../actions/addToCart";
 import { LOAD_CART_ITEMS_SUCCESS } from "../actions/loadCartItems";
 import { CHANGE_CART_ITEM_QTY_SUCCESS } from "../actions/changerCartItemQty";
 import { DELETE_CART_ITEM_SUCCESS } from "../actions/deleteCartItem";
+import { CLEAR_CART_SUCCESS } from "../actions/clearCart";
 
 const initialState = {
   items: []
@@ -79,6 +80,8 @@ export default (state = initialState, action) => {
         ...state,
         items: deleteCartItem(state.items, action.itemId)
       };
+    case CLEAR_CART_SUCCESS:
+      return initialState;
     default:
       return state;
   }

@@ -2,7 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./cart-section.css";
 
-const CartSection = ({ items, changeCartItemQty, deleteCartItem }) => {
+const CartSection = ({
+  items,
+  changeCartItemQty,
+  deleteCartItem,
+  clearCart
+}) => {
   const totalPrice =
     items.length < 1
       ? 0
@@ -53,7 +58,9 @@ const CartSection = ({ items, changeCartItemQty, deleteCartItem }) => {
       {itemList}
       <div className="cart-total">
         <span>TOTAL: {totalPrice}</span>
-        <button className="btn btn-danger">Clear Cart</button>
+        <button className="btn btn-danger" onClick={clearCart}>
+          Clear Cart
+        </button>
       </div>
     </>
   );
@@ -62,7 +69,8 @@ const CartSection = ({ items, changeCartItemQty, deleteCartItem }) => {
 CartSection.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
   changeCartItemQty: PropTypes.func.isRequired,
-  deleteCartItem: PropTypes.func.isRequired
+  deleteCartItem: PropTypes.func.isRequired,
+  clearCart: PropTypes.func.isRequired
 };
 
 export default CartSection;
