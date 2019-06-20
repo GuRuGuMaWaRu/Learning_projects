@@ -1,0 +1,12 @@
+<%- include('./partials/header.ejs') -%>
+
+<h3>Add a New Item to Your Journal</h3>
+
+<form action="/item/create" method="POST">
+  <div class="form-group">
+    <label>Title</label>
+    <input class="form-control" type="text" name="title">
+  </div>
+</form>
+
+<%- include('./partials/footer.ejs') -%>
