@@ -12,6 +12,10 @@ app.get("/", (req, res) => {
   res.render("main");
 });
 
+app.get("/item/create", (req, res) => {
+  res.render("create-item-page");
+});
+
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}...`);
 });
