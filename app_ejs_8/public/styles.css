@@ -10,9 +10,11 @@ body {
   display: flex;
   flex-direction: column;
   height: 95%;
+  padding-top: 3rem;
 }
 
-.main-content {
+.main-content,
+.create-item-form {
   flex: 2;
 }
 
