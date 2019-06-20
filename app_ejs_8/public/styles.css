@@ -1,3 +1,22 @@
+body {
+  height: 100vh;
+}
+
+.navigation {
+  height: 5%;
+}
+
 .main {
   display: flex;
+  flex-direction: column;
+  height: 95%;
+}
+
+.main-content {
+  flex: 2;
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem 0;
 }
