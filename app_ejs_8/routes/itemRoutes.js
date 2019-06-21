@@ -12,7 +12,7 @@ router.get("/create", (req, res) => {
 
 router.post("/create", (req, res) => {
   console.log(req.body);
-  res.redirect("/");
+  res.redirect("/app");
 });
 
 module.exports = router;
