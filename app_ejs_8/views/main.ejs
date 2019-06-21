@@ -2,6 +2,15 @@
 
 <div class="main-content">
   <h3>Journal</h3>
+
+  <div>
+    <% items.forEach(item => { %>
+      <div>
+        <h6><%= item.title %></h6>
+        <p><%= item.body %></p>
+      </div>
+    <% }) %>
+  </div>
 </div>
 
 <%- include('./partials/footer.ejs') -%>

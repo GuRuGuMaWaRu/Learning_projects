@@ -1,3 +1,7 @@
-exports.renderJournal = (req, res) => {
-  res.render("main");
+const JournalItem = require("../models/JournalItem");
+
+exports.renderJournal = async (req, res) => {
+  const items = await JournalItem.find();
+
+  res.render("main", { items });
 };
