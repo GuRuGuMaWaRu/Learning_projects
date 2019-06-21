@@ -5,9 +5,10 @@
 
   <div>
     <% items.forEach(item => { %>
-      <div>
+      <div class="journal-item">
         <h6><%= item.title %></h6>
-        <p><%= item.body %></p>
+        <p><%= `${item.body.slice(0, 100)}...` %></p>
+        <a class="btn btn-outline-secondary" href="#">Read more</a>
       </div>
     <% }) %>
   </div>

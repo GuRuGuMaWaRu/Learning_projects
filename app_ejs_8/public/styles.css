@@ -22,3 +22,21 @@ body {
   text-align: center;
   padding: 1rem 0;
 }
+
+h3 {
+  padding-bottom: 2rem;
+}
+
+.journal-item {
+  padding-bottom: 2rem;
+}
+
+.journal-item h6 {
+  font-weight: 600;
+  padding-bottom: 1rem;
+}
+
+.journal-item p {
+  color: rgb(51, 51, 51);
+  line-height: 1.8rem;
+}
