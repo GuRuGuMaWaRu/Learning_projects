@@ -1,13 +1,12 @@
 const express = require("express");
 const router = express.Router();
+const appController = require("../controllers/appController");
 
 router.use((req, res, next) => {
   console.log(`Time: ${Date.now()}`);
   next();
 });
 
-router.get("/", (req, res) => {
-  res.render("main");
-});
+router.get("/", appController.renderJournal);
 
 module.exports = router;

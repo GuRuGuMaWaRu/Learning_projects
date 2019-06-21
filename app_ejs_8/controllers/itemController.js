@@ -7,3 +7,7 @@ exports.createItem = async (req, res) => {
 
   res.redirect("/app");
 };
+
+exports.renderCreateItemForm = (req, res) => {
+  res.render("create-item-page");
+};
