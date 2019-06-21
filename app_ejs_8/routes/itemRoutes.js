@@ -9,5 +9,6 @@ router.use((req, res, next) => {
 
 router.get("/create", itemController.renderCreateItemForm);
 router.post("/create", itemController.createItem);
+router.get("/view/:itemId", itemController.renderItemPage);
 
 module.exports = router;

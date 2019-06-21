@@ -14,7 +14,8 @@ body {
 }
 
 .main-content,
-.create-item-form {
+.create-item-form,
+.item-view {
   flex: 2;
 }
 

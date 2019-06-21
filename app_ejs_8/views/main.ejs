@@ -8,7 +8,7 @@
       <div class="journal-item">
         <h6><%= item.title %></h6>
         <p><%= `${item.body.slice(0, 100)}...` %></p>
-        <a class="btn btn-outline-secondary" href="#">Read more</a>
+        <a class="btn btn-outline-secondary" href="/item/view/<%= item._id %>">Read more</a>
       </div>
     <% }) %>
   </div>
