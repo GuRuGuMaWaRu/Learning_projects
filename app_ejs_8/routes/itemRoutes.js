@@ -10,5 +10,6 @@ router.use((req, res, next) => {
 router.get("/create", itemController.renderCreateItemForm);
 router.post("/create", itemController.createItem);
 router.get("/view/:itemId", itemController.renderItemPage);
+router.get("/delete/:itemId", itemController.deleteItem);
 
 module.exports = router;

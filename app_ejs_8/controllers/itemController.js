@@ -19,3 +19,11 @@ exports.renderItemPage = async (req, res) => {
 
   res.render("item-page", { item });
 };
+
+exports.deleteItem = async (req, res) => {
+  const { itemId } = req.params;
+
+  await JournalItem.deleteOne({ _id: itemId });
+
+  res.redirect("/app");
+};
