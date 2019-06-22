@@ -11,5 +11,6 @@ router.get("/create", itemController.renderCreateItemForm);
 router.post("/create", itemController.createItem);
 router.get("/view/:itemId", itemController.renderItemPage);
 router.get("/delete/:itemId", itemController.deleteItem);
+router.get("/edit/:itemId", itemController.editItem);
 
 module.exports = router;

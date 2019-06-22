@@ -27,3 +27,11 @@ exports.deleteItem = async (req, res) => {
 
   res.redirect("/app");
 };
+
+exports.editItem = async (req, res) => {
+  const { itemId } = req.params;
+
+  const item = await JournalItem.findById(itemId);
+
+  res.render("edit-item-page", { item });
+};
