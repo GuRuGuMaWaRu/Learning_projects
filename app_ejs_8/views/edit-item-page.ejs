@@ -1,0 +1,21 @@
+<%- include('./partials/header.ejs') -%>
+
+<div class="edit-item">
+  <h3>Edit Journal Item</h3>
+  <form action="/item/edit" method="POST">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input class="form-control" type="text" id="title" name="title" value="<%= item.title %>">
+    </div>
+    <div class="form-group">
+      <label for="body">Body</label>
+      <textarea class="form-control" id="body" name="body"><%= item.body %></textarea>
+    </div>
+    <div>
+      <button class="btn btn-outline-success" type="submit" name="itemId" value="<%= item._id %>">Save</button>
+      <a class="btn btn-outline-secondary" href="/item/view/<%= item._id %>">Cancel</a>
+    </div>
+  </form>
+</div>
+
+<%- include('./partials/footer.ejs') -%>

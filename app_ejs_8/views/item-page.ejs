@@ -1,0 +1,12 @@
+<%- include('./partials/header.ejs') -%>
+
+<div class="item-view">
+  <h3><%= item.title %></h3>
+  <p><%= item.body %></p>
+  <div class="item-view-buttons">
+    <a class="btn btn-primary" href="/item/edit/<%- item._id %>">Edit</a>
+    <a class="btn btn-light" href="/item/delete/<%= item._id %>">Delete</a>
+  </div>
+</div>
+
+<%- include('./partials/footer.ejs') -%>
