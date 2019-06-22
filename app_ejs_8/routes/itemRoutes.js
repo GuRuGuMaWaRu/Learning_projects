@@ -12,5 +12,6 @@ router.post("/create", itemController.createItem);
 router.get("/view/:itemId", itemController.renderItemPage);
 router.get("/delete/:itemId", itemController.deleteItem);
 router.get("/edit/:itemId", itemController.editItem);
+router.post("/edit", itemController.updateItem);
 
 module.exports = router;

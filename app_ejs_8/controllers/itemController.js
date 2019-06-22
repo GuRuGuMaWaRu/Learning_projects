@@ -35,3 +35,15 @@ exports.editItem = async (req, res) => {
 
   res.render("edit-item-page", { item });
 };
+
+exports.updateItem = async (req, res) => {
+  const { title, body, itemId } = req.body;
+
+  const updatedItem = await JournalItem.findOneAndUpdate(
+    { _id: itemId },
+    { title, body },
+    { new: true }
+  );
+
+  res.render("item-page", { item: updatedItem });
+};
