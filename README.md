@@ -1,12 +1,47 @@
 # Collection of learning projects
 
+## App React-4
+
+...
+
+## App EJS-8
+
+#### Tech stack:
+
+- [ ] Node
+- [ ] Mongo
+- [ ] EJS
+
+#### Goal:
+
+Basic journalling app - as simple as possible.
+
+...
+
+## App React-3
+
+#### Tech stack:
+
+- [ ] React
+- [ ] React-redux
+- [ ] Redux-saga
+- [ ] React-router
+- [ ] Node
+- [ ] Mongo
+
+#### Goal:
+
+Multi-page ecommerce app with basic CRUD functionality.
+
+...
+
 ## App EJS-7
 
 #### Tech stack:
 
 - [ ] Node
-- [ ] EJS
 - [ ] Mongo
+- [ ] EJS
 
 #### Goal:
 
@@ -39,8 +74,8 @@ Build an order-your-meal page with multiple interlinked components.
 #### Tech stack:
 
 - [ ] Node
-- [ ] EJS
 - [ ] Mongo
+- [ ] EJS
 
 #### Goal:
 
@@ -51,8 +86,8 @@ Multi-page app, CRUD, Mongoose, Atlas DB, class-based server, modular routes and
 #### Tech stack:
 
 - [ ] Node
-- [ ] EJS
 - [ ] Mongo
+- [ ] EJS
 
 #### Goal:
 
