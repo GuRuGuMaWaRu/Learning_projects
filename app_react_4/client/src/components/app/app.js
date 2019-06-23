@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Journal from "./Journal";
-import CreateEntry from "./CreateEntry";
-import ViewEntry from "./ViewEntry";
-import EditEntry from "./EditEntry";
+import Journal from "../journal/journal";
+import CreateEntry from "../create-entry/create-entry";
+import ViewEntry from "../view-entry/view-entry";
+import EditEntry from "../edit-entry/edit-entry";
 
 function App() {
   return (
