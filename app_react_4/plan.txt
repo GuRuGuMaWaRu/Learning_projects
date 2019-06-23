@@ -7,5 +7,7 @@ TO USE:
 - animated transitions
 - react-redux
 - redux-saga
-- material-ui
+- material-ui 
 - formik
+- add routes error handlers
+- classnames
