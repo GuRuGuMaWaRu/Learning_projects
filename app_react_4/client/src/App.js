@@ -1,24 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Journal from "./Journal";
+import CreateEntry from "./CreateEntry";
+import ViewEntry from "./ViewEntry";
+import EditEntry from "./EditEntry";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Journal</Link>
+            </li>
+            <li>
+              <Link to="/create">Add Entry</Link>
+            </li>
+            <li>
+              <Link to="/view">View Entry</Link>
+            </li>
+            <li>
+              <Link to="/edit">Edit Entry</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Route path="/" exact component={Journal} />
+        <Route path="/create" component={CreateEntry} />
+        <Route path="/view" component={ViewEntry} />
+        <Route path="/edit" component={EditEntry} />
+      </Router>
     </div>
   );
 }
