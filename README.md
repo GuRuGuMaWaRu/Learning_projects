@@ -26,6 +26,8 @@ Basic journalling app - as simple as possible.
 - [ ] React-redux
 - [ ] Redux-saga
 - [ ] React-router
+- [ ] Formik
+- [ ] Axios
 - [ ] Node
 - [ ] Mongo
 
