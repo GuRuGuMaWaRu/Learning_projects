@@ -13,8 +13,8 @@ TO USE:
 - classnames
 
 TASKS:
-- create material-ui form (for adding new journal entries)
-- add formik to this form
++ create material-ui form (for adding new journal entries)
++ add formik to this form
 - create mongoose model for journal entries
 - create route & controller for adding new journal entries
 - connect entry creation form to back-end api
