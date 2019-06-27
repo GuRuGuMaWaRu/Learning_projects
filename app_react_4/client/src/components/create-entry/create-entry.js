@@ -1,11 +1,34 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+  container: {
+    marginTop: "2rem"
+  }
+});
+
+const FormField = ({ field, label, multiline = false }) => (
+  <TextField
+    {...field}
+    label={label}
+    margin="normal"
+    variant="outlined"
+    fullWidth
+    multiline={multiline}
+  />
+);
 
 export default function CreateEntry() {
+  const classes = useStyles();
+
   return (
-    <Container>
-      <h2>Add New Journal Entry</h2>
+    <Container className={classes.container}>
+      <Typography variant="h4">Add New Journal Entry</Typography>
       <Formik
         initialValues={{ title: "", body: "" }}
         validate={values => {
@@ -25,15 +48,28 @@ export default function CreateEntry() {
           }, 1000);
         }}
       >
-        {({ isSubmitting }) => (
+        {props => (
           <Form>
-            <Field type="text" name="title" />
+            <Field
+              name="title"
+              render={({ field }) => <FormField field={field} label="Title" />}
+            />
             <ErrorMessage name="title" component="div" />
-            <Field component="textarea" name="body" />
+            <Field
+              name="body"
+              render={({ field }) => (
+                <FormField field={field} label="Body" multiline={true} />
+              )}
+            />
             <ErrorMessage name="body" component="div" />
-            <button type="submit" disabled={isSubmitting}>
+            <Button
+              variant="outlined"
+              component="span"
+              onClick={props.onSubmit}
+              disabled={props.isSubmitting}
+            >
               Add
-            </button>
+            </Button>
           </Form>
         )}
       </Formik>
