@@ -9,6 +9,9 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles({
   container: {
     marginTop: "2rem"
+  },
+  submitButton: {
+    marginTop: "1rem"
   }
 });
 
@@ -28,7 +31,7 @@ export default function CreateEntry() {
 
   return (
     <Container className={classes.container}>
-      <Typography variant="h4">Add New Journal Entry</Typography>
+      <Typography variant="h4">New Journal Entry</Typography>
       <Formik
         initialValues={{ title: "", body: "" }}
         validate={values => {
@@ -48,7 +51,7 @@ export default function CreateEntry() {
           }, 1000);
         }}
       >
-        {props => (
+        {formikProps => (
           <Form>
             <Field
               name="title"
@@ -63,10 +66,11 @@ export default function CreateEntry() {
             />
             <ErrorMessage name="body" component="div" />
             <Button
+              className={classes.submitButton}
+              type="submit"
               variant="outlined"
-              component="span"
-              onClick={props.onSubmit}
-              disabled={props.isSubmitting}
+              color="secondary"
+              disabled={formikProps.isSubmitting}
             >
               Add
             </Button>
