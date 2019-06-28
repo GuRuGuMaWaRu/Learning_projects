@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Navbar from "../navbar/navbar.container";
 import Journal from "../journal/journal";
-import CreateEntry from "../create-entry/create-entry";
+import CreateEntry from "../create-entry/create-entry.container";
 import ViewEntry from "../view-entry/view-entry";
 import EditEntry from "../edit-entry/edit-entry";
 
