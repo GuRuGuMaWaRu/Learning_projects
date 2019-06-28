@@ -6,7 +6,7 @@ function* handleCreateEntry(action) {
   try {
     const savedEntry = yield call(
       axios.post,
-      "/entry/create",
+      "api/entry/create",
       action.entryData
     );
     yield put(createEntryAction.createEntrySuccess(savedEntry));

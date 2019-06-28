@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
@@ -26,7 +27,7 @@ const FormField = ({ field, label, multiline = false }) => (
   />
 );
 
-export default function CreateEntry() {
+const CreateEntry = ({ createEntry }) => {
   const classes = useStyles();
 
   return (
@@ -44,11 +45,9 @@ export default function CreateEntry() {
           }
           return errors;
         }}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            console.log(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 1000);
+        onSubmit={async (values, { setSubmitting }) => {
+          await createEntry(values);
+          setSubmitting(false);
         }}
       >
         {formikProps => (
@@ -79,4 +78,10 @@ export default function CreateEntry() {
       </Formik>
     </Container>
   );
-}
+};
+
+CreateEntry.propTypes = {
+  createEntry: PropTypes.func.isRequired
+};
+
+export default CreateEntry;
