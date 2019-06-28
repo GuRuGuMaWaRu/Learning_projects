@@ -8,9 +8,13 @@ import CreateEntry from "../create-entry/create-entry";
 import ViewEntry from "../view-entry/view-entry";
 import EditEntry from "../edit-entry/edit-entry";
 
-import configureStore from "../../configureStore";
+import configureStore, { sagaMiddleware } from "../../configureStore";
+
+import { createEntrySaga } from "../../sagas";
 
 const store = configureStore();
+
+sagaMiddleware.run(createEntrySaga);
 
 function App() {
   return (
