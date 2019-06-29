@@ -1,8 +1,8 @@
 import axios from "axios";
-import { put, call, takeLatest } from "redux-saga/effects";
+import { put, call } from "redux-saga/effects";
 import { createEntryAction } from "../actions/index";
 
-function* handleCreateEntry(action) {
+export default function* handleCreateEntry(action) {
   try {
     const { data: createdEntry } = yield call(
       axios.post,
@@ -14,8 +14,4 @@ function* handleCreateEntry(action) {
   } catch (err) {
     yield put(createEntryAction.createEntryFailure(err));
   }
-}
-
-export default function*() {
-  yield takeLatest(createEntryAction.CREATE_ENTRY, handleCreateEntry);
 }

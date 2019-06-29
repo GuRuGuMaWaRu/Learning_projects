@@ -3,18 +3,16 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Navbar from "../navbar/navbar.container";
-import Journal from "../journal/journal";
+import Journal from "../journal/journal.container";
 import CreateEntry from "../create-entry/create-entry.container";
 import ViewEntry from "../view-entry/view-entry";
 import EditEntry from "../edit-entry/edit-entry";
-
 import configureStore, { sagaMiddleware } from "../../configureStore";
-
-import { createEntrySaga } from "../../sagas";
+import rootSaga from "../../sagas";
 
 const store = configureStore();
 
-sagaMiddleware.run(createEntrySaga);
+sagaMiddleware.run(rootSaga);
 
 function App() {
   return (
