@@ -27,7 +27,7 @@ const FormField = ({ field, label, multiline = false }) => (
   />
 );
 
-const CreateEntry = ({ createEntry }) => {
+const CreateEntry = ({ history, createEntry }) => {
   const classes = useStyles();
 
   return (
@@ -46,7 +46,7 @@ const CreateEntry = ({ createEntry }) => {
           return errors;
         }}
         onSubmit={async (values, { setSubmitting }) => {
-          await createEntry(values);
+          await createEntry(values, history);
           setSubmitting(false);
         }}
       >

@@ -4,12 +4,13 @@ import { createEntryAction } from "../actions/index";
 
 function* handleCreateEntry(action) {
   try {
-    const { data: savedEntry } = yield call(
+    const { data: createdEntry } = yield call(
       axios.post,
       "api/entry/create",
       action.entryData
     );
-    yield put(createEntryAction.createEntrySuccess(savedEntry));
+    yield put(createEntryAction.createEntrySuccess(createdEntry));
+    yield action.history.push("/");
   } catch (err) {
     yield put(createEntryAction.createEntryFailure(err));
   }

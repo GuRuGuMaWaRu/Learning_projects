@@ -3,7 +3,8 @@ import CreateEntry from "./create-entry";
 import { createEntryAction } from "../../actions";
 
 const mapDispatchToProps = dispatch => ({
-  createEntry: entryData => dispatch(createEntryAction.createEntry(entryData))
+  createEntry: (entryData, history) =>
+    dispatch(createEntryAction.createEntry(entryData, history))
 });
 
 export default connect(
