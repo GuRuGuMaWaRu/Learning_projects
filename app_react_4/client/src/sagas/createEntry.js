@@ -4,7 +4,7 @@ import { createEntryAction } from "../actions/index";
 
 function* handleCreateEntry(action) {
   try {
-    const savedEntry = yield call(
+    const { data: savedEntry } = yield call(
       axios.post,
       "api/entry/create",
       action.entryData

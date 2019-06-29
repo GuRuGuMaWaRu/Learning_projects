@@ -1,9 +1,11 @@
 const Entry = require("../models/Entry");
 
 module.exports = {
-  create: (req, res) => {
+  create: async (req, res) => {
     const entryData = req.body;
-    console.log(entryData);
-    res.send(entryData);
+
+    const savedEntry = await Entry.create(entryData);
+
+    res.send(savedEntry);
   }
 };

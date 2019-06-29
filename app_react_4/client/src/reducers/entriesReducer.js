@@ -1,11 +1,17 @@
 import { createEntryAction } from "../actions";
 
-const initialState = [];
+const initialState = {
+  entries: [],
+  selectedEntry: null
+};
 
 export default function(state = initialState, action) {
   switch (action.type) {
     case createEntryAction.CREATE_ENTRY_SUCCESS:
-      return [...state, action.createdEntry];
+      return {
+        ...state,
+        entries: [...state.entries, action.createdEntry]
+      };
     default:
       return state;
   }
