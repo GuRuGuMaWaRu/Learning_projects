@@ -14,7 +14,8 @@ const mapStatToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   getEntries: () => dispatch(getEntriesAction.getEntries()),
   getEntry: (id, history) => dispatch(getEntryAction.getEntry(id, history)),
-  deleteEntry: id => dispatch(deleteEntryAction.deleteEntry(id))
+  deleteEntry: (id, history, isJournalPage) =>
+    dispatch(deleteEntryAction.deleteEntry(id, history, isJournalPage))
 });
 
 export default withRouter(

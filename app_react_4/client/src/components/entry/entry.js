@@ -23,9 +23,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Entry = ({ entry }) => {
+const Entry = ({ history, entry, deleteEntry }) => {
   const classes = useStyles();
-
   return (
     <Container className={classes.container}>
       <Typography variant="h4">Entry View</Typography>
@@ -38,7 +37,11 @@ const Entry = ({ entry }) => {
           <Button variant="contained" color="primary">
             Edit
           </Button>
-          <Button variant="contained" color="secondary">
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={() => deleteEntry(entry._id, history)}
+          >
             Delete
           </Button>
         </div>
@@ -53,7 +56,8 @@ Entry.propTypes = {
     title: PropTypes.string.isRequired,
     body: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired
-  })
+  }),
+  deleteEntry: PropTypes.func.isRequired
 };
 
 export default Entry;

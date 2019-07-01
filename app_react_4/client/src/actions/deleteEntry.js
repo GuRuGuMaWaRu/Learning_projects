@@ -2,9 +2,11 @@ const DELETE_ENTRY = "DELETE_ENTRY";
 const DELETE_ENTRY_SUCCESS = "DELETE_ENTRY_SUCCESS";
 const DELETE_ENTRY_FAILURE = "DELETE_ENTRY_FAILURE";
 
-const deleteEntry = id => ({
+const deleteEntry = (id, history, isJournalPage) => ({
   type: DELETE_ENTRY,
-  id
+  id,
+  history,
+  isJournalPage
 });
 
 const deleteEntrySuccess = () => ({
