@@ -4,5 +4,6 @@ const entryController = require("../controllers/entryController");
 
 router.get("/index", entryController.index);
 router.post("/create", entryController.create);
+router.get("/get/:id", entryController.get);
 
 module.exports = router;
