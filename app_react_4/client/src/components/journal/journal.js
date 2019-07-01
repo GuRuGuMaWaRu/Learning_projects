@@ -28,8 +28,19 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const JournalWithStyles = ({ history, entries, getEntry, deleteEntry }) => {
+const JournalWithStyles = ({
+  history,
+  entries,
+  getEntries,
+  getEntry,
+  deleteEntry
+}) => {
   const classes = useStyles();
+
+  const handleDelete = async id => {
+    await deleteEntry(id);
+    await getEntries();
+  };
 
   const entryList = entries.map(entry => (
     <ListItem
@@ -57,7 +68,7 @@ const JournalWithStyles = ({ history, entries, getEntry, deleteEntry }) => {
                 variant="outlined"
                 component="span"
                 color="secondary"
-                onClick={() => deleteEntry(entry._id)}
+                onClick={() => handleDelete(entry._id)}
               >
                 Delete
               </Button>
