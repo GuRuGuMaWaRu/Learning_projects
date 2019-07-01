@@ -11,10 +11,6 @@ const navLinks = [
     path: "/create"
   },
   {
-    name: "View Entry",
-    path: "/view"
-  },
-  {
     name: "Edit Entry",
     path: "/edit"
   }

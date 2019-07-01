@@ -18,10 +18,10 @@ export default function(state = initialState, action) {
         ...state,
         entries: action.entries
       };
-    case getEntryAction.CREATE_ENTRY_SUCCESS:
+    case getEntryAction.GET_ENTRY_SUCCESS:
       return {
         ...state,
-        entry: action.entry
+        selectedEntry: action.entry
       };
     default:
       return state;

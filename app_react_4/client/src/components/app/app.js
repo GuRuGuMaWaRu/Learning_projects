@@ -5,8 +5,9 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "../navbar/navbar.container";
 import Journal from "../journal/journal.container";
 import CreateEntry from "../create-entry/create-entry.container";
-import ViewEntry from "../view-entry/view-entry";
 import EditEntry from "../edit-entry/edit-entry";
+import Entry from "../entry/entry.container";
+
 import configureStore, { sagaMiddleware } from "../../configureStore";
 import rootSaga from "../../sagas";
 
@@ -22,8 +23,8 @@ function App() {
 
         <Route path="/" exact component={Journal} />
         <Route path="/create" component={CreateEntry} />
-        <Route path="/view" component={ViewEntry} />
         <Route path="/edit" component={EditEntry} />
+        <Route path="/entry" component={Entry} />
       </Router>
     </Provider>
   );

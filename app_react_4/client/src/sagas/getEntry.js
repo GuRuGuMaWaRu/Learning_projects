@@ -9,6 +9,7 @@ export default function* handleGetEntry(action) {
       `/api/entry/get/${action.id}`
     );
     yield put(getEntryAction.getEntrySuccess(entry));
+    yield action.history.push("/entry");
   } catch (err) {
     yield put(getEntryAction.getEntryFailure(err));
   }

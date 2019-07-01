@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const JournalWithStyles = ({ entries, getEntry }) => {
+const JournalWithStyles = ({ history, entries, getEntry }) => {
   const classes = useStyles();
 
   const entryList = entries.map(entry => (
@@ -48,7 +48,7 @@ const JournalWithStyles = ({ entries, getEntry }) => {
               className={classes.button}
               variant="outlined"
               component="span"
-              onClick={() => getEntry(entry._id)}
+              onClick={() => getEntry(entry._id, history)}
             >
               More
             </Button>
@@ -72,9 +72,7 @@ class Journal extends React.Component {
   }
 
   render() {
-    const { entries, getEntry } = this.props;
-
-    return <JournalWithStyles entries={entries} getEntry={getEntry} />;
+    return <JournalWithStyles {...this.props} />;
   }
 }
 
