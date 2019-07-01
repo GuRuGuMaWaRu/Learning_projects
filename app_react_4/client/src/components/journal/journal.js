@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const JournalWithStyles = ({ history, entries, getEntry }) => {
+const JournalWithStyles = ({ history, entries, getEntry, deleteEntry }) => {
   const classes = useStyles();
 
   const entryList = entries.map(entry => (
@@ -44,14 +44,24 @@ const JournalWithStyles = ({ history, entries, getEntry }) => {
             <span>
               <b>Title:</b> {entry.title}
             </span>
-            <Button
-              className={classes.button}
-              variant="outlined"
-              component="span"
-              onClick={() => getEntry(entry._id, history)}
-            >
-              More
-            </Button>
+            <span>
+              <Button
+                className={classes.button}
+                variant="outlined"
+                component="span"
+                onClick={() => getEntry(entry._id, history)}
+              >
+                More
+              </Button>
+              <Button
+                variant="outlined"
+                component="span"
+                color="secondary"
+                onClick={() => deleteEntry(entry._id)}
+              >
+                Delete
+              </Button>
+            </span>
           </div>
         }
       />
@@ -86,7 +96,8 @@ Journal.propTypes = {
     })
   ),
   getEntries: PropTypes.func.isRequired,
-  getEntry: PropTypes.func.isRequired
+  getEntry: PropTypes.func.isRequired,
+  deleteEntry: PropTypes.func.isRequired
 };
 
 export default Journal;

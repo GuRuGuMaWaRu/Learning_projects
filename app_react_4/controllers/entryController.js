@@ -19,5 +19,11 @@ module.exports = {
 
     const entry = await Entry.findById(id);
     res.send(entry);
+  },
+  delete: async (req, res) => {
+    const id = req.params.id;
+
+    await Entry.deleteOne({ _id: id });
+    res.send();
   }
 };
