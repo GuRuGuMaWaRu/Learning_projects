@@ -9,7 +9,7 @@ const mapStatToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getEntries: () => dispatch(getEntriesAction.getEntries()),
-  getEntry: id => dispatch(getEntryAction.getEntry(id))
+  getEntry: (id, history) => dispatch(getEntryAction.getEntry(id, history))
 });
 
 export default withRouter(
