@@ -12,14 +12,12 @@ module.exports = {
     const entryData = req.body;
 
     const createdEntry = await Entry.create(entryData);
-
     res.send(createdEntry);
   },
   get: async (req, res) => {
     const id = req.params.id;
 
     const entry = await Entry.findById(id);
-
     res.send(entry);
   }
 };
