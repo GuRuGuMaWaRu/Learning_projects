@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { getEntriesAction } from "../../actions";
+import { getEntriesAction, getEntryAction } from "../../actions";
 import Journal from "./journal";
 
 const mapStatToProps = state => ({
@@ -8,7 +8,8 @@ const mapStatToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getEntries: () => dispatch(getEntriesAction.getEntries())
+  getEntries: () => dispatch(getEntriesAction.getEntries()),
+  getEntry: id => dispatch(getEntryAction.getEntry(id))
 });
 
 export default withRouter(

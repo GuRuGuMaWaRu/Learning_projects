@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const JournalWithStyles = ({ entries }) => {
+const JournalWithStyles = ({ entries, getEntry }) => {
   const classes = useStyles();
 
   const entryList = entries.map(entry => (
@@ -45,9 +45,10 @@ const JournalWithStyles = ({ entries }) => {
               <b>Title:</b> {entry.title}
             </span>
             <Button
+              className={classes.button}
               variant="outlined"
               component="span"
-              className={classes.button}
+              onClick={() => getEntry(entry._id)}
             >
               More
             </Button>
@@ -71,9 +72,9 @@ class Journal extends React.Component {
   }
 
   render() {
-    const { entries } = this.props;
+    const { entries, getEntry } = this.props;
 
-    return <JournalWithStyles entries={entries} />;
+    return <JournalWithStyles entries={entries} getEntry={getEntry} />;
   }
 }
 
@@ -86,7 +87,8 @@ Journal.propTypes = {
       body: PropTypes.string
     })
   ),
-  getEntries: PropTypes.func.isRequired
+  getEntries: PropTypes.func.isRequired,
+  getEntry: PropTypes.func.isRequired
 };
 
 export default Journal;
