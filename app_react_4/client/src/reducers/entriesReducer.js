@@ -1,8 +1,14 @@
 import { getEntriesAction } from "../actions";
+import { getEntryAction } from "../actions";
 
 const initialState = {
   entries: [],
-  selectedEntry: null
+  selectedEntry: {
+    _id: "",
+    title: "",
+    body: "",
+    date: ""
+  }
 };
 
 export default function(state = initialState, action) {
@@ -12,11 +18,11 @@ export default function(state = initialState, action) {
         ...state,
         entries: action.entries
       };
-    // case createEntryAction.CREATE_ENTRY_SUCCESS:
-    //   return {
-    //     ...state,
-    //     entries: [...state.entries, action.createdEntry]
-    //   };
+    case getEntryAction.CREATE_ENTRY_SUCCESS:
+      return {
+        ...state,
+        entry: action.entry
+      };
     default:
       return state;
   }
