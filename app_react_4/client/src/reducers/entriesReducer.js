@@ -1,5 +1,8 @@
-import { getEntriesAction } from "../actions";
-import { getEntryAction } from "../actions";
+import {
+  getEntriesAction,
+  getEntryAction,
+  updateEntryAction
+} from "../actions";
 
 const initialState = {
   entries: [],
@@ -22,6 +25,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         selectedEntry: action.entry
+      };
+    case updateEntryAction.UPDATE_ENTRY_SUCCESS:
+      return {
+        ...state,
+        selectedEntry: action.updatedEntry
       };
     default:
       return state;

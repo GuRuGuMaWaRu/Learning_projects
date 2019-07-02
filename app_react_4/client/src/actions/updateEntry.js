@@ -2,19 +2,19 @@ const UPDATE_ENTRY = "UPDATE_ENTRY";
 const UPDATE_ENTRY_SUCCESS = "UPDATE_ENTRY_SUCCESS";
 const UPDATE_ENTRY_FAILURE = "UPDATE_ENTRY_FAILURE";
 
-const updateEntry = (entry, history) => ({
+const updateEntry = (entryData, history) => ({
   type: UPDATE_ENTRY,
-  entry,
+  entryData,
   history
 });
 
 const updateEntrySuccess = updatedEntry => ({
-  type: UPDATE_ENTRY,
+  type: UPDATE_ENTRY_SUCCESS,
   updatedEntry
 });
 
 const updateEntryFailure = () => ({
-  type: UPDATE_ENTRY
+  type: UPDATE_ENTRY_FAILURE
 });
 
 export default {

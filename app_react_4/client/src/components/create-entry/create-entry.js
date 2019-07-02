@@ -29,7 +29,13 @@ const FormField = ({ field, label, multiline = false }) => (
   />
 );
 
-const CreateEntry = ({ history, entry, createEntry, deleteEntry }) => {
+const CreateEntry = ({
+  history,
+  entry,
+  createEntry,
+  deleteEntry,
+  updateEntry
+}) => {
   const classes = useStyles();
   const isCreationForm = history.location.pathname === "/create";
 
@@ -54,7 +60,11 @@ const CreateEntry = ({ history, entry, createEntry, deleteEntry }) => {
           return errors;
         }}
         onSubmit={async (values, { setSubmitting }) => {
-          await createEntry(values, history);
+          if (isCreationForm) {
+            await createEntry(values, history);
+          } else {
+            await updateEntry({ ...values, _id: entry._id }, history);
+          }
           setSubmitting(false);
         }}
       >
@@ -107,7 +117,8 @@ CreateEntry.propTypes = {
     date: PropTypes.string.isRequired
   }),
   createEntry: PropTypes.func.isRequired,
-  deleteEntry: PropTypes.func.isRequired
+  deleteEntry: PropTypes.func.isRequired,
+  updateEntry: PropTypes.func.isRequired
 };
 
 export default CreateEntry;

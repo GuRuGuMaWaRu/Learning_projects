@@ -20,4 +20,4 @@ TASKS:
 + create entry creation action
 + create entry creation saga
 + return newly created entry and place it inside redux state
-- finish the Entry Edit page
++ finish the Entry Edit page

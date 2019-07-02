@@ -25,5 +25,19 @@ module.exports = {
 
     await Entry.deleteOne({ _id: id });
     res.send();
+  },
+  update: async (req, res) => {
+    const entry = req.body;
+
+    const updatedEntry = await Entry.findOneAndUpdate(
+      { _id: entry._id },
+      {
+        title: entry.title,
+        body: entry.body,
+        date: Date.now()
+      },
+      { new: true }
+    );
+    res.send(updatedEntry);
   }
 };
