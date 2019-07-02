@@ -1,0 +1,23 @@
+MAIN IDEA:
+- simple journal app with entries list, separate page view, create entry form
+
+TO USE:
+(-) mocha for testing server side (mongoose, controllers etc)
+- react-router
+(-) animated transitions
+- react-redux
+- redux-saga
+- material-ui 
+- formik
+(-) add routes error handlers
+(-) classnames
+
+TASKS:
++ create material-ui form (for adding new journal entries)
++ add formik to this form
++ create mongoose model for journal entries
++ create route & controller for adding new journal entries
++ create entry creation action
++ create entry creation saga
++ return newly created entry and place it inside redux state
++ finish the Entry Edit page
