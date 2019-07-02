@@ -2,15 +2,16 @@ MAIN IDEA:
 - simple journal app with entries list, separate page view, create entry form
 
 TO USE:
-(-) mocha for testing server side (mongoose, controllers etc)
 - react-router
-(-) animated transitions
 - react-redux
 - redux-saga
 - material-ui 
 - formik
+(-) animated transitions
 (-) add routes error handlers
 (-) classnames
+(-) mocha for testing server side (mongoose, controllers etc)
+(-) react hooks
 
 TASKS:
 + create material-ui form (for adding new journal entries)
