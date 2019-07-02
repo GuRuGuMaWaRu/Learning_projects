@@ -11,7 +11,9 @@ const useStyles = makeStyles({
   container: {
     marginTop: "2rem"
   },
-  submitButton: {
+  buttons: {
+    display: "flex",
+    justifyContent: "space-between",
     marginTop: "1rem"
   }
 });
@@ -27,14 +29,20 @@ const FormField = ({ field, label, multiline = false }) => (
   />
 );
 
-const CreateEntry = ({ history, createEntry }) => {
+const CreateEntry = ({ history, entry, createEntry }) => {
   const classes = useStyles();
+  const isCreationForm = history.location.pathname === "/create";
 
   return (
     <Container className={classes.container}>
-      <Typography variant="h4">New Journal Entry</Typography>
+      <Typography variant="h4">
+        {isCreationForm ? "New Journal Entry" : "Edit Entry"}
+      </Typography>
       <Formik
-        initialValues={{ title: "", body: "" }}
+        initialValues={{
+          title: isCreationForm ? "" : entry.title,
+          body: isCreationForm ? "" : entry.body
+        }}
         validate={values => {
           let errors = {};
           if (!values.title) {
@@ -64,15 +72,21 @@ const CreateEntry = ({ history, createEntry }) => {
               )}
             />
             <ErrorMessage name="body" component="div" />
-            <Button
-              className={classes.submitButton}
-              type="submit"
-              variant="outlined"
-              color="secondary"
-              disabled={formikProps.isSubmitting}
-            >
-              Add
-            </Button>
+            <div className={classes.buttons}>
+              <Button
+                type="submit"
+                variant="outlined"
+                color="primary"
+                disabled={formikProps.isSubmitting}
+              >
+                {isCreationForm ? "Add" : "Update"}
+              </Button>
+              {!isCreationForm && (
+                <Button variant="outlined" color="secondary">
+                  Delete
+                </Button>
+              )}
+            </div>
           </Form>
         )}
       </Formik>
@@ -81,6 +95,13 @@ const CreateEntry = ({ history, createEntry }) => {
 };
 
 CreateEntry.propTypes = {
+  history: PropTypes.object,
+  entry: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired
+  }),
   createEntry: PropTypes.func.isRequired
 };
 
