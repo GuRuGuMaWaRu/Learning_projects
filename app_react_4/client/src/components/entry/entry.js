@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import moment from "moment";
 import Container from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
@@ -30,6 +31,9 @@ const Entry = ({ history, entry, deleteEntry }) => {
       <Typography variant="h4">Entry View</Typography>
       <Paper className={classes.entry}>
         <Typography variant="h6">{entry.title}</Typography>
+        <Typography className={classes.entryBody} variant="subtitle1">
+          {moment(entry.date).format("DD-MM-YYYY, hh:mm:ss")}
+        </Typography>
         <Typography className={classes.entryBody} variant="body1">
           {entry.body}
         </Typography>
