@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
+import { Link } from "react-router-dom";
 import Container from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
@@ -21,6 +22,10 @@ const useStyles = makeStyles(theme => ({
   buttons: {
     display: "flex",
     justifyContent: "space-between"
+  },
+  editButton: {
+    color: "inherit",
+    textDecoration: "none"
   }
 }));
 
@@ -39,7 +44,9 @@ const Entry = ({ history, entry, deleteEntry }) => {
         </Typography>
         <div className={classes.buttons}>
           <Button variant="contained" color="primary">
-            Edit
+            <Link className={classes.editButton} to="/edit">
+              Edit
+            </Link>
           </Button>
           <Button
             variant="contained"
