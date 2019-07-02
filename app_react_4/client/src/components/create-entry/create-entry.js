@@ -29,7 +29,7 @@ const FormField = ({ field, label, multiline = false }) => (
   />
 );
 
-const CreateEntry = ({ history, entry, createEntry }) => {
+const CreateEntry = ({ history, entry, createEntry, deleteEntry }) => {
   const classes = useStyles();
   const isCreationForm = history.location.pathname === "/create";
 
@@ -82,7 +82,11 @@ const CreateEntry = ({ history, entry, createEntry }) => {
                 {isCreationForm ? "Add" : "Update"}
               </Button>
               {!isCreationForm && (
-                <Button variant="outlined" color="secondary">
+                <Button
+                  variant="outlined"
+                  color="secondary"
+                  onClick={() => deleteEntry(entry._id, history, false)}
+                >
                   Delete
                 </Button>
               )}
@@ -102,7 +106,8 @@ CreateEntry.propTypes = {
     body: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired
   }),
-  createEntry: PropTypes.func.isRequired
+  createEntry: PropTypes.func.isRequired,
+  deleteEntry: PropTypes.func.isRequired
 };
 
 export default CreateEntry;
