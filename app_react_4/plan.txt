@@ -19,4 +19,5 @@ TASKS:
 + create route & controller for adding new journal entries
 + create entry creation action
 + create entry creation saga
-- return newly created entry and place it inside redux state
++ return newly created entry and place it inside redux state
+- finish the Entry Edit page
