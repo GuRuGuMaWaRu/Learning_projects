@@ -1,0 +1,12 @@
+[] - write CRUD tests
+[] - write corresponding controllers
+[] - setup basic react app
+[] - add redux store
+[] - add react-router
+[] - add main pages
+[] - create main actions
+[] - create reducer
+[] - create sagas
+[] - write Cafe creation page
+[] - attach Cafe creation page to all functionality
+[] - write Cafe index page
