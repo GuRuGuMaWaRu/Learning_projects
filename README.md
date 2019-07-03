@@ -1,6 +1,39 @@
 # Collection of learning projects
 
+## App React-5
+
+#### Tech stack:
+
+- [ ] React
+- [ ] React-redux
+- [ ] Redux-saga
+- [ ] React-router
+- [ ] Formik
+- [ ] Axios
+- [ ] Node
+- [ ] Mongo
+- [ ] Server-side Mocha tests for all end-points
+
+#### Goal:
+
+Multi-page app with basic CRUD functionality. This time with Mocha test (test-driven development).
+
 ## App React-4
+
+#### Tech stack:
+
+- [ ] React
+- [ ] React-redux
+- [ ] Redux-saga
+- [ ] React-router
+- [ ] Formik
+- [ ] Axios
+- [ ] Node
+- [ ] Mongo
+
+#### Goal:
+
+Multi-page app with basic CRUD functionality.
 
 ...
 
