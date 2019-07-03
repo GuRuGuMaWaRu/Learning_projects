@@ -1,17 +1,17 @@
 module.exports = app => {
-  app.get("/cafe/index", (req, res) => {
+  app.get("/api/cafes", (req, res) => {
     res.send("index");
   });
-  app.post("/cafe/create", (req, res) => {
+  app.post("/api/cafes", (req, res) => {
     res.send("create");
   });
-  app.get("/cafe/read", (req, res) => {
+  app.get("/api/cafes/read", (req, res) => {
     res.send("read");
   });
-  app.put("/cafe/update", (req, res) => {
+  app.put("/api/cafes/:id", (req, res) => {
     res.send("update");
   });
-  app.delete("/cafe/delete", (req, res) => {
+  app.delete("/api/cafes/:id", (req, res) => {
     res.send("delete");
   });
 };
