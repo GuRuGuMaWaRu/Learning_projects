@@ -1,17 +1,9 @@
+const cafeController = require("../controllers/cafe_controller");
+
 module.exports = app => {
-  app.get("/api/cafes", (req, res) => {
-    res.send("index");
-  });
-  app.post("/api/cafes", (req, res) => {
-    res.send("create");
-  });
-  app.get("/api/cafes/:id", (req, res) => {
-    res.send("read");
-  });
-  app.put("/api/cafes/:id", (req, res) => {
-    res.send("update");
-  });
-  app.delete("/api/cafes/:id", (req, res) => {
-    res.send("delete");
-  });
+  app.get("/api/cafes", cafeController.index);
+  app.post("/api/cafes", cafeController.create);
+  app.get("/api/cafes/:id", cafeController.read);
+  app.put("/api/cafes/:id", cafeController.update);
+  app.delete("/api/cafes/:id", cafeController.delete);
 };
