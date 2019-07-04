@@ -17,8 +17,16 @@ describe("Cafe controller", () => {
         });
       });
   });
-  it("GET request to /api/cafes loads all existing cafes", done => {});
-  it("GET request to /api/cafes/:id loads a particular cafe", done => {});
-  it("PUT request to /api/cafes/:id updates a particular cafe", done => {});
-  it("DELETE request to /api/cafes/:id deletes a particular cafe", done => {});
+  xit("GET request to /api/cafes loads all existing cafes", done => {
+    done();
+  });
+  xit("GET request to /api/cafes/:id loads a particular cafe", done => {
+    done();
+  });
+  xit("PUT request to /api/cafes/:id updates a particular cafe", done => {
+    done();
+  });
+  xit("DELETE request to /api/cafes/:id deletes a particular cafe", done => {
+    done();
+  });
 });
