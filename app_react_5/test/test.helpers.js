@@ -11,7 +11,7 @@ before(done => {
 });
 
 beforeEach(done => {
-  Cafe.remove().then(() => {
+  Cafe.deleteMany().then(() => {
     done();
   });
 });
