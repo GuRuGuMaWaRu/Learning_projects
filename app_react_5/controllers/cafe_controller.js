@@ -17,8 +17,11 @@ module.exports = {
 
     res.send();
   },
-  read: (req, res, next) => {
-    res.send();
+  read: async (req, res, next) => {
+    const id = req.params.id;
+
+    const cafe = await Cafe.findOne({ _id: id });
+    res.send(cafe);
   },
   update: (req, res, next) => {
     res.send();

@@ -8,7 +8,7 @@ describe("Cafe controller", () => {
   it("POST request to /api/cafes creates a new cafe", done => {
     request(app)
       .post("/api/cafes")
-      .send({ title: "Cafe 1", description: "Good cafe" })
+      .send({ title: "Cafe 1", description: "POST request" })
       .end(() => {
         Cafe.find().then(cafes => {
           assert(cafes.length === 1);
@@ -18,7 +18,10 @@ describe("Cafe controller", () => {
       });
   });
   it("GET request to /api/cafes loads all existing cafes", done => {
-    const cafe = new Cafe({ title: "Cafe 1", description: "Good cafe" });
+    const cafe = new Cafe({
+      title: "Cafe 1",
+      description: "GET request INDEX"
+    });
 
     cafe.save().then(() => {
       request(app)
@@ -30,8 +33,18 @@ describe("Cafe controller", () => {
         });
     });
   });
-  xit("GET request to /api/cafes/:id loads a particular cafe", done => {
-    done();
+  it("GET request to /api/cafes/:id loads a particular cafe", done => {
+    const cafe2 = new Cafe({ title: "Cafe 2", description: "GET request" });
+
+    cafe2.save().then(() => {
+      request(app)
+        .get(`/api/cafes/${cafe2._id}`)
+        .end((err, response) => {
+          assert(response.body.title === "Cafe 2");
+          assert(response.body.description === "GET request");
+          done();
+        });
+    });
   });
   xit("PUT request to /api/cafes/:id updates a particular cafe", done => {
     done();
