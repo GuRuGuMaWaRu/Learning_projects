@@ -17,8 +17,18 @@ describe("Cafe controller", () => {
         });
       });
   });
-  xit("GET request to /api/cafes loads all existing cafes", done => {
-    done();
+  it("GET request to /api/cafes loads all existing cafes", done => {
+    const cafe = new Cafe({ title: "Cafe 1", description: "Good cafe" });
+
+    cafe.save().then(() => {
+      request(app)
+        .get("/api/cafes")
+        .end((err, response) => {
+          assert(response.body.length === 1);
+          assert(response.body[0].title === "Cafe 1");
+          done();
+        });
+    });
   });
   xit("GET request to /api/cafes/:id loads a particular cafe", done => {
     done();
