@@ -4,7 +4,15 @@ module.exports = {
   index: (req, res, next) => {
     res.send();
   },
-  create: (req, res, next) => {
+  create: async (req, res, next) => {
+    const cafeData = req.body;
+
+    try {
+      await Cafe.create(cafeData);
+    } catch (err) {
+      next(err);
+    }
+
     res.send();
   },
   read: (req, res, next) => {
