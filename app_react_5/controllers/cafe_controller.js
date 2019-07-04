@@ -1,8 +1,10 @@
 const Cafe = require("../models/Cafe");
 
 module.exports = {
-  index: (req, res, next) => {
-    res.send();
+  index: async (req, res, next) => {
+    const cafes = await Cafe.find();
+
+    res.send(cafes);
   },
   create: async (req, res, next) => {
     const cafeData = req.body;
