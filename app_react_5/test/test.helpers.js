@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Cafe = mongoose.model("cafe");
 
 before(done => {
   mongoose.connect("mongodb://localhost/app_react_5_test", {
@@ -10,10 +11,11 @@ before(done => {
 });
 
 beforeEach(done => {
-  const { cafes } = mongoose.connection.collections;
+  Cafe.remove().then(() => {
+    done();
+  });
+});
 
-  cafes
-    .drop()
-    .then(() => done())
-    .catch(() => done());
+after(done => {
+  mongoose.connection.close(() => done());
 });
