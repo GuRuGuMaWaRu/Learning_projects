@@ -5,7 +5,7 @@ module.exports = app => {
   app.post("/api/cafes", (req, res) => {
     res.send("create");
   });
-  app.get("/api/cafes/read", (req, res) => {
+  app.get("/api/cafes/:id", (req, res) => {
     res.send("read");
   });
   app.put("/api/cafes/:id", (req, res) => {
