@@ -29,8 +29,19 @@ module.exports = {
     const cafe = await Cafe.findOne({ _id: id });
     res.send(cafe);
   },
-  update: (req, res, next) => {
-    res.send();
+  update: async (req, res, next) => {
+    const cafeData = req.body;
+
+    const updatedCafe = await Cafe.findByIdAndUpdate(
+      cafeData.id,
+      {
+        title: req.body.title,
+        description: req.body.description
+      },
+      { new: true }
+    );
+
+    res.send(updatedCafe);
   },
   delete: (req, res, next) => {
     res.send();

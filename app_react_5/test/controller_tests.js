@@ -60,8 +60,8 @@ describe("Cafe controller", () => {
     Cafe.create({ title: "Cafe 4", description: "PUT request" }).then(
       newCafe => {
         request(app)
-          .put(`/api/cafes/${newCafe._id}`)
-          .send({ title: "Cafe 44" })
+          .put(`/api/cafes`)
+          .send({ id: newCafe._id, title: "Cafe 44" })
           .expect(200)
           .end((err, res) => {
             console.log("PUT, title: ", res.body.title);
