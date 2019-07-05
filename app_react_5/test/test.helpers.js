@@ -14,9 +14,7 @@ beforeEach(done => {
 
   caves
     .drop()
-    .then(() => {
-      done();
-    })
+    .then(() => done())
     .catch(() => done());
 });
 

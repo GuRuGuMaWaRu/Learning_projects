@@ -47,6 +47,17 @@ describe("Cafe controller", () => {
     });
   });
   xit("PUT request to /api/cafes/:id updates a particular cafe", done => {
+    const cafe3 = new Cafe({ title: "Cafe 3", description: "PUT request" });
+
+    cafe3.save().then(() => {
+      request(app)
+        .put(`/api/cafes/${cafe3._id}`)
+        .send({ title: "Cafe 33" })
+        .end((err, response) => {
+          assert(response.body.title === "Cafe 33");
+          done();
+        });
+    });
     done();
   });
   xit("DELETE request to /api/cafes/:id deletes a particular cafe", done => {
