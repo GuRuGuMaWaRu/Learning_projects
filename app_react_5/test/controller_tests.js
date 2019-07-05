@@ -72,7 +72,23 @@ describe("Cafe controller", () => {
     );
   });
 
-  xit("should delete the required cafe on DELETE request to /api/cafes/:id", done => {
+  it("should delete the required cafe on DELETE request to /api/cafes/:id", done => {
+    Cafe.create({ title: "Cafe 5", description: "DELETE request" }).then(
+      newCafe => {
+        Cafe.countDocuments().then(count => {
+          request(app)
+            .delete(`/api/cafes/${newCafe._id}`)
+            .expect(200)
+            .end((err, res) => {
+              Cafe.countDocuments().then(newCount => {
+                assert(newCount === count - 1);
+                done();
+              });
+            });
+        });
+      }
+    );
+
     done();
   });
 });
