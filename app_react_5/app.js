@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 require("./routes")(app);
 
 app.use((err, req, res, next) => {
-  res.status(422).send({ error: err.message });
+  res.status(422).send({ Warning: err.message });
 });
 
 module.exports = app;

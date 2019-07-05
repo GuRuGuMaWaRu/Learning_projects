@@ -2,7 +2,13 @@ const Cafe = require("../models/Cafe");
 
 module.exports = {
   index: async (req, res, next) => {
-    const cafes = await Cafe.find();
+    let cafes = null;
+
+    try {
+      cafes = await Cafe.find();
+    } catch (err) {
+      next(err);
+    }
 
     res.send(cafes);
   },
