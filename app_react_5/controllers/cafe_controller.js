@@ -43,7 +43,11 @@ module.exports = {
 
     res.send(updatedCafe);
   },
-  delete: (req, res, next) => {
+  delete: async (req, res, next) => {
+    const id = req.params.id;
+
+    await Cafe.deleteOne({ _id: id });
+
     res.send();
   }
 };

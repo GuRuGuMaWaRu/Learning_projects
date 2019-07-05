@@ -12,7 +12,6 @@ describe("Cafe controller", () => {
       .expect(200)
       .end(() => {
         Cafe.findOne({ title: "Cafe 1" }).then(cafe => {
-          console.log("POST, title:", cafe.title);
           assert(cafe.title === "Cafe 1");
           done();
         });
@@ -29,9 +28,7 @@ describe("Cafe controller", () => {
           .get("/api/cafes")
           .expect(200)
           .end((err, res) => {
-            console.log("GET INDEX, count: ", count);
             Cafe.countDocuments().then(newCount => {
-              console.log("GET INDEX, newCount: ", newCount);
               assert(newCount === count + 1);
               done();
             });
@@ -47,7 +44,6 @@ describe("Cafe controller", () => {
           .get(`/api/cafes/${newCafe._id}`)
           .expect(200)
           .end((err, res) => {
-            console.log("GET, title: ", res.body.title);
             assert(res.body.title === "Cafe 3");
             assert(res.body.description === "GET request");
             done();
@@ -64,7 +60,6 @@ describe("Cafe controller", () => {
           .send({ id: newCafe._id, title: "Cafe 44" })
           .expect(200)
           .end((err, res) => {
-            console.log("PUT, title: ", res.body.title);
             assert(res.body.title === "Cafe 44");
             done();
           });
