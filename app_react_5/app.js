@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-require("dotenv").config();
+require("dotenv").config({ path: "process.env" });
 
 const app = express();
 
@@ -10,10 +10,7 @@ const app = express();
 mongoose.set("useFindAndModify", false);
 
 if (process.env.NODE_ENV !== "test") {
-  mongoose.connect(
-    "mongodb+srv://GuRuGu:i44iYtewBM21noYb@cluster0-z8edg.mongodb.net/app_react_5",
-    { useNewUrlParser: true }
-  );
+  mongoose.connect(process.env.DB, { useNewUrlParser: true });
 }
 
 app.set("port", process.env.PORT || 5000);
