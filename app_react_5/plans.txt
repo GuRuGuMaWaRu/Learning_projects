@@ -1,7 +1,7 @@
 [+] - write CRUD tests
 [+] - write corresponding controllers
 [+] - setup basic react app
-[] - make server and client work together
+[+] - make server and client work together
 [] - client: add redux store
 [] - client: add react-router
 [] - client: add main pages
