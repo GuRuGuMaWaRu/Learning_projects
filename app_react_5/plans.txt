@@ -1,5 +1,5 @@
-[] - write CRUD tests
-[] - write corresponding controllers
+[+] - write CRUD tests
+[+] - write corresponding controllers
 [] - setup basic react app
 [] - add redux store
 [] - add react-router
