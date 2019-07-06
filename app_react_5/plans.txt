@@ -3,13 +3,12 @@
 [+] - setup basic react app
 [+] - make server and client work together
 [+] - client: add redux store
-[] - client: add react-router
-[] - client: install material-ui
-[] - client: apply material-ui to create navigation
-[] - client: add main pages
+[+] - client: add react-router
+[+] - client: install material-ui
+[+] - client: apply material-ui to create navigation
+[] - client: write Cafe creation page
+[] - client: write action-saga-reducer-container for Cafe creation page
 [] - client: create main actions
 [] - client: create reducer
 [] - client: create sagas
-[] - client: write Cafe creation page
-[] - client: attach Cafe creation page to all functionality
 [] - client: write Cafe index page
