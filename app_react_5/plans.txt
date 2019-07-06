@@ -1,12 +1,13 @@
 [+] - write CRUD tests
 [+] - write corresponding controllers
-[] - setup basic react app
-[] - add redux store
-[] - add react-router
-[] - add main pages
-[] - create main actions
-[] - create reducer
-[] - create sagas
-[] - write Cafe creation page
-[] - attach Cafe creation page to all functionality
-[] - write Cafe index page
+[+] - setup basic react app
+[] - make server and client work together
+[] - client: add redux store
+[] - client: add react-router
+[] - client: add main pages
+[] - client: create main actions
+[] - client: create reducer
+[] - client: create sagas
+[] - client: write Cafe creation page
+[] - client: attach Cafe creation page to all functionality
+[] - client: write Cafe index page
