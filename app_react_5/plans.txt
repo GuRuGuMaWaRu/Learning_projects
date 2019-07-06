@@ -2,8 +2,10 @@
 [+] - write corresponding controllers
 [+] - setup basic react app
 [+] - make server and client work together
-[] - client: add redux store
+[+] - client: add redux store
 [] - client: add react-router
+[] - client: install material-ui
+[] - client: apply material-ui to create navigation
 [] - client: add main pages
 [] - client: create main actions
 [] - client: create reducer
