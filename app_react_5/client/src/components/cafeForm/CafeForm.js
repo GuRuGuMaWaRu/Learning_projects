@@ -10,6 +10,9 @@ import InputLabel from "@material-ui/core/InputLabel";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 
 const useStyles = makeStyles({
+  form: {
+    marginTop: "2rem"
+  },
   formControl: {
     margin: ".7rem 0"
   },
@@ -49,7 +52,7 @@ const CafeForm = () => {
           }, 1000);
         }}
         render={props => (
-          <Form>
+          <Form className={classes.form}>
             <FormControl
               className={classes.formControl}
               variant="outlined"
