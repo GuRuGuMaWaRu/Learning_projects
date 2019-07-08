@@ -4,15 +4,12 @@ import * as Yup from "yup";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import FilledInput from "@material-ui/core/FilledInput";
 import FormControl from "@material-ui/core/FormControl";
 import FormHelperText from "@material-ui/core/FormHelperText";
-import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   container: {
     display: "flex",
     flexWrap: "wrap"
@@ -23,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   button: {
     marginTop: ".7rem"
   }
-}));
+});
 
 const creationSchema = Yup.object().shape({
   title: Yup.string()
