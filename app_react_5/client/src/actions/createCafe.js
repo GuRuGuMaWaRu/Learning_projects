@@ -2,9 +2,10 @@ const CREATE_CAFE = "CREATE_CAFE";
 const CREATE_CAFE_SUCCESS = "CREATE_CAFE_SUCCESS";
 const CREATE_CAFE_FAILURE = "CREATE_CAFE_FAILURE";
 
-const createCafe = data => ({
+const createCafe = (data, history) => ({
   type: CREATE_CAFE,
-  data
+  data,
+  history
 });
 
 const createCafeSuccess = () => ({

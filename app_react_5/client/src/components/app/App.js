@@ -24,6 +24,7 @@ const App = () => {
             <Switch>
               <Route exact path="/" component={CafeList} />
               <Route path="/create" component={CafeForm} />
+              <Route path="/edit" component={CafeForm} />
               <Route render={() => <div>Not Found</div>} />
             </Switch>
           </Container>

@@ -2,9 +2,11 @@ const DELETE_CAFE = "DELETE_CAFE";
 const DELETE_CAFE_SUCCESS = "DELETE_CAFE_SUCCESS";
 const DELETE_CAFE_FAILURE = "DELETE_CAFE_FAILURE";
 
-const deleteCafe = id => ({
+const deleteCafe = (id, isCafePage, history) => ({
   type: DELETE_CAFE,
-  id
+  id,
+  isCafePage,
+  history
 });
 
 const deleteCafeSuccess = () => ({

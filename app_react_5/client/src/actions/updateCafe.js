@@ -2,9 +2,10 @@ const UPDATE_CAFE = "UPDATE_CAFE";
 const UPDATE_CAFE_SUCCESS = "UPDATE_CAFE_SUCCESS";
 const UPDATE_CAFE_FAILURE = "UPDATE_CAFE_FAILURE";
 
-const updateCafe = data => ({
+const updateCafe = (data, history) => ({
   type: UPDATE_CAFE,
-  data
+  data,
+  history
 });
 
 const updateCafeSuccess = () => ({

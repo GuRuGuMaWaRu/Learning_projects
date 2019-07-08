@@ -2,9 +2,10 @@ const GET_CAFE = "GET_CAFE";
 const GET_CAFE_SUCCESS = "GET_CAFE_SUCCESS";
 const GET_CAFE_FAILURE = "GET_CAFE_FAILURE";
 
-const getCafe = id => ({
+const getCafe = (id, history) => ({
   type: GET_CAFE,
-  id
+  id,
+  history
 });
 
 const getCafeSuccess = cafe => ({
