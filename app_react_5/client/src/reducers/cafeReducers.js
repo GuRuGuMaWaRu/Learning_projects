@@ -2,7 +2,10 @@ import { getCafesAction, getCafeAction } from "../actions";
 
 const INIT_STATE = {
   allCafes: [],
-  selectedCafe: {}
+  selectedCafe: {
+    title: "",
+    description: ""
+  }
 };
 
 const cafeReducer = (state = INIT_STATE, action) => {

@@ -13,7 +13,7 @@ CLIENT
 [+] - write Cafe List page
 [+] - write all actions
 [+] - write all sagas
-[] - ensure reducers work correctly
+[+] - ensure reducers work correctly
 [] - write container for Cafe Creation page
 [] - write container for Cafe List page
 [] - write container for Cafe Details page
