@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { Navbar } from "../navigation";
+import { CafeList } from "../cafeList";
 import { CafeForm } from "../cafeForm";
 
 const useStyles = makeStyles({
@@ -19,13 +20,9 @@ const App = () => {
       <Router>
         <Navbar />
         <main>
-          <Container className={classes.main} maxWidth="sm">
+          <Container className={classes.main} maxWidth="lg">
             <Switch>
-              <Route
-                exact
-                path="/"
-                render={() => <div>List of all cafes</div>}
-              />
+              <Route exact path="/" component={CafeList} />
               <Route path="/create" component={CafeForm} />
               <Route render={() => <div>Not Found</div>} />
             </Switch>
