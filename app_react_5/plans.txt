@@ -11,11 +11,10 @@ CLIENT
 [+] - apply material-ui to create navigation
 [+] - write Cafe Creation page
 [+] - write Cafe List page
-[] - write Cafe Details page
-[] - use Cafe Creation page also as Edit Cafe page
-[] - write all actions
+[+] - write all actions
 [] - write all sagas
 [] - ensure reducers work correctly
 [] - write container for Cafe Creation page
 [] - write container for Cafe List page
 [] - write container for Cafe Details page
+[] - use Cafe Creation page also as Edit Cafe page
