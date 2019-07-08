@@ -10,10 +10,6 @@ import InputLabel from "@material-ui/core/InputLabel";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 
 const useStyles = makeStyles({
-  container: {
-    display: "flex",
-    flexWrap: "wrap"
-  },
   formControl: {
     margin: ".7rem 0"
   },
