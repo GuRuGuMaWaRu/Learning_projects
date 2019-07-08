@@ -80,7 +80,9 @@ const CafeForm = () => {
               <ErrorMessage
                 name="title"
                 render={msg => (
-                  <FormHelperText id="error-text">{msg}</FormHelperText>
+                  <FormHelperText id="error-text" variant="outlined" error>
+                    {msg}
+                  </FormHelperText>
                 )}
               />
             </FormControl>
@@ -108,7 +110,9 @@ const CafeForm = () => {
               <ErrorMessage
                 name="description"
                 render={msg => (
-                  <FormHelperText id="error-text">{msg}</FormHelperText>
+                  <FormHelperText id="error-text" variant="outlined" error>
+                    {msg}
+                  </FormHelperText>
                 )}
               />
             </FormControl>
