@@ -42,7 +42,7 @@ const CafeCard = ({ item }) => {
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          Learn More
+          Edit
         </Button>
         <Button size="small" color="secondary">
           Delete

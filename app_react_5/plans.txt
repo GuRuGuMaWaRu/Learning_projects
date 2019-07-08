@@ -10,7 +10,7 @@ CLIENT
 [+] - install material-ui
 [+] - apply material-ui to create navigation
 [+] - write Cafe Creation page
-[] - write Cafe List page
+[+] - write Cafe List page
 [] - write Cafe Details page
 [] - use Cafe Creation page also as Edit Cafe page
 [] - write all actions
