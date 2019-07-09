@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   }
 });
 
-const CafeCard = ({ item }) => {
+const CafeCard = ({ cafe, handleDelete, handleEdit }) => {
   const classes = useStyles();
 
   return (
@@ -28,23 +28,24 @@ const CafeCard = ({ item }) => {
         <CardMedia
           className={classes.media}
           image="https://picsum.photos/345/140"
-          title={item}
+          title={cafe.title}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            {item}
+            {cafe.title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {item} is a widespread group of squamate vegetables, with over 6,000
-            species, ranging across all continents except Antarctica
+            {cafe.description} is a widespread group of squamate vegetables,
+            with over 6,000 species, ranging across all continents except
+            Antarctica
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" onClick={handleEdit}>
           Edit
         </Button>
-        <Button size="small" color="secondary">
+        <Button size="small" color="secondary" onClick={handleDelete}>
           Delete
         </Button>
       </CardActions>
@@ -53,7 +54,12 @@ const CafeCard = ({ item }) => {
 };
 
 CafeCard.propTypes = {
-  item: PropTypes.string.isRequired
+  cafe: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired
+  }),
+  handleEdit: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired
 };
 
 export default CafeCard;

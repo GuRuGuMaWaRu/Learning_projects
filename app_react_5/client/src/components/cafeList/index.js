@@ -1,1 +1,1 @@
-export { default as CafeList } from "./CafeList";
+export { default as CafeList } from "./CafeList.container";
