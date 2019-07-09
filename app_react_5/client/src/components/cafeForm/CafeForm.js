@@ -54,9 +54,9 @@ const CafeForm = ({ history, cafe, createCafe, deleteCafe, updateCafe }) => {
         validationSchema={creationSchema}
         onSubmit={async (values, actions) => {
           if (isCreationForm) {
-            await createCafe(values);
+            await createCafe(values, history);
           } else {
-            await updateCafe({ ...values, id: cafe._id });
+            await updateCafe({ ...values, id: cafe._id }, history);
           }
 
           actions.setSubmitting(false);
@@ -136,7 +136,7 @@ const CafeForm = ({ history, cafe, createCafe, deleteCafe, updateCafe }) => {
                 variant="outlined"
                 color="primary"
                 type="submit"
-                onClick={() => deleteCafe(cafe._id)}
+                onClick={() => deleteCafe(cafe._id, history)}
               >
                 Delete
               </Button>
