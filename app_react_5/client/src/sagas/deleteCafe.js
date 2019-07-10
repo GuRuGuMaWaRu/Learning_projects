@@ -4,7 +4,7 @@ import { deleteCafeAction, getCafesAction } from "../actions";
 
 export default function*(action) {
   try {
-    yield call(axios.delete, "api/cafes/" + action.id);
+    yield call(axios.delete, `api/cafes/${action.id}`);
     yield put(deleteCafeAction.deleteCafeSuccess());
 
     if (action.isCafePage) {

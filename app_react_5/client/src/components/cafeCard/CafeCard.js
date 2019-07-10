@@ -35,9 +35,7 @@ const CafeCard = ({ cafe, handleDelete, handleEdit }) => {
             {cafe.title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {cafe.description} is a widespread group of squamate vegetables,
-            with over 6,000 species, ranging across all continents except
-            Antarctica
+            {cafe.description}
           </Typography>
         </CardContent>
       </CardActionArea>

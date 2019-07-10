@@ -4,7 +4,7 @@ import { updateCafeAction } from "../actions";
 
 export default function*(action) {
   try {
-    yield call(axios.put, "api/cafe", action.data);
+    yield call(axios.put, "api/cafes", action.data);
     yield put(updateCafeAction.updateCafeSuccess());
     yield action.history.push("/");
   } catch (err) {
