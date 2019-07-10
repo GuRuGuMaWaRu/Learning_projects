@@ -2,25 +2,26 @@
 
 ## App React-5
 
-#### Tech stack:
+#### Tech Stack:
 
-- [ ] React
+- [ ] React (with hooks)
 - [ ] React-redux
 - [ ] Redux-saga
 - [ ] React-router
 - [ ] Formik
+- [ ] Yup
 - [ ] Axios
 - [ ] Node
 - [ ] Mongo
 - [ ] Server-side Mocha tests for all end-points
 
-#### Goal:
+#### Goal & Results:
 
-Multi-page app with basic CRUD functionality. This time with Mocha test (test-driven development).
+Multi-page app with basic CRUD functionality. This time with Mocha test (test-driven development) and staggered animation for the list of items.
 
 ## App React-4
 
-#### Tech stack:
+#### Tech Stack:
 
 - [ ] React
 - [ ] React-redux
@@ -39,7 +40,7 @@ Multi-page app with basic CRUD functionality.
 
 ## App EJS-8
 
-#### Tech stack:
+#### Tech Stack:
 
 - [ ] Node
 - [ ] Mongo
@@ -53,7 +54,7 @@ Basic journalling app - as simple as possible.
 
 ## App React-3
 
-#### Tech stack:
+#### Tech Stack:
 
 - [ ] React
 - [ ] React-redux
@@ -72,7 +73,7 @@ Multi-page ecommerce app with basic CRUD functionality.
 
 ## App EJS-7
 
-#### Tech stack:
+#### Tech Stack:
 
 - [ ] Node
 - [ ] Mongo
@@ -84,7 +85,7 @@ Multi-page basic ecommerce app, CRUD, Mongoose, Atlas DB, class-based server, mo
 
 ## App React-2
 
-#### Tech stack:
+#### Tech Stack:
 
 - [ ] React
 - [ ] React Context
@@ -96,7 +97,7 @@ in different components when currency is selected via Currency Selector.
 
 ## App React-1
 
-#### Tech stack:
+#### Tech Stack:
 
 - [ ] React
 
@@ -106,7 +107,7 @@ Build an order-your-meal page with multiple interlinked components.
 
 ## App EJS-6
 
-#### Tech stack:
+#### Tech Stack:
 
 - [ ] Node
 - [ ] Mongo
@@ -118,7 +119,7 @@ Multi-page app, CRUD, Mongoose, Atlas DB, class-based server, modular routes and
 
 ## App EJS-5
 
-#### Tech stack:
+#### Tech Stack:
 
 - [ ] Node
 - [ ] Mongo
