@@ -19,9 +19,10 @@ const CafeList = ({ history, cafes, getCafes, getCafe, deleteCafe }) => {
   }, []);
 
   const classes = useStyles();
-  const list = cafes.map(cafe => (
+  const list = cafes.map((cafe, index) => (
     <CafeCard
       key={cafe._id}
+      index={index}
       cafe={{ title: cafe.title, description: cafe.description }}
       handleEdit={() => getCafe(cafe._id, history)}
       handleDelete={() => deleteCafe(cafe._id, false)}

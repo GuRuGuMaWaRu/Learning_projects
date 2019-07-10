@@ -10,17 +10,31 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
+  "@keyframes stagger": {
+    "0%": {
+      opacity: 0
+    },
+    "100%": {
+      opacity: 1
+    }
+  },
   card: {
     maxWidth: 345,
-    margin: "1rem 1rem 0 0"
+    margin: "1rem 1rem 0 0",
+    animationName: "$stagger",
+    animationDuration: "350ms",
+    animationDelay: props => `calc(${props.index} * 100ms)`,
+    animationFillMode: "both",
+    animationTimingFunction: "ease-in-out"
   },
   media: {
     height: 140
   }
 });
 
-const CafeCard = ({ cafe, handleDelete, handleEdit }) => {
-  const classes = useStyles();
+const CafeCard = ({ cafe, index, handleDelete, handleEdit }) => {
+  const props = { index };
+  const classes = useStyles(props);
 
   return (
     <Card className={classes.card}>
@@ -56,6 +70,7 @@ CafeCard.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired
   }),
+  index: PropTypes.number.isRequired,
   handleEdit: PropTypes.func.isRequired,
   handleDelete: PropTypes.func.isRequired
 };
