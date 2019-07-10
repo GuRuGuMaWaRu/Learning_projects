@@ -1,0 +1,21 @@
+SERVER
+[+] - write CRUD tests
+[+] - write corresponding controllers
+[+] - setup basic react app
+[+] - make server and client work together
+
+CLIENT
+[+] - add redux store
+[+] - add react-router
+[+] - install material-ui
+[+] - apply material-ui to create navigation
+[+] - write Cafe Creation page
+[+] - write Cafe List page
+[+] - write all actions
+[+] - write all sagas
+[+] - ensure reducers work correctly
+[+] - write container for Cafe Creation page
+[+] - write container for Cafe List page
+[+] - use Cafe Creation page also as Edit Cafe page
+[] - check all functionality
+[] - add staggered animation to cafe list rendering
