@@ -17,5 +17,5 @@ CLIENT
 [+] - write container for Cafe Creation page
 [+] - write container for Cafe List page
 [+] - use Cafe Creation page also as Edit Cafe page
-[] - check all functionality
-[] - add staggered animation to cafe list rendering
+[+] - check all functionality
+[+] - add staggered animation to cafe list rendering
