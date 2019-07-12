@@ -1,0 +1,13 @@
+NEW THINGS TO TRY:
+[] - bindActionCreators (redux) (NOT)
+[] - ownProps inside mapStateToProps, mapDispatchToProps ???
+[] - define mapDispatchToProps as an object [!]
+
+SERVER
+[] - install Mongoose
+[] - set up BlogPost mongoose model
+[] - connect express app to mongoose database (atlas cloud DB)
+[] - define main routes
+[] - write tests for main routes
+
+CLIENT
