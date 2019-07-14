@@ -4,8 +4,8 @@ const { Schema } = mongoose;
 const Comment = new Schema({
   author: String,
   text: {
-    tyle: String,
-    required: "Please provide text."
+    type: String,
+    required: [true, "Please provide text."]
   },
   likes: {
     type: Number,
@@ -20,15 +20,15 @@ const Comment = new Schema({
 const BlogPost = new Schema({
   author: {
     type: String,
-    required: "Please provide your name."
+    required: [true, "Please provide your name."]
   },
   title: {
     type: String,
-    required: "Please provide a title."
+    required: [true, "Please provide a title."]
   },
   body: {
     type: String,
-    required: "Please provide some text."
+    required: [true, "Please provide some text."]
   },
   comments: [Comment],
   likes: {
@@ -41,4 +41,4 @@ const BlogPost = new Schema({
   }
 });
 
-mongoose.model("blogpost", BlogPost);
+module.exports = mongoose.model("blogpost", BlogPost);

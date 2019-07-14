@@ -1,14 +1,13 @@
 const express = require("express");
 const router = express.Router();
+const appController = require("../controllers");
 
 router.use((req, res, next) => {
   console.log(`Time: ${Date.now()}`);
   next();
 });
 
-router.get("/blogposts", (req, res) => {
-  res.send("Index");
-});
+router.get("/blogposts", appController.index);
 
 router.post("/blogposts", (req, res) => {
   res.send("Create");
