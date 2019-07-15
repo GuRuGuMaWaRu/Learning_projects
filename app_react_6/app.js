@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 const appRouter = require("./routes");
 
 const app = express();
@@ -7,7 +8,6 @@ const app = express();
 // load environment variables
 require("dotenv").config({ path: "process.env" });
 
-console.log(process.env.NODE_ENV);
 // connect to mongoDB
 if (process.env.NODE_ENV === "development") {
   mongoose.connect(process.env.DB, { useNewUrlParser: true });
@@ -15,6 +15,10 @@ if (process.env.NODE_ENV === "development") {
     console.log("Connection with development database is established.")
   );
 }
+
+// add bodyParser to process form data
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json()); // without this axios.post won't work!!!
 
 // Set up port variable in express
 app.set("port", process.env.PORT || 5000);
