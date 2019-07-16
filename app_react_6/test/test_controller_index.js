@@ -1,16 +1,16 @@
 const assert = require("assert");
 const request = require("supertest");
 const app = require("../app");
-const Blogpost = require("../models/BlogPost");
+const BlogPost = require("../models/BlogPost");
 
 describe("App controller", () => {
   it("should return all blogposts on GET request to /api/blogposts", done => {
-    const blogpost1 = new Blogpost({
+    const blogpost1 = new BlogPost({
       author: "Peter",
       title: "Peter's Blog Post",
       body: "This is my first blogpost."
     });
-    const blogpost2 = new Blogpost({
+    const blogpost2 = new BlogPost({
       author: "Bob",
       title: "Bob's Blog Post",
       body: "This is my super blogpost."
