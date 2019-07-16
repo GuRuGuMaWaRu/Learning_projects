@@ -7,13 +7,13 @@ describe("App controller", () => {
   it("should return all blogposts on GET request to /api/blogposts", done => {
     const blogpost1 = new BlogPost({
       author: "Peter",
-      title: "Peter's Blog Post",
-      body: "This is my first blogpost."
+      title: "INDEX",
+      body: "GET request to /api/blogposts."
     });
     const blogpost2 = new BlogPost({
       author: "Bob",
-      title: "Bob's Blog Post",
-      body: "This is my super blogpost."
+      title: "INDEX 2",
+      body: "GET request to /api/blogposts."
     });
 
     Promise.all([blogpost1.save(), blogpost2.save()]).then(() => {

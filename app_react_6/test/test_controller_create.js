@@ -10,8 +10,8 @@ describe("App controller", () => {
         .post("/api/blogposts")
         .send({
           author: "Peter",
-          title: "Peter's Blog Post",
-          body: "This is my first blogpost."
+          title: "CREATE",
+          body: "POST request to /api/blogposts."
         })
         .expect(200)
         .end((err, res) => {
