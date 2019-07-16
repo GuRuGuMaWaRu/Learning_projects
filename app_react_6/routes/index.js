@@ -9,10 +9,7 @@ router.use((req, res, next) => {
 
 router.get("/blogposts", appController.index);
 router.post("/blogposts", appController.create);
-
-router.get("/blogposts/:id", (req, res) => {
-  res.send("Read");
-});
+router.get("/blogposts/:id", appController.read);
 
 router.put("/blogposts/:id", (req, res) => {
   res.send("Update");

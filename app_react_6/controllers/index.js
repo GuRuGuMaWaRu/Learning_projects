@@ -9,5 +9,10 @@ module.exports = {
     const blogpost = req.body;
     await BlogPost.create(blogpost);
     res.send();
+  },
+  read: async (req, res) => {
+    const id = req.params.id;
+    const blogpost = await BlogPost.findById(id);
+    res.send(blogpost);
   }
 };
