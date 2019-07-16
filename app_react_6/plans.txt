@@ -2,12 +2,13 @@ NEW THINGS TO TRY:
 [] - bindActionCreators (redux) (NOT)
 [] - ownProps inside mapStateToProps, mapDispatchToProps ???
 [] - define mapDispatchToProps as an object [!]
+[] - 'batch' from react-redux (but only if I need to run more than one action creator simultaniously)
 
 SERVER
 [+] - install Mongoose
 [+] - set up BlogPost mongoose model
 [+] - connect express app to mongoose database (atlas cloud DB)
 [+] - define main routes
-[] - write tests for main routes
+[] - write tests for main routes and write routes
 
 CLIENT
