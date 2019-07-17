@@ -9,6 +9,8 @@ const app = express();
 require("dotenv").config({ path: "process.env" });
 
 // connect to mongoDB
+mongoose.set("useFindAndModify", false);
+
 if (process.env.NODE_ENV === "development") {
   mongoose.connect(process.env.DB, { useNewUrlParser: true });
   mongoose.connection.once("open", () =>
