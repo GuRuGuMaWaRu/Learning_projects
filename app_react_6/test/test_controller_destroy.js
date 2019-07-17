@@ -17,7 +17,6 @@ describe("App controller", () => {
         .expect(200)
         .end((err, res) => {
           BlogPost.findById(blogpost5._id).then(foundBlogpost => {
-            console.log(foundBlogpost);
             assert(foundBlogpost === null);
             done();
           });

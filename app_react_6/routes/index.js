@@ -11,9 +11,6 @@ router.get("/blogposts", appController.index);
 router.post("/blogposts", appController.create);
 router.get("/blogposts/:id", appController.read);
 router.put("/blogposts/:id", appController.update);
-
-router.delete("/blogposts/:id", (req, res) => {
-  res.send("Delete");
-});
+router.delete("/blogposts/:id", appController.destroy);
 
 module.exports = router;

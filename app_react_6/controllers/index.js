@@ -20,5 +20,10 @@ module.exports = {
     const data = req.body;
     await BlogPost.findByIdAndUpdate({ _id: id }, data);
     res.send();
+  },
+  destroy: async (req, res) => {
+    const id = req.params.id;
+    await BlogPost.deleteOne({ _id: id });
+    res.send();
   }
 };
