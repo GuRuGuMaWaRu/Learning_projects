@@ -14,5 +14,11 @@ module.exports = {
     const id = req.params.id;
     const blogpost = await BlogPost.findById(id);
     res.send(blogpost);
+  },
+  update: async (req, res) => {
+    const id = req.params.id;
+    const data = req.body;
+    await BlogPost.findByIdAndUpdate({ _id: id }, data);
+    res.send();
   }
 };
