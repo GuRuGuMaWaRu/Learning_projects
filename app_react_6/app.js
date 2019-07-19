@@ -28,4 +28,9 @@ app.set("port", process.env.PORT || 5000);
 // Connect main router
 app.use("/api", appRouter);
 
+// Handle errors
+app.use((err, req, res, next) => {
+  res.status(422).send({ Warning: err.message });
+});
+
 module.exports = app;
