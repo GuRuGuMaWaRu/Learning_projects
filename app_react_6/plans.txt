@@ -9,6 +9,16 @@ SERVER
 [+] - set up BlogPost mongoose model
 [+] - connect express app to mongoose database (atlas cloud DB)
 [+] - define main routes
-[] - write tests for main routes and write routes
+[+] - write tests for main routes and write routes
 
 CLIENT
+[] - install create-react-app
+[] - set up basic react-router config with basic pages
+[] - refine react-router config
+[] - add react-redux store
+[] - write actions
+[] - write sagas
+[] - write Create page
+[] - write List page
+[] - write Details page
+[] - update Create page to server also as Update page
