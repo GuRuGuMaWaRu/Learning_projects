@@ -1,22 +1,11 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  NavLink
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Navbar } from "../navbar";
 
 const App = () => {
   return (
     <Router>
-      <header>
-        <nav>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/list">List</NavLink>
-          <NavLink to="/create">Create</NavLink>
-          <NavLink to="/update">Update</NavLink>
-        </nav>
-      </header>
+      <Navbar />
       <Switch>
         <Route exact path="/" render={() => <div>Home</div>} />
         <Route exact path="/list" render={() => <div>List</div>} />
