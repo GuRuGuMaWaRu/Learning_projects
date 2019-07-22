@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components/macro";
 import { NavbarLink } from "./";
 
-const StyleHeader = styled.header`
+const StyledHeader = styled.header`
   color: #f2f2f2;
-  padding: 1rem;
+  padding: 1rem 0 0;
   border-top: 20px solid #ba2d65;
   background-color: #f06292;
 `;
@@ -28,10 +28,10 @@ const Navbar = () => {
   ].map(({ name, link }) => <NavbarLink key={name} name={name} link={link} />);
 
   return (
-    <StyleHeader>
+    <StyledHeader>
       <StyledAppName>React App 6</StyledAppName>
       <StyledNavbar>{navlinks}</StyledNavbar>
-    </StyleHeader>
+    </StyledHeader>
   );
 };
 
