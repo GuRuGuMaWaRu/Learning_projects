@@ -1,12 +1,21 @@
 import React from "react";
 import styled from "styled-components/macro";
 import moment from "moment";
-import { Formik, Form, Field } from "formik";
+import * as Yup from "yup";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 
 const StyledHeader = styled.h2`
   text-align: center;
   word-spacing: 3px;
 `;
+
+const FormSchema = Yup.object().shape({
+  author: Yup.string()
+    .max(60, "Too Long!")
+    .required("Required"),
+  title: Yup.string().required("Required"),
+  body: Yup.string().required("Required")
+});
 
 const BlogForm = () => {
   return (
@@ -19,13 +28,14 @@ const BlogForm = () => {
           body: "",
           date: moment().format("YYYY-MM-DD, HH:mm")
         }}
+        validationSchema={FormSchema}
         onSubmit={(values, actions) => {
           setTimeout(() => {
             console.log(JSON.stringify(values, null, 2));
             actions.setSubmitting(false);
           }, 1000);
         }}
-        render={props => (
+        render={() => (
           <Form>
             <label htmlFor="author">Author Name:</label>
             <Field
@@ -35,6 +45,7 @@ const BlogForm = () => {
               component="input"
               placeholder="John Dow"
             />
+            <ErrorMessage name="author" />
             <label htmlFor="title">Blogpost Title:</label>
             <Field
               type="text"
@@ -43,6 +54,7 @@ const BlogForm = () => {
               component="input"
               placeholder="New Blog Post"
             />
+            <ErrorMessage name="title" />
             <label htmlFor="date">Date:</label>
             <Field type="text" id="date" name="date" component="input" />
             <label htmlFor="body">Blogpost Body:</label>
@@ -52,6 +64,7 @@ const BlogForm = () => {
               component="textarea"
               placeholder="Entery your blopost here"
             />
+            <ErrorMessage name="body" />
             <button type="submit">Add</button>
           </Form>
         )}
