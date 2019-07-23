@@ -10,7 +10,7 @@ const StyledNavLink = styled(NavLink)`
   padding: 0.5rem;
 
   &.active {
-    background-color: #ec407a;
+    background-color: #84163b;
   }
 `;
 
