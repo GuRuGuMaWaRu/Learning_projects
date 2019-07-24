@@ -7,9 +7,11 @@ const INITIAL_STATE = {
   date: ""
 };
 
-export default function(state = INITIAL_STATE, action) {
+const blogpostReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     default:
       return state;
   }
-}
+};
+
+export default blogpostReducer;
