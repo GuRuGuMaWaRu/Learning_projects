@@ -1,8 +1,10 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import styled from "styled-components/macro";
 import moment from "moment";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { createAction } from "../../actions";
 
 const StyledHeader = styled.h2`
   text-align: center;
@@ -90,7 +92,9 @@ const FormSchema = Yup.object().shape({
   body: Yup.string().required("Required")
 });
 
-const BlogForm = () => {
+const BlogForm = ({ history }) => {
+  const dispatch = useDispatch();
+
   return (
     <>
       <StyledHeader>Add New Blogpost</StyledHeader>
@@ -103,10 +107,8 @@ const BlogForm = () => {
         }}
         validationSchema={FormSchema}
         onSubmit={(values, actions) => {
-          setTimeout(() => {
-            console.log(JSON.stringify(values, null, 2));
-            actions.setSubmitting(false);
-          }, 1000);
+          dispatch(createAction.createBlogpost(values, history));
+          actions.setSubmitting(false);
         }}
         render={() => (
           <StyledForm>

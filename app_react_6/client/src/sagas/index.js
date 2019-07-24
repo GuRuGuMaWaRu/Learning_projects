@@ -3,5 +3,5 @@ import { createAction } from "../actions";
 import createBlogpost from "./create.saga";
 
 export default function*() {
-  yield all([takeLatest(createAction.createBlogpost, createBlogpost)]);
+  yield all([takeLatest(createAction.CREATE_BLOGPOST, createBlogpost)]);
 }
