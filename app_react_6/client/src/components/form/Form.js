@@ -9,6 +9,79 @@ const StyledHeader = styled.h2`
   word-spacing: 3px;
 `;
 
+const StyledForm = styled(Form)`
+  display: flex;
+  flex-direction: column;
+`;
+
+const StyledInputGroup = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0.7rem 0;
+`;
+
+const StyledLabel = styled.label`
+  font-size: 1rem;
+  text-align: right;
+  margin-right: 1rem;
+`;
+
+const StyledField = styled(Field)`
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 1rem;
+  width: 100%;
+
+  &::placeholder {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+      "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+      "Helvetica Neue", sans-serif;
+  }
+`;
+
+const StyledTextArea = styled.textarea`
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 1rem;
+  width: 100%;
+  padding-right: 0;
+
+  &::placeholder {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+      "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+      "Helvetica Neue", sans-serif;
+  }
+`;
+
+const StyledError = styled.div`
+  display: block;
+  color: #84163b;
+`;
+
+const StyledSubmitButton = styled.button`
+  align-self: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  };
+  color: #f2f2f2;
+  padding: 1rem 1.8rem;
+  margin-top: 1.5rem;
+  border: none;
+  background-color: #ba2d65;
+  transition: all .3s;
+  cursor: pointer;
+  outline-style: none;
+  &:hover {
+    background-color: #84163b;
+  };
+  &:active {
+    background-color: #6e0c2d;
+  };
+`;
+
 const FormSchema = Yup.object().shape({
   author: Yup.string()
     .max(60, "Too Long!")
@@ -36,37 +109,67 @@ const BlogForm = () => {
           }, 1000);
         }}
         render={() => (
-          <Form>
-            <label htmlFor="author">Author Name:</label>
-            <Field
-              type="text"
-              id="author"
-              name="author"
-              component="input"
-              placeholder="John Dow"
-            />
-            <ErrorMessage name="author" />
-            <label htmlFor="title">Blogpost Title:</label>
-            <Field
-              type="text"
-              id="title"
-              name="title"
-              component="input"
-              placeholder="New Blog Post"
-            />
-            <ErrorMessage name="title" />
-            <label htmlFor="date">Date:</label>
-            <Field type="text" id="date" name="date" component="input" />
-            <label htmlFor="body">Blogpost Body:</label>
-            <Field
-              id="body"
-              name="body"
-              component="textarea"
-              placeholder="Entery your blopost here"
-            />
-            <ErrorMessage name="body" />
-            <button type="submit">Add</button>
-          </Form>
+          <StyledForm>
+            <StyledInputGroup>
+              <StyledLabel htmlFor="author">* Author Name:</StyledLabel>
+              <div>
+                <StyledField
+                  type="text"
+                  id="author"
+                  name="author"
+                  component="input"
+                  placeholder="John Dow"
+                />
+                <ErrorMessage name="author">
+                  {msg => <StyledError>{msg}</StyledError>}
+                </ErrorMessage>
+              </div>
+            </StyledInputGroup>
+            <StyledInputGroup>
+              <StyledLabel htmlFor="title">* Blogpost Title:</StyledLabel>
+              <div>
+                <StyledField
+                  type="text"
+                  id="title"
+                  name="title"
+                  component="input"
+                  placeholder="New Blog Post"
+                />
+                <ErrorMessage name="title">
+                  {msg => <StyledError>{msg}</StyledError>}
+                </ErrorMessage>
+              </div>
+            </StyledInputGroup>
+            <StyledInputGroup>
+              <StyledLabel htmlFor="date">Date:</StyledLabel>
+              <StyledField
+                type="text"
+                id="date"
+                name="date"
+                component="input"
+              />
+            </StyledInputGroup>
+            <StyledInputGroup>
+              <StyledLabel htmlFor="body">* Blogpost Body:</StyledLabel>
+              <div>
+                <StyledField
+                  id="body"
+                  name="body"
+                  render={({ field }) => (
+                    <StyledTextArea
+                      {...field}
+                      rows="5"
+                      placeholder="Entry your blopost here"
+                    />
+                  )}
+                />
+                <ErrorMessage name="body">
+                  {msg => <StyledError>{msg}</StyledError>}
+                </ErrorMessage>
+              </div>
+            </StyledInputGroup>
+            <StyledSubmitButton type="submit">ADD</StyledSubmitButton>
+          </StyledForm>
         )}
       />
     </>
