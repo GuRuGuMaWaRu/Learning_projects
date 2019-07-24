@@ -14,3 +14,12 @@ export const createBlogpostSuccess = () => ({
 export const createBlogpostFailure = () => ({
   type: CREATE_BLOGPOST_FAILURE
 });
+
+export default {
+  CREATE_BLOGPOST,
+  CREATE_BLOGPOST_SUCCESS,
+  CREATE_BLOGPOST_FAILURE,
+  createBlogpost,
+  createBlogpostSuccess,
+  createBlogpostFailure
+};

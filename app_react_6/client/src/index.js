@@ -2,11 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { App } from "./components/app";
-import configureStore from "./configureStore";
+import configureStore, { sagaMiddleware } from "./configureStore";
+import sagas from "./sagas";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 
 const store = configureStore();
+
+sagaMiddleware.run(sagas);
 
 ReactDOM.render(
   <Provider store={store}>
