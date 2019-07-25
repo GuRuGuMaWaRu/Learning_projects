@@ -1,1 +1,2 @@
 export { default as createAction } from "./create-action";
+export { default as indexAction } from "./index-action";
