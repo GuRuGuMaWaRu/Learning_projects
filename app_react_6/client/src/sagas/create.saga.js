@@ -4,7 +4,7 @@ import { createAction } from "../actions";
 
 function* createBlogpost(action) {
   try {
-    yield call(axios.post("/api/blogposts", action.blogpost));
+    yield call(axios.post, "api/blogposts", action.blogpost);
     yield put(createAction.createBlogpostSuccess());
     yield action.history.push("/");
   } catch (err) {
