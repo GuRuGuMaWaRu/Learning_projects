@@ -88,7 +88,9 @@ const FormSchema = Yup.object().shape({
   author: Yup.string()
     .max(60, "Too Long!")
     .required("Required"),
-  title: Yup.string().required("Required"),
+  title: Yup.string()
+    .max(60, "Too long!")
+    .required("Required"),
   body: Yup.string().required("Required")
 });
 
