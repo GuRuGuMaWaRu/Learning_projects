@@ -1,8 +1,17 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components/macro";
+import styled, { keyframes } from "styled-components/macro";
 import moment from "moment";
 import { indexAction } from "../../actions";
+
+const stagger = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 
 const StyledHeader = styled.h2`
   text-align: center;
@@ -15,8 +24,13 @@ const StyledArticle = styled.article`
   margin: 1rem;
   cursor: pointer;
   transition: box-shadow 0.4s;
+  animation-name: ${stagger};
+  animation-duration: 350ms;
+  animation-delay: ${props => `calc(${props.index} * 100ms)`};
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
   &:hover {
-    box-shadow: 0px 6px 14px 0px #888;
+    box-shadow: 0px 11px 11px 0px #999;
   }
 `;
 
@@ -52,8 +66,8 @@ const Home = () => {
     <>
       <StyledHeader>Blogposts</StyledHeader>
       <section>
-        {blogposts.map(blogpost => (
-          <StyledArticle key={blogpost._id}>
+        {blogposts.map((blogpost, index) => (
+          <StyledArticle key={blogpost._id} index={index}>
             <StyledHeading>
               <StyledTitle>{blogpost.title}</StyledTitle>
               <StyledAuthor> by {blogpost.author}</StyledAuthor>
