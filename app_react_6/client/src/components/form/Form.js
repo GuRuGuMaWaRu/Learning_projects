@@ -77,10 +77,10 @@ const StyledSubmitButton = styled.button`
   cursor: pointer;
   outline-style: none;
   &:hover {
-    background-color: #84163b;
+    box-shadow: 0px 11px 11px 0px #999;
   };
   &:active {
-    background-color: #6e0c2d;
+    background-color: #84163b;
   };
 `;
 
