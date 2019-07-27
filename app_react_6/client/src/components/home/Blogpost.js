@@ -14,7 +14,7 @@ const stagger = keyframes`
 
 const StyledArticle = styled.article`
   background-color: #f2f2f2;
-  padding: 0.7rem 0.5rem;
+  padding: 0.7rem;
   margin: 1rem;
   cursor: pointer;
   transition: box-shadow 0.4s;
@@ -40,6 +40,11 @@ const StyledTitle = styled.span`
   text-transform: capitalize;
 `;
 
+const StyledBody = styled.p`
+  line-height: 1.6rem;
+  margin: 2rem 0;
+`;
+
 const StyledDetails = styled.div`
   display: flex;
   justify-content: space-between;
@@ -51,7 +56,7 @@ const StyledDate = styled.span`
 `;
 
 const StyledAuthor = styled.span`
-  flex: 1 0 300px;
+  flex: 1 0 400px;
 `;
 
 const Blogpost = ({ blogpost, index }) => {
@@ -60,11 +65,11 @@ const Blogpost = ({ blogpost, index }) => {
       <StyledHeading>
         <StyledTitle>{blogpost.title}</StyledTitle>
       </StyledHeading>
-      <p>
+      <StyledBody>
         {blogpost.body.length <= 50
           ? blogpost.body
-          : `${blogpost.body.slice(0, 50)}...`}
-      </p>
+          : `${blogpost.body.slice(0, 200)}...`}
+      </StyledBody>
       <StyledDetails>
         <StyledDate>
           <b>Published:</b> {moment(blogpost.date).format("YYYY-MM-DD, HH:MM")}
