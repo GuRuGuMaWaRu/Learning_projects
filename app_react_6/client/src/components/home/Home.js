@@ -10,7 +10,7 @@ const StyledHeader = styled.h2`
   word-spacing: 3px;
 `;
 
-const Home = () => {
+const Home = ({ history }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,7 +28,9 @@ const Home = () => {
             key={blogpost._id}
             index={index}
             blogpost={blogpost}
-            getBlogpost={() => dispatch(getAction.getBlogpost(blogpost._id))}
+            getBlogpost={() =>
+              dispatch(getAction.getBlogpost(history, blogpost._id))
+            }
           />
         ))}
       </section>
@@ -37,6 +39,7 @@ const Home = () => {
 };
 
 Home.propTypes = {
+  history: PropTypes.object,
   blogposts: PropTypes.arrayOf(
     PropTypes.shape({
       author: PropTypes.string.isRequired,

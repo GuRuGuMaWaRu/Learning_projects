@@ -4,6 +4,7 @@ import styled from "styled-components/macro";
 import { Navbar } from "../navbar";
 import { BlogForm } from "../form";
 import { Home } from "../home";
+import { BlogpostDetails } from "../blogpost-details";
 
 const StyledMain = styled.main`
   width: 80%;
@@ -19,6 +20,7 @@ const App = () => {
           <Route exact path="/" component={Home} />
           <Route exact path="/create" component={BlogForm} />
           <Route exact path="/update" render={() => <div>Update</div>} />
+          <Route path="/blogposts/:id" render={BlogpostDetails} />
           <Route render={() => <div>404. Not Found.</div>} />
         </Switch>
       </StyledMain>

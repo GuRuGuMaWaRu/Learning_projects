@@ -2,8 +2,9 @@ const GET_BLOGPOST = "GET_BLOGPOST";
 const GET_BLOGPOST_SUCCESS = "GET_BLOGPOST_SUCCESS";
 const GET_BLOGPOST_FAILURE = "GET_BLOGPOST_FAILURE";
 
-const getBlogpost = id => ({
+const getBlogpost = (history, id) => ({
   type: GET_BLOGPOST,
+  history,
   id
 });
 

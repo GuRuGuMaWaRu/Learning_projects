@@ -22,7 +22,6 @@ const StyledNavbar = styled.nav`
 const Navbar = () => {
   const navlinks = [
     { name: "Home", link: "/" },
-    { name: "List", link: "/list" },
     { name: "Create", link: "/create" },
     { name: "Update", link: "/update" }
   ].map(({ name, link }) => <NavbarLink key={name} name={name} link={link} />);

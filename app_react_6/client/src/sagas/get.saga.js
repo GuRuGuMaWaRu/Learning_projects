@@ -9,6 +9,7 @@ function* getBlogpost(action) {
       `api/blogposts/${action.id}`
     );
     yield put(getAction.getBlogpostSuccess(blogpost));
+    yield action.history.push(`blogposts/${action.id}`);
   } catch (err) {
     yield put(getAction.getBlogpostFailure());
   }
