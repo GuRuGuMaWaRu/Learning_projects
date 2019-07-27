@@ -59,9 +59,9 @@ const StyledAuthor = styled.span`
   flex: 1 0 400px;
 `;
 
-const Blogpost = ({ blogpost, index }) => {
+const Blogpost = ({ blogpost, index, getBlogpost }) => {
   return (
-    <StyledArticle key={blogpost._id} index={index}>
+    <StyledArticle key={blogpost._id} index={index} onClick={getBlogpost}>
       <StyledHeading>
         <StyledTitle>{blogpost.title}</StyledTitle>
       </StyledHeading>
@@ -94,7 +94,8 @@ Blogpost.propTypes = {
     likes: PropTypes.number.isRequired,
     date: PropTypes.string.isRequired
   }),
-  index: PropTypes.number.isRequired
+  index: PropTypes.number.isRequired,
+  getBlogpost: PropTypes.func.isRequired
 };
 
 export default Blogpost;

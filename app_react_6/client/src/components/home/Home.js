@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components/macro";
 import { Blogpost } from "./index";
-import { indexAction } from "../../actions";
+import { indexAction, getAction } from "../../actions";
 
 const StyledHeader = styled.h2`
   text-align: center;
@@ -24,7 +24,12 @@ const Home = () => {
       <StyledHeader>Blogposts</StyledHeader>
       <section>
         {blogposts.map((blogpost, index) => (
-          <Blogpost key={blogpost._id} index={index} blogpost={blogpost} />
+          <Blogpost
+            key={blogpost._id}
+            index={index}
+            blogpost={blogpost}
+            getBlogpost={() => dispatch(getAction.getBlogpost(blogpost._id))}
+          />
         ))}
       </section>
     </>

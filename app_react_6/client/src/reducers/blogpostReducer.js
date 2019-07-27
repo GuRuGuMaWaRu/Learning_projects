@@ -1,3 +1,5 @@
+import { getAction } from "../actions";
+
 const INITIAL_STATE = {
   author: "",
   title: "",
@@ -9,6 +11,8 @@ const INITIAL_STATE = {
 
 const blogpostReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case getAction.GET_BLOGPOST_SUCCESS:
+      return action.blogpost;
     default:
       return state;
   }
