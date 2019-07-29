@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 import styled from "styled-components/macro";
 import moment from "moment";
+import { CommentForm } from "./";
 
 const StyledHeader = styled.h2`
   word-spacing: 3px;
@@ -69,26 +70,34 @@ const StyledDeleteButton = styled(StyledButton)`
 `;
 
 const BlogpostDetails = () => {
+  const [showCommentForm, setShowCommentForm] = useState(false);
   const blogpost = useSelector(state => state.blogpost);
 
   return (
     <>
-      <StyledHeader>{blogpost.title}</StyledHeader>
-      <StyledAuthor>
-        <span>by {blogpost.author}</span>
-        <span>{moment(blogpost.date).format(`YYYY-MM-DD, HH:MM`)}</span>
-      </StyledAuthor>
-      <StyledBody>{blogpost.body}</StyledBody>
-      <StyledDets>
-        <div>
-          <StyledCommentButton>Add Comment</StyledCommentButton>
-          <StyledEditButton>Edit</StyledEditButton>
-          <StyledDeleteButton>Delete</StyledDeleteButton>
-        </div>
-        <span>
-          <ion-icon name="thumbs-up" /> {blogpost.likes}
-        </span>
-      </StyledDets>
+      <article>
+        <StyledHeader>{blogpost.title}</StyledHeader>
+        <StyledAuthor>
+          <span>by {blogpost.author}</span>
+          <span>{moment(blogpost.date).format(`YYYY-MM-DD, HH:MM`)}</span>
+        </StyledAuthor>
+        <StyledBody>{blogpost.body}</StyledBody>
+        <StyledDets>
+          <div>
+            <StyledCommentButton
+              onClick={() => setShowCommentForm(!showCommentForm)}
+            >
+              Add Comment
+            </StyledCommentButton>
+            <StyledEditButton>Edit</StyledEditButton>
+            <StyledDeleteButton>Delete</StyledDeleteButton>
+          </div>
+          <span>
+            <ion-icon name="thumbs-up" /> {blogpost.likes}
+          </span>
+        </StyledDets>
+      </article>
+      {showCommentForm && <CommentForm postId="bas" />}
       <StyledCommentsHeader>Comments</StyledCommentsHeader>
     </>
   );

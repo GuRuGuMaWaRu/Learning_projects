@@ -163,7 +163,7 @@ const BlogForm = ({ history }) => {
                     <StyledTextArea
                       {...field}
                       rows="5"
-                      placeholder="Entry your blopost here"
+                      placeholder="Enter your blopost here"
                     />
                   )}
                 />
