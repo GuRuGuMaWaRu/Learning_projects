@@ -12,6 +12,7 @@ describe("Comment controller", () => {
     });
 
     const comment = {
+      blogpostId: blogpost6._id,
       author: "Commentator",
       text: "I am the first to comment!"
     };
