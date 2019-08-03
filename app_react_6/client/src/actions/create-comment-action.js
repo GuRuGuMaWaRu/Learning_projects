@@ -7,8 +7,9 @@ const createComment = comment => ({
   comment
 });
 
-const createCommentSuccess = () => ({
-  type: CREATE_COMMENT_SUCCESS
+const createCommentSuccess = updatedBlogpost => ({
+  type: CREATE_COMMENT_SUCCESS,
+  updatedBlogpost
 });
 
 const createCommentFailure = () => ({

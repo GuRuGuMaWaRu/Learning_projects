@@ -4,8 +4,12 @@ import { createCommentAction } from "../actions";
 
 function* createComment(action) {
   try {
-    yield call(axios.post, "api/blogposts/comment", action.data);
-    yield put(createCommentAction.createCommentSuccess());
+    const { data: updatedBlogpost } = yield call(
+      axios.post,
+      "api/blogposts/comment",
+      action.data
+    );
+    yield put(createCommentAction.createCommentSuccess(updatedBlogpost));
   } catch (err) {
     yield put(createCommentAction.createCommentFailure(err));
   }
