@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const appController = require("../controllers");
+const appController = require("../controllers/blogpostController");
 const commentController = require("../controllers/commentController");
 
 router.use((req, res, next) => {
