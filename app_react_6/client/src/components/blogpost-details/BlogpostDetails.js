@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components/macro";
 import moment from "moment";
 import { CommentForm } from "./";
+import { getAction } from "../../actions";
 
 const StyledHeader = styled.h2`
   word-spacing: 3px;
@@ -69,8 +70,13 @@ const StyledDeleteButton = styled(StyledButton)`
   }
 `;
 
-const BlogpostDetails = () => {
+const BlogpostDetails = ({ history }) => {
   const [showCommentForm, setShowCommentForm] = useState(false);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const id = history.location.pathname.slice(1);
+    dispatch(getAction.getBlogpost(id));
+  }, []);
   const blogpost = useSelector(state => state.blogpost);
 
   return (

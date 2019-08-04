@@ -4,12 +4,9 @@ import { getAction } from "../actions";
 
 function* getBlogpost(action) {
   try {
-    const { data: blogpost } = yield call(
-      axios.get,
-      `api/blogposts/${action.id}`
-    );
+    const path = `api/blogposts/${action.id}`;
+    const { data: blogpost } = yield call(axios.get, path);
     yield put(getAction.getBlogpostSuccess(blogpost));
-    yield action.history.push(`blogposts/${action.id}`);
   } catch (err) {
     yield put(getAction.getBlogpostFailure());
   }

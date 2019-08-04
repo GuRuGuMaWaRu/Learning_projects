@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { NavLink } from "react-router-dom";
 import styled, { keyframes } from "styled-components/macro";
 import moment from "moment";
 
@@ -59,29 +60,37 @@ const StyledAuthor = styled.span`
   flex: 1 0 400px;
 `;
 
-const Blogpost = ({ blogpost, index, getBlogpost }) => {
+const StyledNavLink = styled(NavLink)`
+  color: #000;
+  text-decoration: none;
+`;
+
+const Blogpost = ({ blogpost, index }) => {
   return (
-    <StyledArticle key={blogpost._id} index={index} onClick={getBlogpost}>
-      <StyledHeading>
-        <StyledTitle>{blogpost.title}</StyledTitle>
-      </StyledHeading>
-      <StyledBody>
-        {blogpost.body.length <= 50
-          ? blogpost.body
-          : `${blogpost.body.slice(0, 200)}...`}
-      </StyledBody>
-      <StyledDetails>
-        <StyledDate>
-          <b>Published:</b> {moment(blogpost.date).format("YYYY-MM-DD, HH:MM")}
-        </StyledDate>
-        <StyledAuthor>
-          <b>Author:</b> {blogpost.author}
-        </StyledAuthor>
-        <span>
-          <ion-icon name="thumbs-up" /> {blogpost.likes}
-        </span>
-      </StyledDetails>
-    </StyledArticle>
+    <StyledNavLink to={`/${blogpost._id}`}>
+      <StyledArticle key={blogpost._id} index={index}>
+        <StyledHeading>
+          <StyledTitle>{blogpost.title}</StyledTitle>
+        </StyledHeading>
+        <StyledBody>
+          {blogpost.body.length <= 50
+            ? blogpost.body
+            : `${blogpost.body.slice(0, 200)}...`}
+        </StyledBody>
+        <StyledDetails>
+          <StyledDate>
+            <b>Published:</b>{" "}
+            {moment(blogpost.date).format("YYYY-MM-DD, HH:MM")}
+          </StyledDate>
+          <StyledAuthor>
+            <b>Author:</b> {blogpost.author}
+          </StyledAuthor>
+          <span>
+            <ion-icon name="thumbs-up" /> {blogpost.likes}
+          </span>
+        </StyledDetails>
+      </StyledArticle>
+    </StyledNavLink>
   );
 };
 
@@ -94,8 +103,7 @@ Blogpost.propTypes = {
     likes: PropTypes.number.isRequired,
     date: PropTypes.string.isRequired
   }),
-  index: PropTypes.number.isRequired,
-  getBlogpost: PropTypes.func.isRequired
+  index: PropTypes.number.isRequired
 };
 
 export default Blogpost;

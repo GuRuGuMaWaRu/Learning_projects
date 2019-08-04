@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { createCommentAction } from "../../actions";
 
 const StyledForm = styled(Form)`
   margin: 2rem 0;
@@ -76,11 +77,12 @@ const CommentForm = ({ postId }) => {
   return (
     <Formik
       initialValues={{
+        postId: postId,
         author: "",
         text: ""
       }}
       onSubmit={(values, actions) => {
-        console.log(values);
+        dispatch(createCommentAction.createComment(values));
         actions.setSubmitting(false);
       }}
       validationSchema={CommentSchema}
