@@ -3,17 +3,18 @@ import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components/macro";
 import { Blogpost } from "./index";
-import { indexAction } from "../../actions";
+import { indexAction, clearBlogpostAction } from "../../actions";
 
 const StyledHeader = styled.h2`
   text-align: center;
   word-spacing: 3px;
 `;
 
-const Home = ({ history }) => {
+const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(clearBlogpostAction.clearBlogpost());
     dispatch(indexAction.getBlogposts());
   }, [dispatch]);
 

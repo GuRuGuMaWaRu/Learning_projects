@@ -16,7 +16,7 @@ const createCommentFailure = () => ({
   type: CREATE_COMMENT_FAILURE
 });
 
-module.exports = {
+export default {
   CREATE_COMMENT,
   CREATE_COMMENT_SUCCESS,
   CREATE_COMMENT_FAILURE,

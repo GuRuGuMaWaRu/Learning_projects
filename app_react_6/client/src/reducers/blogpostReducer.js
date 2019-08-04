@@ -1,4 +1,8 @@
-import { getAction, createCommentAction } from "../actions";
+import {
+  getAction,
+  createCommentAction,
+  clearBlogpostAction
+} from "../actions";
 
 const INITIAL_STATE = {
   author: "",
@@ -15,6 +19,8 @@ const blogpostReducer = (state = INITIAL_STATE, action) => {
       return action.blogpost;
     case createCommentAction.CREATE_COMMENT_SUCCESS:
       return action.updatedBlogpost;
+    case clearBlogpostAction.CLEAR_BLOGPOST:
+      return INITIAL_STATE;
     default:
       return state;
   }

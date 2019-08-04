@@ -76,37 +76,41 @@ const BlogpostDetails = ({ history }) => {
   useEffect(() => {
     const id = history.location.pathname.slice(1);
     dispatch(getAction.getBlogpost(id));
-  }, []);
+  }, [dispatch, history]);
   const blogpost = useSelector(state => state.blogpost);
 
-  return (
-    <>
-      <article>
-        <StyledHeader>{blogpost.title}</StyledHeader>
-        <StyledAuthor>
-          <span>by {blogpost.author}</span>
-          <span>{moment(blogpost.date).format(`YYYY-MM-DD, HH:MM`)}</span>
-        </StyledAuthor>
-        <StyledBody>{blogpost.body}</StyledBody>
-        <StyledDets>
-          <div>
-            <StyledCommentButton
-              onClick={() => setShowCommentForm(!showCommentForm)}
-            >
-              Add Comment
-            </StyledCommentButton>
-            <StyledEditButton>Edit</StyledEditButton>
-            <StyledDeleteButton>Delete</StyledDeleteButton>
-          </div>
-          <span>
-            <ion-icon name="thumbs-up" /> {blogpost.likes}
-          </span>
-        </StyledDets>
-      </article>
-      {showCommentForm && <CommentForm postId="bas" />}
-      <StyledCommentsHeader>Comments</StyledCommentsHeader>
-    </>
-  );
+  if (blogpost.title.length > 0) {
+    return (
+      <>
+        <article>
+          <StyledHeader>{blogpost.title}</StyledHeader>
+          <StyledAuthor>
+            <span>by {blogpost.author}</span>
+            <span>{moment(blogpost.date).format(`YYYY-MM-DD, HH:MM`)}</span>
+          </StyledAuthor>
+          <StyledBody>{blogpost.body}</StyledBody>
+          <StyledDets>
+            <div>
+              <StyledCommentButton
+                onClick={() => setShowCommentForm(!showCommentForm)}
+              >
+                Add Comment
+              </StyledCommentButton>
+              <StyledEditButton>Edit</StyledEditButton>
+              <StyledDeleteButton>Delete</StyledDeleteButton>
+            </div>
+            <span>
+              <ion-icon name="thumbs-up" /> {blogpost.likes}
+            </span>
+          </StyledDets>
+        </article>
+        {showCommentForm && <CommentForm postId="bas" />}
+        <StyledCommentsHeader>Comments</StyledCommentsHeader>
+      </>
+    );
+  } else {
+    return null;
+  }
 };
 
 BlogpostDetails.propTypes = {
