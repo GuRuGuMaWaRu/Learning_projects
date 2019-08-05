@@ -7,7 +7,7 @@ function* createComment(action) {
     const { data: updatedBlogpost } = yield call(
       axios.post,
       "api/blogposts/comment",
-      action.data
+      action.comment
     );
     yield put(createCommentAction.createCommentSuccess(updatedBlogpost));
   } catch (err) {

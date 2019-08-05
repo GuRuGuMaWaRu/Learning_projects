@@ -5,6 +5,7 @@ import styled from "styled-components/macro";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { createCommentAction } from "../../actions";
+import { clearBlogpostAction } from "../../actions/index";
 
 const StyledForm = styled(Form)`
   margin: 2rem 0;
@@ -82,11 +83,12 @@ const CommentForm = ({ postId }) => {
         text: ""
       }}
       onSubmit={(values, actions) => {
+        console.log(values);
         dispatch(createCommentAction.createComment(values));
         actions.setSubmitting(false);
       }}
       validationSchema={CommentSchema}
-      render={() => (
+      render={({ isSubmitting }) => (
         <StyledForm>
           <div>
             <StyledField
@@ -117,7 +119,9 @@ const CommentForm = ({ postId }) => {
                 {msg => <StyledError>{msg}</StyledError>}
               </ErrorMessage>
             </div>
-            <StyledSubmitButton type="submit">COMMENT</StyledSubmitButton>
+            <StyledSubmitButton type="submit" disabled={isSubmitting}>
+              COMMENT
+            </StyledSubmitButton>
           </div>
         </StyledForm>
       )}

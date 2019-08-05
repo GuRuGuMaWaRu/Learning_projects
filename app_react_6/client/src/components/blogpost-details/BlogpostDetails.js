@@ -76,10 +76,10 @@ const BlogpostDetails = ({ history }) => {
   useEffect(() => {
     const id = history.location.pathname.slice(1);
     dispatch(getAction.getBlogpost(id));
-  }, [dispatch, history]);
+  }, []);
   const blogpost = useSelector(state => state.blogpost);
 
-  if (blogpost.title.length > 0) {
+  if (blogpost.title && blogpost.title.length > 0) {
     return (
       <>
         <article>
@@ -104,8 +104,14 @@ const BlogpostDetails = ({ history }) => {
             </span>
           </StyledDets>
         </article>
-        {showCommentForm && <CommentForm postId="bas" />}
+        {showCommentForm && <CommentForm postId={blogpost._id} />}
         <StyledCommentsHeader>Comments</StyledCommentsHeader>
+        {blogpost.comments.map(comment => (
+          <div key={comment._id}>
+            <h5>by {comment.author}</h5>
+            <p>{comment.text}</p>
+          </div>
+        ))}
       </>
     );
   } else {

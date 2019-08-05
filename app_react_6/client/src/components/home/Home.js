@@ -23,11 +23,11 @@ const Home = () => {
   return (
     <>
       <StyledHeader>Blogposts</StyledHeader>
-      <section>
-        {blogposts.map((blogpost, index) => (
-          <Blogpost key={blogpost._id} index={index} blogpost={blogpost} />
-        ))}
-      </section>
+      {/* <section> */}
+      {blogposts.map((blogpost, index) => (
+        <Blogpost key={blogpost._id} index={index} blogpost={blogpost} />
+      ))}
+      {/* </section> */}
     </>
   );
 };
