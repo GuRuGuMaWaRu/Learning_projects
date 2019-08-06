@@ -104,7 +104,12 @@ const BlogpostDetails = ({ history }) => {
             </span>
           </StyledDets>
         </article>
-        {showCommentForm && <CommentForm postId={blogpost._id} />}
+        {showCommentForm && (
+          <CommentForm
+            postId={blogpost._id}
+            handleSubmit={() => setShowCommentForm(false)}
+          />
+        )}
         <StyledCommentsHeader>Comments</StyledCommentsHeader>
         {blogpost.comments.map(comment => (
           <div key={comment._id}>

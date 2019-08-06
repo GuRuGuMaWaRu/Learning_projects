@@ -5,7 +5,6 @@ import styled from "styled-components/macro";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { createCommentAction } from "../../actions";
-import { clearBlogpostAction } from "../../actions/index";
 
 const StyledForm = styled(Form)`
   margin: 2rem 0;
@@ -72,7 +71,7 @@ const CommentSchema = Yup.object().shape({
   text: Yup.string().required("Required")
 });
 
-const CommentForm = ({ postId }) => {
+const CommentForm = ({ postId, handleSubmit }) => {
   const dispatch = useDispatch();
 
   return (
@@ -83,8 +82,8 @@ const CommentForm = ({ postId }) => {
         text: ""
       }}
       onSubmit={(values, actions) => {
-        console.log(values);
         dispatch(createCommentAction.createComment(values));
+        handleSubmit();
         actions.setSubmitting(false);
       }}
       validationSchema={CommentSchema}
@@ -130,7 +129,8 @@ const CommentForm = ({ postId }) => {
 };
 
 CommentForm.propTypes = {
-  postId: PropTypes.string.isRequired
+  postId: PropTypes.string.isRequired,
+  handleSubmit: PropTypes.func.isRequired
 };
 
 export default CommentForm;
