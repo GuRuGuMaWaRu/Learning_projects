@@ -18,8 +18,13 @@ module.exports = {
   update: async (req, res) => {
     const id = req.params.id;
     const data = req.body;
-    await BlogPost.findByIdAndUpdate({ _id: id }, data);
+
+    await BlogPost.findByIdAndUpdate(id, data);
     res.send();
+  },
+  updateLike: async (req, res) => {
+    const id = req.params.id;
+    await BlogPost.findByIdAndUpdate(id, { $inc: { likes: 1 } });
   },
   destroy: async (req, res) => {
     const id = req.params.id;

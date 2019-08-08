@@ -11,6 +11,7 @@ router.use((req, res, next) => {
 router.get("/blogposts", appController.index);
 router.post("/blogposts", appController.create);
 router.get("/blogposts/:id", appController.read);
+router.put("/blogposts/like/:id", appController.updateLike);
 router.put("/blogposts/:id", appController.update);
 router.delete("/blogposts/:id", appController.destroy);
 
