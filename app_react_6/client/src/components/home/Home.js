@@ -23,17 +23,25 @@ const Home = () => {
   return (
     <>
       <StyledHeader>Blogposts</StyledHeader>
-      {/* <section> */}
+      <Blogpost
+        index={1}
+        blogpost={{
+          author: "Bob",
+          title: "Post Title",
+          body: "Post Body",
+          comments: [],
+          likes: 2,
+          date: "1999-09-11"
+        }}
+      />
       {blogposts.map((blogpost, index) => (
         <Blogpost key={blogpost._id} index={index} blogpost={blogpost} />
       ))}
-      {/* </section> */}
     </>
   );
 };
 
 Home.propTypes = {
-  history: PropTypes.object,
   blogposts: PropTypes.arrayOf(
     PropTypes.shape({
       author: PropTypes.string.isRequired,

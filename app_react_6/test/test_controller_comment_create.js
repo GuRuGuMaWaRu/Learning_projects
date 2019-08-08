@@ -12,9 +12,9 @@ describe("Comment controller", () => {
     });
 
     const comment = {
-      blogpostId: blogpost6._id,
+      postId: blogpost6._id,
       author: "Commentator",
-      text: "I am the first to comment!"
+      text: "First!"
     };
 
     blogpost6.save().then(() => {

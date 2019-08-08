@@ -70,6 +70,11 @@ const StyledDeleteButton = styled(StyledButton)`
   }
 `;
 
+const StyledCommentDetails = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 const BlogpostDetails = ({ history }) => {
   const [showCommentForm, setShowCommentForm] = useState(false);
   const dispatch = useDispatch();
@@ -113,7 +118,13 @@ const BlogpostDetails = ({ history }) => {
         <StyledCommentsHeader>Comments</StyledCommentsHeader>
         {blogpost.comments.map(comment => (
           <div key={comment._id}>
-            <h5>by {comment.author}</h5>
+            <StyledCommentDetails>
+              <h5>by {comment.author}</h5>
+              <span>{moment(comment.date).format(`YYYY-MM-DD, HH:MM`)}</span>
+              <div>
+                <ion-icon name="thumbs-up" /> {blogpost.likes}
+              </div>
+            </StyledCommentDetails>
             <p>{comment.text}</p>
           </div>
         ))}
