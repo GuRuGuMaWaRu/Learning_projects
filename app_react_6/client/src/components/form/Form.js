@@ -4,7 +4,7 @@ import styled from "styled-components/macro";
 import moment from "moment";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { createAction } from "../../actions";
+import { createBlogpostAction } from "../../actions";
 
 const StyledHeader = styled.h2`
   text-align: center;
@@ -109,7 +109,7 @@ const BlogForm = ({ history }) => {
         }}
         validationSchema={FormSchema}
         onSubmit={(values, actions) => {
-          dispatch(createAction.createBlogpost(values, history));
+          dispatch(createBlogpostAction.createBlogpost(values, history));
           actions.setSubmitting(false);
         }}
         render={() => (

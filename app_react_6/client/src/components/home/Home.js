@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components/macro";
 import { Blogpost } from "./index";
-import { indexAction, clearBlogpostAction } from "../../actions";
+import { getAllBlogpostsAction, clearBlogpostAction } from "../../actions";
 
 const StyledHeader = styled.h2`
   text-align: center;
@@ -15,7 +15,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(clearBlogpostAction.clearBlogpost());
-    dispatch(indexAction.getBlogposts());
+    dispatch(getAllBlogpostsAction.getBlogposts());
   }, [dispatch]);
 
   const blogposts = useSelector(state => state.blogposts);

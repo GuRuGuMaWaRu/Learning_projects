@@ -1,8 +1,8 @@
 import { all, takeLatest } from "redux-saga/effects";
 import {
-  createAction,
-  indexAction,
-  getAction,
+  createBlogpostAction,
+  getAllBlogpostsAction,
+  getBlogpostAction,
   createCommentAction,
   likeBlogpostAction
 } from "../actions";
@@ -14,9 +14,9 @@ import likeBlogpost from "./like-blogpost.saga";
 
 export default function*() {
   yield all([
-    takeLatest(createAction.CREATE_BLOGPOST, createBlogpost),
-    takeLatest(indexAction.GET_BLOGPOSTS, getBlogposts),
-    takeLatest(getAction.GET_BLOGPOST, getBlogpost),
+    takeLatest(createBlogpostAction.CREATE_BLOGPOST, createBlogpost),
+    takeLatest(getAllBlogpostsAction.GET_BLOGPOSTS, getBlogposts),
+    takeLatest(getBlogpostAction.GET_BLOGPOST, getBlogpost),
     takeLatest(createCommentAction.CREATE_COMMENT, createComment),
     takeLatest(likeBlogpostAction.LIKE_BLOGPOST, likeBlogpost)
   ]);

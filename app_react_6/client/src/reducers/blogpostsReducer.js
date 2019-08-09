@@ -1,10 +1,10 @@
-import { indexAction } from "../actions";
+import { getAllBlogpostsAction } from "../actions";
 
 const INITIAL_STATE = [];
 
 const blogpostsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case indexAction.GET_BLOGPOSTS_SUCCESS:
+    case getAllBlogpostsAction.GET_BLOGPOSTS_SUCCESS:
       return action.blogposts;
     default:
       return state;

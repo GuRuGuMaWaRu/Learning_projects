@@ -1,5 +1,5 @@
 import {
-  getAction,
+  getBlogpostAction,
   createCommentAction,
   clearBlogpostAction,
   likeBlogpostAction
@@ -16,7 +16,7 @@ const INITIAL_STATE = {
 
 const blogpostReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case getAction.GET_BLOGPOST_SUCCESS:
+    case getBlogpostAction.GET_BLOGPOST_SUCCESS:
       return action.blogpost;
     case likeBlogpostAction.LIKE_BLOGPOST_SUCCESS:
     case createCommentAction.CREATE_COMMENT_SUCCESS:

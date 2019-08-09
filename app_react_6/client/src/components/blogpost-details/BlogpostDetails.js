@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components/macro";
 import moment from "moment";
 import { CommentForm } from "./";
-import { getAction } from "../../actions";
+import { getBlogpostAction, likeBlogpostAction } from "../../actions";
 
 const StyledHeader = styled.h2`
   word-spacing: 3px;
@@ -80,7 +80,7 @@ const BlogpostDetails = ({ history }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     const id = history.location.pathname.slice(1);
-    dispatch(getAction.getBlogpost(id));
+    dispatch(getBlogpostAction.getBlogpost(id));
   }, []);
   const blogpost = useSelector(state => state.blogpost);
 
@@ -104,7 +104,11 @@ const BlogpostDetails = ({ history }) => {
               <StyledEditButton>Edit</StyledEditButton>
               <StyledDeleteButton>Delete</StyledDeleteButton>
             </div>
-            <span>
+            <span
+              onClick={() =>
+                dispatch(likeBlogpostAction.likeBlogpost(blogpost._id))
+              }
+            >
               <ion-icon name="thumbs-up" /> {blogpost.likes}
             </span>
           </StyledDets>
