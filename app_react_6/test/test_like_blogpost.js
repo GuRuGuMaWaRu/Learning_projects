@@ -4,7 +4,7 @@ const BlogPost = require("../models/BlogPost");
 const app = require("../app");
 
 describe("Blogpost controller", () => {
-  it("should add one (1) like on PUT request to /api/blogposts/like", done => {
+  it("should return a blogpost with 1 more like on PUT request to /api/blogposts/like/:id", done => {
     const blogpost = new BlogPost({
       author: "Superblogger",
       title: "PUT",
