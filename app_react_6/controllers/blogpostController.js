@@ -24,7 +24,12 @@ module.exports = {
   },
   updateLike: async (req, res) => {
     const id = req.params.id;
-    await BlogPost.findByIdAndUpdate(id, { $inc: { likes: 1 } });
+    const blogpost = await BlogPost.findByIdAndUpdate(
+      id,
+      { $inc: { likes: 1 } },
+      { new: true }
+    );
+    res.send(blogpost);
   },
   destroy: async (req, res) => {
     const id = req.params.id;
