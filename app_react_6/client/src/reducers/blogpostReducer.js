@@ -1,7 +1,8 @@
 import {
   getAction,
   createCommentAction,
-  clearBlogpostAction
+  clearBlogpostAction,
+  likeBlogpostAction
 } from "../actions";
 
 const INITIAL_STATE = {
@@ -17,6 +18,7 @@ const blogpostReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case getAction.GET_BLOGPOST_SUCCESS:
       return action.blogpost;
+    case likeBlogpostAction.LIKE_BLOGPOST_SUCCESS:
     case createCommentAction.CREATE_COMMENT_SUCCESS:
       return action.updatedBlogpost;
     case clearBlogpostAction.CLEAR_BLOGPOST:
