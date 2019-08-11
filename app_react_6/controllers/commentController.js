@@ -11,5 +11,18 @@ module.exports = {
       { new: true }
     );
     res.send(updatedBlogpost);
+  },
+  update: async (req, res) => {
+    const { blogpostId, commentId } = req.params;
+
+    const updatedBlogpost = await BlogPost.findOneAndUpdate(
+      { _id: blogpostId, "comments._id": commentId },
+      {
+        $inc: { "comments.$.likes": 1 }
+      },
+      { new: true }
+    );
+
+    res.send(updatedBlogpost);
   }
 };

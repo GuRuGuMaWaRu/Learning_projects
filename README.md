@@ -1,5 +1,29 @@
 # Collection of learning projects
 
+## App React-7
+
+#### Ideas:
+
+- [ ] no create-react-app, set up everything myself
+- [ ] try client-side (react) tests
+
+## App React-6
+
+- [ ] React (with hooks)
+- [ ] React-redux (with hooks)
+- [ ] Redux-saga
+- [ ] React-router
+- [ ] Formik
+- [ ] Yup
+- [ ] Axios
+- [ ] Node
+- [ ] Mongo
+- [ ] Server-side Mocha tests for all end-points
+
+#### Goal & Results:
+
+The same, but with more hooks (react and react-redux).
+
 ## App React-5
 
 #### Tech Stack:
