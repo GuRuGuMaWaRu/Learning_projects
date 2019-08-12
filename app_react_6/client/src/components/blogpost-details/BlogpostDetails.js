@@ -139,6 +139,8 @@ const BlogpostDetails = ({ history }) => {
                 <ion-icon name="thumbs-up" />
                 {comment.likes}
               </div>
+              <button>Delete Comment</button>
+              <hr />
             </StyledCommentDetails>
             <p>{comment.text}</p>
           </div>
