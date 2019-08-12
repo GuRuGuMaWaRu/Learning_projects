@@ -4,7 +4,11 @@ import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components/macro";
 import moment from "moment";
 import { CommentForm } from "./";
-import { getBlogpostAction, likeBlogpostAction } from "../../actions";
+import {
+  getBlogpostAction,
+  likeBlogpostAction,
+  likeCommentAction
+} from "../../actions";
 
 const StyledHeader = styled.h2`
   word-spacing: 3px;
@@ -125,8 +129,15 @@ const BlogpostDetails = ({ history }) => {
             <StyledCommentDetails>
               <h5>by {comment.author}</h5>
               <span>{moment(comment.date).format(`YYYY-MM-DD, HH:MM`)}</span>
-              <div>
-                <ion-icon name="thumbs-up" /> {blogpost.likes}
+              <div
+                onClick={() =>
+                  dispatch(
+                    likeCommentAction.likeComment(blogpost._id, comment._id)
+                  )
+                }
+              >
+                <ion-icon name="thumbs-up" />
+                {comment.likes}
               </div>
             </StyledCommentDetails>
             <p>{comment.text}</p>
