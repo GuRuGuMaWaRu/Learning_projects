@@ -106,6 +106,7 @@ const BlogForm = ({ history }) => {
   }, []);
   const blogpost = useSelector(state => state.blogpost);
   const isEditForm = history.location.pathname.split("/")[1] === "update";
+
   return (
     <>
       <StyledHeader>
@@ -120,6 +121,7 @@ const BlogForm = ({ history }) => {
             ? blogpost.date
             : moment().format("YYYY-MM-DD, HH:mm")
         }}
+        enableReinitialize={true}
         validationSchema={FormSchema}
         onSubmit={(values, actions) => {
           if (isEditForm) {
@@ -171,6 +173,9 @@ const BlogForm = ({ history }) => {
                 name="date"
                 component="input"
               />
+              <ErrorMessage name="date">
+                {msg => <StyledError>{msg}</StyledError>}
+              </ErrorMessage>
             </StyledInputGroup>
             <StyledInputGroup>
               <StyledLabel htmlFor="body">* Blogpost Body:</StyledLabel>

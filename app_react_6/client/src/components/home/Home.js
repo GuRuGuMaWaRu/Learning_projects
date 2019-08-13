@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components/macro";
 import { Blogpost } from "./index";
 import { getAllBlogpostsAction, clearBlogpostAction } from "../../actions";
 
