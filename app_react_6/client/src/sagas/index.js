@@ -3,13 +3,15 @@ import {
   createBlogpostAction,
   getAllBlogpostsAction,
   getBlogpostAction,
-  createCommentAction,
+  updateBlogpostAction,
   likeBlogpostAction,
+  createCommentAction,
   likeCommentAction
 } from "../actions";
 import createBlogpost from "./create-blogpost.saga";
 import getBlogposts from "./get-all-blogposts.saga";
 import getBlogpost from "./get-blogpost.saga";
+import updateBlogpost from "./update-blogpost.saga";
 import createComment from "./create-comment.saga";
 import likeBlogpost from "./like-blogpost.saga";
 import likeComment from "./like-comment.saga";
@@ -19,8 +21,9 @@ export default function*() {
     takeLatest(createBlogpostAction.CREATE_BLOGPOST, createBlogpost),
     takeLatest(getAllBlogpostsAction.GET_BLOGPOSTS, getBlogposts),
     takeLatest(getBlogpostAction.GET_BLOGPOST, getBlogpost),
-    takeLatest(createCommentAction.CREATE_COMMENT, createComment),
+    takeLatest(updateBlogpostAction.UPDATE_BLOGPOST, updateBlogpost),
     takeLatest(likeBlogpostAction.LIKE_BLOGPOST, likeBlogpost),
+    takeLatest(createCommentAction.CREATE_COMMENT, createComment),
     takeLatest(likeCommentAction.LIKE_COMMENT, likeComment)
   ]);
 }

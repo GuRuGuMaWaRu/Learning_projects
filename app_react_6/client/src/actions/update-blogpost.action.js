@@ -2,9 +2,11 @@ const UPDATE_BLOGPOST = "UPDATE_BLOGPOST";
 const UPDATE_BLOGPOST_SUCCESS = "UPDATE_BLOGPOST_SUCCESS";
 const UPDATE_BLOGPOST_FAILURE = "UPDATE_BLOGPOST_FAILURE";
 
-const updateBlogpost = data => ({
+const updateBlogpost = (id, data, history) => ({
   type: UPDATE_BLOGPOST,
-  data
+  id,
+  data,
+  history
 });
 
 const updateBlogpostSuccess = updatedBlogpost => ({

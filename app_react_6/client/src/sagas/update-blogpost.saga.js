@@ -5,11 +5,8 @@ import { updateBlogpostAction } from "../actions";
 function* updateBlogpost(action) {
   const { id, data, history } = action;
   try {
-    const { data: updatedBlogpost } = yield call(
-      axios.put,
-      `/api/blogposts/${id}`,
-      data
-    );
+    const path = `/api/blogposts/${id}`;
+    const { data: updatedBlogpost } = yield call(axios.put, path, data);
     yield put(updateBlogpostAction.updateBlogpostSuccess(updatedBlogpost));
     yield put(history.push(`/${id}`));
   } catch (err) {

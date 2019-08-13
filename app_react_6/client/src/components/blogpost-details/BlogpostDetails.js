@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
 import moment from "moment";
 import { CommentForm } from "./";
@@ -105,8 +106,8 @@ const BlogpostDetails = ({ history }) => {
               >
                 Add Comment
               </StyledCommentButton>
-              <StyledEditButton onClick={() => history.push("/update")}>
-                Edit
+              <StyledEditButton>
+                <Link to={`/update/${blogpost._id}`}>Edit</Link>
               </StyledEditButton>
               <StyledDeleteButton>Delete</StyledDeleteButton>
             </div>

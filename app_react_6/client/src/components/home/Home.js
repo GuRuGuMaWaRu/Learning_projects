@@ -5,11 +5,6 @@ import styled from "styled-components/macro";
 import { Blogpost } from "./index";
 import { getAllBlogpostsAction, clearBlogpostAction } from "../../actions";
 
-const StyledHeader = styled.h2`
-  text-align: center;
-  word-spacing: 3px;
-`;
-
 const Home = () => {
   const dispatch = useDispatch();
 

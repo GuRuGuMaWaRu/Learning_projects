@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components/macro";
 import moment from "moment";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { createBlogpostAction } from "../../actions";
+import {
+  createBlogpostAction,
+  getBlogpostAction,
+  updateBlogpostAction
+} from "../../actions";
 
 const StyledHeader = styled.h2`
   text-align: center;
@@ -96,12 +100,17 @@ const FormSchema = Yup.object().shape({
 
 const BlogForm = ({ history }) => {
   const dispatch = useDispatch();
+  useEffect(() => {
+    const blogpostId = history.location.pathname.split("/")[2];
+    dispatch(getBlogpostAction.getBlogpost(blogpostId));
+  }, []);
   const blogpost = useSelector(state => state.blogpost);
-  const isEditForm = history.location.pathname === "/update";
-
+  const isEditForm = history.location.pathname.split("/")[1] === "update";
   return (
     <>
-      <StyledHeader>Add New Blogpost</StyledHeader>
+      <StyledHeader>
+        {isEditForm ? "Update Blogpost" : "Add New Blogpost"}
+      </StyledHeader>
       <Formik
         initialValues={{
           author: isEditForm ? blogpost.author : "",
@@ -113,7 +122,13 @@ const BlogForm = ({ history }) => {
         }}
         validationSchema={FormSchema}
         onSubmit={(values, actions) => {
-          dispatch(createBlogpostAction.createBlogpost(values, history));
+          if (isEditForm) {
+            dispatch(
+              updateBlogpostAction.updateBlogpost(blogpost._id, values, history)
+            );
+          } else {
+            dispatch(createBlogpostAction.createBlogpost(values, history));
+          }
           actions.setSubmitting(false);
         }}
         render={() => (
@@ -176,7 +191,9 @@ const BlogForm = ({ history }) => {
                 </ErrorMessage>
               </div>
             </StyledInputGroup>
-            <StyledSubmitButton type="submit">ADD</StyledSubmitButton>
+            <StyledSubmitButton type="submit">
+              {isEditForm ? "UPDATE" : "ADD"}
+            </StyledSubmitButton>
           </StyledForm>
         )}
       />
