@@ -105,7 +105,9 @@ const BlogpostDetails = ({ history }) => {
               >
                 Add Comment
               </StyledCommentButton>
-              <StyledEditButton>Edit</StyledEditButton>
+              <StyledEditButton onClick={() => history.push("/update")}>
+                Edit
+              </StyledEditButton>
               <StyledDeleteButton>Delete</StyledDeleteButton>
             </div>
             <span

@@ -19,7 +19,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/create" component={BlogForm} />
-          <Route exact path="/update" render={() => <div>Update</div>} />
+          <Route exact path="/update" component={BlogForm} />
           <Route path="/:id" component={BlogpostDetails} />
           <Route render={() => <div>404. Not Found.</div>} />
         </Switch>

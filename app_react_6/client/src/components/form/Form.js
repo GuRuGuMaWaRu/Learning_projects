@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components/macro";
 import moment from "moment";
 import * as Yup from "yup";
@@ -96,16 +96,20 @@ const FormSchema = Yup.object().shape({
 
 const BlogForm = ({ history }) => {
   const dispatch = useDispatch();
+  const blogpost = useSelector(state => state.blogpost);
+  const isEditForm = history.location.pathname === "/update";
 
   return (
     <>
       <StyledHeader>Add New Blogpost</StyledHeader>
       <Formik
         initialValues={{
-          author: "",
-          title: "",
-          body: "",
-          date: moment().format("YYYY-MM-DD, HH:mm")
+          author: isEditForm ? blogpost.author : "",
+          title: isEditForm ? blogpost.title : "",
+          body: isEditForm ? blogpost.body : "",
+          date: isEditForm
+            ? blogpost.date
+            : moment().format("YYYY-MM-DD, HH:mm")
         }}
         validationSchema={FormSchema}
         onSubmit={(values, actions) => {
