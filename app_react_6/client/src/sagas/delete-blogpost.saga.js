@@ -5,7 +5,7 @@ import { deleteBlogpostAction } from "../actions";
 function* deleteBlogpost({ id, history }) {
   try {
     yield call(axios.delete, `/api/blogposts/${id}`);
-    yield put(deleteBlogpostAction.deleteBlogpostSuccess());
+    yield put(deleteBlogpostAction.deleteBlogpostSuccess(id));
     yield history.push("/");
   } catch (err) {
     yield put(deleteBlogpostAction.deleteBlogpostFailure(err));

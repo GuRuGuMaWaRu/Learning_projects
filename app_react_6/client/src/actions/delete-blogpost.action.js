@@ -8,8 +8,9 @@ const deleteBlogpost = (id, history) => ({
   history
 });
 
-const deleteBlogpostSuccess = () => ({
-  type: DELETE_BLOGPOST_SUCCESS
+const deleteBlogpostSuccess = id => ({
+  type: DELETE_BLOGPOST_SUCCESS,
+  id
 });
 
 const deleteBlogpostFailure = () => ({

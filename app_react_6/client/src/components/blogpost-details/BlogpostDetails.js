@@ -8,6 +8,7 @@ import { CommentForm } from "./";
 import {
   getBlogpostAction,
   likeBlogpostAction,
+  deleteBlogpostAction,
   likeCommentAction
 } from "../../actions";
 
@@ -109,7 +110,15 @@ const BlogpostDetails = ({ history }) => {
               <StyledEditButton>
                 <Link to={`/update/${blogpost._id}`}>Edit</Link>
               </StyledEditButton>
-              <StyledDeleteButton>Delete</StyledDeleteButton>
+              <StyledDeleteButton
+                onClick={() =>
+                  dispatch(
+                    deleteBlogpostAction.deleteBlogpost(blogpost._id, history)
+                  )
+                }
+              >
+                Delete
+              </StyledDeleteButton>
             </div>
             <span
               onClick={() =>
