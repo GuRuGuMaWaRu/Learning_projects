@@ -4,5 +4,8 @@ export { default as getBlogpostAction } from "./get-blogpost.action";
 export { default as updateBlogpostAction } from "./update-blogpost.action";
 export { default as clearBlogpostAction } from "./clear-blogpost.action";
 export { default as likeBlogpostAction } from "./like-blogpost.action";
+export { default as deleteBlogpostAction } from "./delete-blogpost.action";
+
 export { default as createCommentAction } from "./create-comment.action";
 export { default as likeCommentAction } from "./like-comment.action";
+export { default as deleteCommentAction } from "./delete-comment.action";

@@ -1,26 +1,26 @@
-const DELETE_COMMENT_ACTION = "DELETE_COMMENT_ACTION";
-const DELETE_COMMENT_ACTION_SUCCESS = "DELETE_COMMENT_ACTION_SUCCESS";
-const DELETE_COMMENT_ACTION_FAILURE = "DELETE_COMMENT_ACTION_FAILURE";
+const DELETE_COMMENT = "DELETE_COMMENT";
+const DELETE_COMMENT_SUCCESS = "DELETE_COMMENT_SUCCESS";
+const DELETE_COMMENT_FAILURE = "DELETE_COMMENT_FAILURE";
 
-const deleteCommentAction = (id, history) => ({
-  type: DELETE_COMMENT_ACTION,
+const deleteComment = (id, history) => ({
+  type: DELETE_COMMENT,
   id,
   history
 });
 
-const deleteCommentActionSuccess = () => ({
-  type: DELETE_COMMENT_ACTION_SUCCESS
+const deleteCommentSuccess = () => ({
+  type: DELETE_COMMENT_SUCCESS
 });
 
-const deleteCommentActionFailure = () => ({
-  type: DELETE_COMMENT_ACTION_FAILURE
+const deleteCommentFailure = () => ({
+  type: DELETE_COMMENT_FAILURE
 });
 
 export default {
-  DELETE_COMMENT_ACTION,
-  DELETE_COMMENT_ACTION_SUCCESS,
-  DELETE_COMMENT_ACTION_FAILURE,
-  deleteCommentAction,
-  deleteCommentActionSuccess,
-  deleteCommentActionFailure
+  DELETE_COMMENT,
+  DELETE_COMMENT_SUCCESS,
+  DELETE_COMMENT_FAILURE,
+  deleteComment,
+  deleteCommentSuccess,
+  deleteCommentFailure
 };
