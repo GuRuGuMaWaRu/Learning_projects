@@ -9,7 +9,8 @@ import {
   getBlogpostAction,
   likeBlogpostAction,
   deleteBlogpostAction,
-  likeCommentAction
+  likeCommentAction,
+  deleteCommentAction
 } from "../../actions";
 
 const StyledHeader = styled.h2`
@@ -151,7 +152,15 @@ const BlogpostDetails = ({ history }) => {
                 <ion-icon name="thumbs-up" />
                 {comment.likes}
               </div>
-              <button>Delete Comment</button>
+              <button
+                onClick={() =>
+                  dispatch(
+                    deleteCommentAction.deleteComment(blogpost._id, comment._id)
+                  )
+                }
+              >
+                Delete Comment
+              </button>
               <hr />
             </StyledCommentDetails>
             <p>{comment.text}</p>

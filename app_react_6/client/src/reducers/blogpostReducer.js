@@ -3,7 +3,8 @@ import {
   createCommentAction,
   clearBlogpostAction,
   likeBlogpostAction,
-  likeCommentAction
+  likeCommentAction,
+  deleteCommentAction
 } from "../actions";
 
 const INITIAL_STATE = {
@@ -22,6 +23,7 @@ const blogpostReducer = (state = INITIAL_STATE, action) => {
     case likeBlogpostAction.LIKE_BLOGPOST_SUCCESS:
     case likeCommentAction.LIKE_COMMENT_SUCCESS:
     case createCommentAction.CREATE_COMMENT_SUCCESS:
+    case deleteCommentAction.DELETE_COMMENT_SUCCESS:
       return action.updatedBlogpost;
     case clearBlogpostAction.CLEAR_BLOGPOST:
       return INITIAL_STATE;

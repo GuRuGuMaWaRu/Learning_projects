@@ -7,7 +7,8 @@ import {
   likeBlogpostAction,
   deleteBlogpostAction,
   createCommentAction,
-  likeCommentAction
+  likeCommentAction,
+  deleteCommentAction
 } from "../actions";
 import createBlogpost from "./create-blogpost.saga";
 import getBlogposts from "./get-all-blogposts.saga";
@@ -17,6 +18,7 @@ import likeBlogpost from "./like-blogpost.saga";
 import deleteBlogpost from "./delete-blogpost.saga";
 import createComment from "./create-comment.saga";
 import likeComment from "./like-comment.saga";
+import deleteComment from "./delete-comment.saga";
 
 export default function*() {
   yield all([
@@ -27,6 +29,7 @@ export default function*() {
     takeLatest(likeBlogpostAction.LIKE_BLOGPOST, likeBlogpost),
     takeLatest(deleteBlogpostAction.DELETE_BLOGPOST, deleteBlogpost),
     takeLatest(createCommentAction.CREATE_COMMENT, createComment),
-    takeLatest(likeCommentAction.LIKE_COMMENT, likeComment)
+    takeLatest(likeCommentAction.LIKE_COMMENT, likeComment),
+    takeLatest(deleteCommentAction.DELETE_COMMENT, deleteComment)
   ]);
 }
