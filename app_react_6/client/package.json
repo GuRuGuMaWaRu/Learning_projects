@@ -39,6 +39,7 @@
     ]
   },
   "devDependencies": {
+    "babel-plugin-macros": "^2.6.1",
     "http-proxy-middleware": "^0.19.1"
   }
 }
