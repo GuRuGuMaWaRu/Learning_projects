@@ -8,8 +8,9 @@ const deleteComment = ({ blogpostId, commentId }) => ({
   commentId
 });
 
-const deleteCommentSuccess = () => ({
-  type: DELETE_COMMENT_SUCCESS
+const deleteCommentSuccess = updatedBlogpost => ({
+  type: DELETE_COMMENT_SUCCESS,
+  updatedBlogpost
 });
 
 const deleteCommentFailure = () => ({
