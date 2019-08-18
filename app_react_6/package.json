@@ -1,0 +1,27 @@
+{
+  "name": "app_react_6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "start": "concurrently --kill-others \"npm:server\" \"npm:client\"",
+    "test": "SET NODE_ENV=test & nodemon --exec \"mocha --recursive -R min\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.4",
+    "nodemon": "^1.19.1"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.1",
+    "mocha": "^6.1.4",
+    "supertest": "^4.0.2"
+  }
+}

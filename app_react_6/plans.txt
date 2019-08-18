@@ -1,0 +1,10 @@
+NEW THINGS TO TRY:
+[] - bindActionCreators (redux) (NOT)
+[] - ownProps inside mapStateToProps, mapDispatchToProps ???
+[] - define mapDispatchToProps as an object [!]
+[] - 'batch' from react-redux (but only if I need to run more than one action creator simultaniously)
+
+[ ] - write test for Delete Comment
+[ ] - write route for Delete Comment
+[ ] - write test for Delete Blogpost
+[ ] - write route for Delete Blogpost
