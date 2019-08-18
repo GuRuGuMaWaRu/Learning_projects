@@ -20,5 +20,9 @@ router.put(
   "/blogposts/:blogpostId/comment/:commentId",
   commentController.update
 );
+router.delete(
+  "/blogposts/:blogpostId/comment/:commentId",
+  commentController.delete
+);
 
 module.exports = router;

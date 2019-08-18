@@ -24,5 +24,16 @@ module.exports = {
     );
 
     res.send(updatedBlogpost);
+  },
+  delete: async (req, res) => {
+    const { blogpostId, commentId } = req.params;
+
+    const updatedBlogpost = await BlogPost.findOneAndUpdate(
+      { _id: blogpostId },
+      { $pull: { comments: { _id: commentId } } },
+      { new: true }
+    );
+
+    res.send(updatedBlogpost);
   }
 };

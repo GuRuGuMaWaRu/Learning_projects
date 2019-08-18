@@ -20,14 +20,12 @@ describe("Comment controller", () => {
     blogpost.save().then(() => {
       request(app)
         .delete(
-          `api/blogposts/${blogpost._id}/comment/${blogpost.comments[0]._id}`
+          `/api/blogposts/${blogpost._id}/comment/${blogpost.comments[0]._id}`
         )
         .expect(200)
         .end((err, res) => {
-          BlogPost.find({ _id: blogpost._id }).then(foundBlogpost => {
-            assert(foundBlogpost.comments.length === 0);
-            done();
-          });
+          assert(res.body.comments.length === 0);
+          done();
         });
     });
   });
