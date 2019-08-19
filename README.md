@@ -6,6 +6,11 @@
 
 - [ ] no create-react-app, set up everything myself
 - [ ] try client-side (react) tests
+- [ ] use glamorous
+
+#### Goal & Results:
+
+Set up react myself (no create-react-app). Same CRUD app as before. Use styled-components again.
 
 ## App React-6
 
