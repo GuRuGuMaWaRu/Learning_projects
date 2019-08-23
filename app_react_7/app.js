@@ -8,6 +8,9 @@ var usersRouter = require("./routes/users");
 
 var app = express();
 
+// load environment variables
+require("dotenv").config({ path: "process.env" });
+
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
