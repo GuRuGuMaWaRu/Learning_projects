@@ -1,0 +1,3 @@
+[] - write mongo models - Shop, Product, Cart
+[] - write tests for all routes
+[] - write all routes
