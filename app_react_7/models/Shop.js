@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema();
 
 const ProductSchema = new Schema({
-  storeId: {
+  shopId: {
     type: String,
     required: true
   },
@@ -16,7 +16,7 @@ const ProductSchema = new Schema({
   }
 });
 
-const StoreSchema = new Schema({
+const ShopSchema = new Schema({
   name: {
     type: String,
     required: true
@@ -34,4 +34,4 @@ const StoreSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model("store", StoreSchema);
+module.exports = mongoose.model("shop", ShopSchema);
