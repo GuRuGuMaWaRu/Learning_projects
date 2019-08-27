@@ -2,5 +2,6 @@
 [+] - write test helpers
 [+] - write test for getting all shops
 [+] - write route for getting all shops
+[+] - update "get all shops" to get only names and tags
 [] - write tests for all routes
 [] - write all routes
