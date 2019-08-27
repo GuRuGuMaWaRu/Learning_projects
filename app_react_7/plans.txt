@@ -3,5 +3,7 @@
 [+] - write test for getting all shops
 [+] - write route for getting all shops
 [+] - update "get all shops" to get only names and tags
+[] - write test for getting shops with supplied tags
+[] - write route for getting shops with supplied tags
 [] - write tests for all routes
 [] - write all routes
