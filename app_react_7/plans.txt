@@ -1,4 +1,5 @@
 [+] - write mongo models - Shop, Product, CartItem
-[] - write test helpers
+[+] - write test helpers
+[+] - write test for getting all shops
 [] - write tests for all routes
 [] - write all routes
