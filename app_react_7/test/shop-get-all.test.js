@@ -16,7 +16,7 @@ describe("Shop controller", () => {
 
     Promise.all([shop1.save(), shop2.save()]).then(() => {
       request(app)
-        .get("/api/shop")
+        .get("/shop")
         .expect(200)
         .end((err, res) => {
           assert(res.body.length === 2);
