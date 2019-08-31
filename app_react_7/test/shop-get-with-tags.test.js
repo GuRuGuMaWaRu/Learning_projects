@@ -24,16 +24,16 @@ describe("Shop controller", () => {
 
     const tags = ["armor", "travel"];
     const stringified = queryString.stringify(tags);
-    const query = `/api/shop?${stringified}`;
-    console.log(query);
 
     Promise.all([shop1.save(), shop2.save(), shop3.save()]).then(() => {
       request(app)
-        .get(`/api/shop?${stringified}`)
+        .get(`/shop/tags?${stringified}`)
         .expect(200)
         .end((err, res) => {
           assert(res.body.length === 2);
-          // another assert
+          assert(res.body[0].name === "Shop 1");
+          assert(res.body[1].name === "Shop 3");
+          done();
         });
     });
   });
