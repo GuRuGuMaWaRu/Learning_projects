@@ -1,15 +1,26 @@
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
+const db = require("../db");
 
 before(done => {
-  mongoose.connect(process.env.DB_TEST, { useNewUrlParser: true });
-  mongoose.connection
-    .once("open", () => {
-      console.log("Connected to test DB.");
-      done();
-    })
-    .on("error", err => console.warn(`Warning: ${err}`));
+  db.initDb((err, db) => {
+    if (err) {
+      console.log(err);
+    }
+    done();
+  });
+  // mongoose.connect(process.env.DB_TEST, { useNewUrlParser: true });
+  // mongoose.connection
+  //   .once("open", () => {
+  //     console.log("Connected to test DB.");
+  //     done();
+  //   })
+  //   .on("error", err => console.warn(`Warning: ${err}`));
 });
 
 beforeEach(done => {
-  mongoose.connection.collections.shops.drop(() => done());
+  db.getDb()
+    .db()
+    .collection("shops")
+    .drop(() => done());
+  // mongoose.connection.collections.shops.drop(() => done());
 });
