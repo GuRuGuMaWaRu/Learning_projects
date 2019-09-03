@@ -15,8 +15,11 @@ module.exports = {
         shops.push(shopDoc);
       })
       .then(result => {
-        console.log(shops);
         res.status(200).json(shops);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json({ message: "Error while getting all shops!" });
       });
     // const shops = await Shop.find({}, "name tags");
     // res.send(shops);
