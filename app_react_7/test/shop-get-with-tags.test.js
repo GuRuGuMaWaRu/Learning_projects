@@ -5,7 +5,7 @@ const app = require("../app");
 const db = require("../db");
 
 describe("Shop controller", () => {
-  it("should return shops with provided tags on GET request to /api/shop?tags", done => {
+  it("should return shops with provided tags on GET request to /api/shops?tags", done => {
     const shop1 = {
       name: "Shop 1",
       description: "First shop",
@@ -31,7 +31,7 @@ describe("Shop controller", () => {
       .insertMany([shop1, shop2, shop3])
       .then(() => {
         request(app)
-          .get(`/shop/tags?${stringified}`)
+          .get(`/shops/tags?${stringified}`)
           .expect(200)
           .end((err, res) => {
             assert(res.body.length === 2);

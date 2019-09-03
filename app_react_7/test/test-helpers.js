@@ -1,4 +1,3 @@
-// const mongoose = require("mongoose");
 const db = require("../db");
 
 before(done => {
@@ -8,13 +7,6 @@ before(done => {
     }
     done();
   });
-  // mongoose.connect(process.env.DB_TEST, { useNewUrlParser: true });
-  // mongoose.connection
-  //   .once("open", () => {
-  //     console.log("Connected to test DB.");
-  //     done();
-  //   })
-  //   .on("error", err => console.warn(`Warning: ${err}`));
 });
 
 beforeEach(done => {
@@ -22,5 +14,4 @@ beforeEach(done => {
     .db()
     .collection("shops")
     .drop(() => done());
-  // mongoose.connection.collections.shops.drop(() => done());
 });
