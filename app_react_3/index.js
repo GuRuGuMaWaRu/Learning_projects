@@ -9,10 +9,7 @@ require("dotenv").config({ path: "process.env" });
 
 // set up DB
 mongoose.set("useFindAndModify", false);
-mongoose.connect(
-  `mongodb+srv://GuRuGu:${process.env.DB}@cluster0-z8edg.mongodb.net/app_react_3`,
-  { useNewUrlParser: true }
-);
+mongoose.connect(process.env.DB, { useNewUrlParser: true });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json()); // without this my axios.post wasn't working!!!

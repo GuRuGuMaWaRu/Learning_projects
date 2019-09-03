@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 const WebServer = require("./web.server");
 
+// load environment variables
+require("dotenv").config({ path: "process.env" });
+
 // set up DB
 mongoose.set("useFindAndModify", false);
-mongoose.connect(
-  "mongodb+srv://GuRuGu:i44iYtewBM21noYb@cluster0-z8edg.mongodb.net/app_ejs_7",
-  { useNewUrlParser: true }
-);
+mongoose.connect(process.env.DB, { useNewUrlParser: true });
 
 const webServer = new WebServer();
 
