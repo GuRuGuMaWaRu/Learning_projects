@@ -1,6 +1,5 @@
 const assert = require("assert");
 const request = require("supertest");
-const Shop = require("../models/Shop");
 const app = require("../app");
 const db = require("../db");
 
