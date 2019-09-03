@@ -4,10 +4,13 @@ const mongoose = require("mongoose");
 
 const app = express();
 
+// load environment variables
+require("dotenv").config({ path: "process.env" });
+
 // set up DB
 mongoose.set("useFindAndModify", false);
 mongoose.connect(
-  "mongodb+srv://GuRuGu:i44iYtewBM21noYb@cluster0-z8edg.mongodb.net/app_react_3",
+  `mongodb+srv://GuRuGu:${process.env.DB}@cluster0-z8edg.mongodb.net/app_react_3`,
   { useNewUrlParser: true }
 );
 
