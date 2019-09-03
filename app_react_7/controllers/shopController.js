@@ -21,8 +21,6 @@ module.exports = {
         console.log(err);
         res.status(500).json({ message: "Error while getting all shops!" });
       });
-    // const shops = await Shop.find({}, "name tags");
-    // res.send(shops);
   },
   withTags: async (req, res) => {
     const tags = Object.values(req.query);

@@ -36,7 +36,6 @@ describe("Shop controller", () => {
       .collection("shops")
       .insertMany([shop1, shop2])
       .then(() => {
-        console.log("inserted many");
         request(app)
           .get("/shop")
           .expect(200)
