@@ -35,7 +35,19 @@ describe("Shop controller", () => {
       .collection("shops")
       .insertMany([shop1, shop2])
       .then(() => {
-        done();
+        db.getDb()
+          .db()
+          .collection("shops")
+          .findOne({})
+          .then(foundDoc => {
+            request(app)
+              .get(`/api/shops/${foundDoc._id}`)
+              .expect(200)
+              .end((err, res) => {
+                assert(res.body._id === foundDoc._id);
+                done();
+              });
+          });
       });
   });
 });
