@@ -41,10 +41,10 @@ describe("Shop controller", () => {
           .findOne({})
           .then(foundDoc => {
             request(app)
-              .get(`/api/shops/${foundDoc._id}`)
+              .get(`/shops/${foundDoc._id}`)
               .expect(200)
               .end((err, res) => {
-                assert(res.body._id === foundDoc._id);
+                assert(res.body.name === foundDoc.name);
                 done();
               });
           });

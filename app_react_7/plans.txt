@@ -5,7 +5,9 @@
 [+] - update "get all shops" to get only names and tags
 [+] - write test for getting shops with supplied tags
 [+] - write route for getting shops with supplied tags
-[] - write test for getting particular shop data
-[] - write route for getting particular shop data
+[+] - write test for getting particular shop data
+[+] - write route for getting particular shop data
+[] - write test for saving a product into cart
+[] - write route for saving a product into cart
 [] - write tests for all routes
 [] - write all routes

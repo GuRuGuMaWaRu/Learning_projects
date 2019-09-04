@@ -6,5 +6,7 @@ const shopController = require("../controllers/shopController.js");
 router.get("/", shopController.index);
 /* GET all shops with provided tags. */
 router.get("/tags", shopController.withTags);
+/* GET a particular shop */
+router.get("/:shopId", shopController.read);
 
 module.exports = router;

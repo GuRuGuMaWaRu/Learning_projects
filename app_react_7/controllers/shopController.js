@@ -1,5 +1,6 @@
-const Shop = require("../models/Shop");
 const db = require("../db");
+const mongodb = require("mongodb");
+const ObjectId = mongodb.ObjectId;
 
 module.exports = {
   index: async (req, res) => {
@@ -35,6 +36,23 @@ module.exports = {
         res
           .status(500)
           .json({ message: "Error while getting shops via tag search!" });
+      });
+  },
+  read: async (req, res) => {
+    const shopId = req.params.shopId;
+
+    db.getDb()
+      .db()
+      .collection("shops")
+      .findOne({ _id: new ObjectId(shopId) })
+      .then(foundShop => {
+        res.status(200).json(foundShop);
+      })
+      .catch(err => {
+        console.log(err);
+        res
+          .status(500)
+          .json({ message: "Error while getting a particular shop" });
       });
   }
 };
