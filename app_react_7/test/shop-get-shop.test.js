@@ -4,10 +4,10 @@ const app = require("../app");
 const db = require("../db");
 
 describe("Shop controller", () => {
-  it("should return a particular shop data on GET request to /api/shops/:id", done => {
+  it("should return a particular shop data on GET request to /shops/:id", done => {
     const shop1 = {
       name: "Shop 1",
-      description: "should return all shops on GET request to /api/shop",
+      description: "GET request to /shops/:id",
       products: [
         {
           shopId: "this._id",
@@ -19,7 +19,7 @@ describe("Shop controller", () => {
     };
     const shop2 = {
       name: "Shop 2",
-      description: "should return again all shops on GET request to /api/shop",
+      description: "GET request to /shops/:id",
       products: [
         {
           shopId: "this._id",

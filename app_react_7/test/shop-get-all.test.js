@@ -4,7 +4,7 @@ const app = require("../app");
 const db = require("../db");
 
 describe("Shop controller", () => {
-  it("should return all shops on GET request to /api/shops", done => {
+  it("should return all shops on GET request to /shops", done => {
     const shop1 = {
       name: "Shop 1",
       description: "should return all shops on GET request to /api/shop",

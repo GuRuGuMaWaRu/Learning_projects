@@ -5,7 +5,7 @@ const app = require("../app");
 const db = require("../db");
 
 describe("Shop controller", () => {
-  it("should return shops with provided tags on GET request to /api/shops?tags", done => {
+  it("should return shops with provided tags on GET request to /shops?tags", done => {
     const shop1 = {
       name: "Shop 1",
       description: "First shop",

@@ -50,9 +50,7 @@ module.exports = {
       })
       .catch(err => {
         console.log(err);
-        res
-          .status(500)
-          .json({ message: "Error while getting a particular shop" });
+        res.status(500).json({ message: "Error while getting a shop" });
       });
   }
 };
