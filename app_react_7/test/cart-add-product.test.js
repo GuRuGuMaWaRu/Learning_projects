@@ -16,13 +16,13 @@ describe("Cart controller", () => {
       })
       .expect(201)
       .end((err, res) => {
-        const id = res.body[0]._id;
+        const id = res.body._id;
         db.getDb()
           .db()
-          .collection("cart")
+          .collection("cartItems")
           .findOne({ _id: ObjectId(id) })
           .then(foundDoc => {
-            assert(foundDoc._id === id);
+            assert(id.toString() === foundDoc._id.toString());
             done();
           });
       });
