@@ -5,6 +5,8 @@ const db = require("../db");
 
 describe("Cart controller", () => {
   it("should remove a product from cart on DELETE request to /cart", done => {
+    const client = db.getDb().db();
+
     db.getDb()
       .db()
       .collection("cartItems")
@@ -17,9 +19,24 @@ describe("Cart controller", () => {
         db.getDb()
           .db()
           .collection("cartItems")
-          .countDocuments()
-          .then(count => {
-            console.log(count);
+          .find()
+          .toArray()
+          .then(cartItems => {
+            const id = cartItems[0]._id;
+            request(app)
+              .delete(`/cart/${id}`)
+              .expect(200)
+              .end((err, res) => {
+                db.getDb()
+                  .db()
+                  .collection("cartItems")
+                  .find()
+                  .toArray()
+                  .then(newCartItems => {
+                    assert(newCartItems.length === 0);
+                    done();
+                  });
+              });
           });
       })
       .catch(err => {
