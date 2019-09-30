@@ -1,5 +1,4 @@
 const db = require("../db");
-const mongodb = require("mongodb");
 
 before(done => {
   db.initDb((err, db) => {
@@ -14,13 +13,9 @@ beforeEach(done => {
   db.getDb()
     .db()
     .collections((err, collections) => {
-      collections.forEach(collection => {
-        collection.drop();
+      collections.forEach(async collection => {
+        await collection.drop();
       });
       done();
     });
-  // db.getDb()
-  //   .db()
-  //   .collection()
-  //   .drop(() => done());
 });
