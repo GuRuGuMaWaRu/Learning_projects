@@ -4,7 +4,7 @@ const app = require("../app");
 const db = require("../db");
 
 describe("Cart controller", () => {
-  it("should remove a product from cart on DELETE request to /cart", done => {
+  it("should remove a product from cart on DELETE request to /cart/:id", done => {
     const client = db.getDb().db();
 
     db.getDb()
