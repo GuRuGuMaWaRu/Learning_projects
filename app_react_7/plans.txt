@@ -13,6 +13,6 @@
 [+] - write route for removing a product from cart
 [+] - write test to increase quantity of a product in cart
 [+] - write route to increase quantity of a product in cart
-[] - write test to decrease quantity of a product in cart
-[] - write route to decrease quantity of a product in cart
+[+] - write test to decrease quantity of a product in cart
+[+] - write route to decrease quantity of a product in cart
 [] - update get-one-shop route to return something useful in case there is no such shop

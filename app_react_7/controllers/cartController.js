@@ -38,19 +38,19 @@ module.exports = {
         });
       });
   },
-  increase: async (req, res) => {
+  changeQty: async (req, res) => {
     db.getDb()
       .db()
       .collection("cartItems")
       .findOneAndUpdate(
         { _id: new ObjectId(req.params.id) },
-        { $inc: { qty: 1 } },
-        { returnNewDocument: true }
+        { $inc: { qty: req.params.operation === "increase" ? 1 : -1 } },
+        { returnOriginal: false }
       )
       .then(result => {
         res.status(200).json({
-          message: "Cart Item quantity increased",
-          updatedDocument: req.params.id
+          message: `Cart Item quantity ${req.params.operation}d`,
+          updatedDocument: result.value
         });
       })
       .catch(err => {

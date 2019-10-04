@@ -12,9 +12,9 @@ before(done => {
 beforeEach(done => {
   db.getDb()
     .db()
-    .collections((err, collections) => {
-      collections.forEach(async collection => {
-        await collection.drop();
+    .collections(async (err, collections) => {
+      await collections.forEach(collection => {
+        collection.drop();
       });
       done();
     });
