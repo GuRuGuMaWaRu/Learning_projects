@@ -5,18 +5,18 @@ const bodyParser = require("body-parser");
 require("./models/Item");
 require("./models/List");
 
+// load environment variables
+require("dotenv").config({ path: "process.env" });
+
 const routes = require(__dirname + "/routes");
 
 const app = express();
 
 //:: Set up DB
 mongoose.set("useFindAndModify", false);
-mongoose.connect(
-  "mongodb+srv://GuRuGu:i44iYtewBM21noYb@cluster0-z8edg.mongodb.net/app_ejs_5",
-  {
-    useNewUrlParser: true
-  }
-);
+mongoose.connect(process.env.DB, {
+  useNewUrlParser: true
+});
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));

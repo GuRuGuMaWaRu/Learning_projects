@@ -8,11 +8,11 @@ const itemRouter = require("./routes/itemRoutes");
 const app = express();
 const port = 3000;
 
+// load environment variables
+require("dotenv").config({ path: "process.env" });
+
 mongoose.set("useFindAndModify", false);
-mongoose.connect(
-  "mongodb+srv://GuRuGu:i44iYtewBM21noYb@cluster0-z8edg.mongodb.net/app_ejs_8",
-  { useNewUrlParser: true }
-);
+mongoose.connect(process.env.DB, { useNewUrlParser: true });
 
 app.set("views", "./views");
 app.set("view engine", "ejs");
