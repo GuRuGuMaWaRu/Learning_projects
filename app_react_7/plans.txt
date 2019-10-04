@@ -1,0 +1,18 @@
+[+] - write mongo models - Shop, Product, CartItem
+[+] - write test helpers
+[+] - write test for getting all shops
+[+] - write route for getting all shops
+[+] - update "get all shops" to get only names and tags
+[+] - write test for getting shops with supplied tags
+[+] - write route for getting shops with supplied tags
+[+] - write test for getting particular shop data
+[+] - write route for getting particular shop data
+[+] - write test for saving a product into cart
+[+] - write route for saving a product into cart
+[+] - write test for removing a product from cart
+[+] - write route for removing a product from cart
+[+] - write test to increase quantity of a product in cart
+[+] - write route to increase quantity of a product in cart
+[+] - write test to decrease quantity of a product in cart
+[+] - write route to decrease quantity of a product in cart
+[] - update get-one-shop route to return something useful in case there is no such shop

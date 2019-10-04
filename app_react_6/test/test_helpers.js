@@ -8,7 +8,11 @@ before(done => {
 });
 
 beforeEach(done => {
-  mongoose.connection.collections.blogposts.drop(() => {
-    done();
-  });
+  // mongoose.connection.collections.blogposts.drop(() => done());
+  mongoose.connection.collections.blogposts
+    .drop()
+    .then(() => {
+      done();
+    })
+    .catch(err => console.log(err));
 });

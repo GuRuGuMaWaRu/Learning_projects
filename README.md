@@ -4,6 +4,7 @@
 
 #### Ideas:
 
+- [ ] for server use express-generator
 - [ ] no create-react-app, set up everything myself
 - [ ] try client-side (react) tests
 - [ ] use glamorous
