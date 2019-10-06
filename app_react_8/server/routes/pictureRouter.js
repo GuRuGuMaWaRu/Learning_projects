@@ -1,16 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const pictureController = require("../controllers/pictureController");
 
-router.post("/", (req, res) => {
-  res.status(201).json({
-    message: "Picture saved!"
-  });
-});
-
-router.get("/", (req, res) => {
-  res.status(200).json({
-    message: "Picture retrieved!"
-  });
-});
+router.post("/", pictureController.save);
+router.get("/", pictureController.get);
 
 module.exports = router;
