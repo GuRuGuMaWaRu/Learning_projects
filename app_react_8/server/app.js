@@ -1,6 +1,11 @@
 const express = require("express");
 const app = express();
+const morgan = require("morgan");
+
 const pictureRouter = require("./routes/pictureRouter");
+
+// middleware
+app.use(morgan("dev"));
 
 // handle app routes
 app.use("/pictures", pictureRouter);
