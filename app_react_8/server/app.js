@@ -1,11 +1,25 @@
 const express = require("express");
-const app = express();
 const morgan = require("morgan");
+const mongoose = require("mongoose");
+
+// load environment variables
+require("dotenv").config({ path: "process.env" });
 
 const pictureRouter = require("./routes/pictureRouter");
 
+// create Express app
+const app = express();
+
 // middleware
 app.use(morgan("dev"));
+
+// database
+if (process.env.NODE_ENV === "development") {
+  mongoose.connect(process.env.DB_MAIN, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  });
+}
 
 // handle app routes
 app.use("/pictures", pictureRouter);
