@@ -14,10 +14,12 @@ const app = express();
 app.use(morgan("dev"));
 
 // database
-mongoose.connect(process.env.DB_MAIN, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+if (process.env.NODE_ENV === "development") {
+  mongoose.connect(process.env.DB_MAIN, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  });
+}
 
 // handle app routes
 app.use("/pictures", pictureRouter);
