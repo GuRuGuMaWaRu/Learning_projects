@@ -7,13 +7,15 @@ describe("Picture controller", () => {
   it("should save an image to a database on POST request to /pictures", done => {
     Picture.countDocuments()
       .then(count => {
+        console.log("count: ", count);
         request(app)
           .post("/pictures")
-          .send({ path: "/images/image.png" })
+          .attach("path", "./test/image.jpg")
           .expect(201)
           .end((err, res) => {
             Picture.countDocuments()
               .then(newCount => {
+                console.log("new count: ", newCount);
                 assert(newCount === count + 1);
                 done();
               })
