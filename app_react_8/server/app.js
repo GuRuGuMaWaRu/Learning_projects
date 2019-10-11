@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 // load environment variables
@@ -12,6 +13,8 @@ const app = express();
 
 // middleware
 app.use(morgan("dev"));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // database
 if (process.env.NODE_ENV === "development") {
@@ -43,3 +46,5 @@ app.use((error, req, res, next) => {
 app.listen(3000, () => {
   console.log("Server is listening on port 3000...");
 });
+
+module.exports = app;
