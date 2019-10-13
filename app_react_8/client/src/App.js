@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from "react";
+import axios from "axios";
 
 function App() {
+  const [savedImage, setSavedImage] = React.useState(null);
+  const [selectedImage, selectImage] = React.useState(null);
+
+  const sendImage = () => {
+    const formData = new FormData();
+    formData.append("path", selectedImage);
+    axios
+      .post("/pictures", formData)
+      .then(res => {
+        console.log(res.statusText);
+      })
+      .catch(err => console.log(err));
+  };
+
+  const handleChange = event => {
+    selectImage(event.target.files[0]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <input type="file" name="file" onChange={handleChange} />
+      <button onClick={sendImage}>Send image</button>
+      <div>{savedImage && <img src={savedImage} />}</div>
+    </Fragment>
   );
 }
 
