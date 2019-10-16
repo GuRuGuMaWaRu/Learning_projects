@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -15,6 +16,7 @@ const app = express();
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use("/uploads", express.static(path.join("uploads")));
 
 // database
 if (process.env.NODE_ENV === "development") {
