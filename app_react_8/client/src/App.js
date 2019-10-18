@@ -1,7 +1,26 @@
 import React, { Fragment } from "react";
 import axios from "axios";
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 
-function App() {
+const theme = {
+  dark_primary: "#5D4037",
+  light_primary: "#D7CCC8",
+  primary: "#795548",
+  text: "#FFFFFF"
+};
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+  }
+`;
+
+const StyledHeader = styled.div`
+  color: ${props => props.theme.text};
+  background-color: ${props => props.theme.primary};
+`;
+
+const App = () => {
   const [savedImage, setSavedImage] = React.useState(null);
   const [selectedImage, selectImage] = React.useState(null);
   const [isDisplayed, setDisplayed] = React.useState(false);
@@ -28,18 +47,22 @@ function App() {
 
   return (
     <Fragment>
-      <div>
-        <input type="file" name="file" onChange={handleChange} />
-        <button onClick={sendImage}>Send image</button>
-      </div>
-      {isDisplayed && (
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <StyledHeader>Header</StyledHeader>
         <div>
-          <button onClick={showImage}>Show saved image</button>
-          <img src={savedImage} alt="Saved image" />
+          <input type="file" name="file" onChange={handleChange} />
+          <button onClick={sendImage}>Send image</button>
         </div>
-      )}
+        {isDisplayed && (
+          <div>
+            <button onClick={showImage}>Show saved image</button>
+            <img src={savedImage} alt="Saved image" />
+          </div>
+        )}
+      </ThemeProvider>
     </Fragment>
   );
-}
+};
 
 export default App;
