@@ -6,18 +6,29 @@ const theme = {
   dark_primary: "#5D4037",
   light_primary: "#D7CCC8",
   primary: "#795548",
-  text: "#FFFFFF"
+  text: "#FFFFFF",
+  bg_color: "#FAFAFA"
 };
 
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
+    background-color: ${props => props.theme.bg_color};
   }
 `;
 
 const StyledHeader = styled.div`
   color: ${props => props.theme.text};
   background-color: ${props => props.theme.primary};
+  .status-bar {
+    height: 12px;
+    background-color: ${props => props.theme.dark_primary};
+  }
+  h1 {
+    text-align: center;
+    margin: 0;
+    padding: 1rem 0;
+  }
 `;
 
 const App = () => {
@@ -49,7 +60,10 @@ const App = () => {
     <Fragment>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <StyledHeader>Header</StyledHeader>
+        <StyledHeader>
+          <div className="status-bar"></div>
+          <h1>Image Selector</h1>
+        </StyledHeader>
         <div>
           <input type="file" name="file" onChange={handleChange} />
           <button onClick={sendImage}>Send image</button>
