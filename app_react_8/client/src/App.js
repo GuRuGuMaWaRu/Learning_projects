@@ -7,7 +7,9 @@ const theme = {
   light_primary: "#D7CCC8",
   primary: "#795548",
   text: "#FFFFFF",
-  bg_color: "#FAFAFA"
+  accent: "#FFC107",
+  bg_main: "#FAFAFA",
+  bg_container: "#d6d6d6"
 };
 
 const GlobalStyle = createGlobalStyle`
@@ -16,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     line-height: 1.5;
     margin: 0;
-    background-color: ${props => props.theme.bg_color};
+    background-color: ${props => props.theme.bg_main};
   }
   h1, h2, h3, h4 {
     font-family: 'Modak', cursive;
@@ -52,7 +54,7 @@ const StyledContainer = styled.div`
   width: 80%;
   height: calc(100vh - 92px);
   margin: 0 auto;
-  background-color: ${props => props.theme.light_primary};
+  background-color: ${props => props.theme.bg_container};
 `;
 
 const App = () => {
