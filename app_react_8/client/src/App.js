@@ -12,8 +12,23 @@ const theme = {
 
 const GlobalStyle = createGlobalStyle`
   body {
+    font-family: 'Lato', sans-serif;
+    min-height: 100vh;
+    line-height: 1.5;
     margin: 0;
     background-color: ${props => props.theme.bg_color};
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Modak', cursive;
+  }
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+  #root {
+    min-height: 100vh;
   }
 `;
 
@@ -26,6 +41,7 @@ const StyledHeader = styled.div`
   }
   h1 {
     text-align: center;
+    font-weight: 100;
     margin: 0;
     padding: 1rem 0;
   }
