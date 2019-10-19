@@ -33,6 +33,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const StyledHeader = styled.div`
+  height: 90px;
   color: ${props => props.theme.text};
   background-color: ${props => props.theme.primary};
   .status-bar {
@@ -41,10 +42,17 @@ const StyledHeader = styled.div`
   }
   h1 {
     text-align: center;
-    font-weight: 100;
+    font-weight: 200;
     margin: 0;
     padding: 1rem 0;
   }
+`;
+
+const StyledContainer = styled.div`
+  width: 80%;
+  height: calc(100vh - 92px);
+  margin: 0 auto;
+  background-color: ${props => props.theme.light_primary};
 `;
 
 const App = () => {
@@ -80,16 +88,18 @@ const App = () => {
           <div className="status-bar"></div>
           <h1>Image Selector</h1>
         </StyledHeader>
-        <div>
-          <input type="file" name="file" onChange={handleChange} />
-          <button onClick={sendImage}>Send image</button>
-        </div>
-        {isDisplayed && (
+        <StyledContainer>
           <div>
-            <button onClick={showImage}>Show saved image</button>
-            <img src={savedImage} alt="Saved image" />
+            <input type="file" name="file" onChange={handleChange} />
+            <button onClick={sendImage}>Send image</button>
           </div>
-        )}
+          {isDisplayed && (
+            <div>
+              <button onClick={showImage}>Show saved image</button>
+              <img src={savedImage} alt="Saved image" />
+            </div>
+          )}
+        </StyledContainer>
       </ThemeProvider>
     </Fragment>
   );
