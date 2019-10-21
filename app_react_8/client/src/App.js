@@ -7,6 +7,8 @@ const theme = {
   light_primary: "#D7CCC8",
   primary: "#795548",
   text: "#FFFFFF",
+  primary_text: "#212121",
+  secondary_text: "#757575",
   accent: "#FFC107",
   bg_main: "#FAFAFA",
   bg_container: "#d6d6d6"
@@ -57,6 +59,38 @@ const StyledContainer = styled.div`
   background-color: ${props => props.theme.bg_container};
 `;
 
+const StyledControls = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10rem 0;
+`;
+
+const StyledButton = styled.input`
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+`;
+
+const StyledLabel = styled.label`
+  font-size: 1.25rem;
+  color: ${props => props.theme.secondary_text};
+  padding: 0.6rem 0.8rem;
+  border: none;
+  background-color: ${props => props.theme.accent};
+  cursor: pointer;
+  ${StyledButton}:focus &,
+  &:hover {
+    color: ${props => props.theme.primary_text};
+  }
+  ${StyledButton}:focus & {
+    outline: 1px dotted #000;
+  }
+`;
+
 const App = () => {
   const [savedImage, setSavedImage] = React.useState(null);
   const [selectedImage, selectImage] = React.useState(null);
@@ -91,10 +125,16 @@ const App = () => {
           <h1>Image Selector</h1>
         </StyledHeader>
         <StyledContainer>
-          <div>
-            <input type="file" name="file" onChange={handleChange} />
+          <StyledControls>
+            <StyledLabel htmlFor="file">Select an image</StyledLabel>
+            <StyledButton
+              type="file"
+              id="file"
+              name="file"
+              onChange={handleChange}
+            />
             <button onClick={sendImage}>Send image</button>
-          </div>
+          </StyledControls>
           {isDisplayed && (
             <div>
               <button onClick={showImage}>Show saved image</button>
