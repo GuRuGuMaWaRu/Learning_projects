@@ -38,7 +38,7 @@ const GlobalStyle = createGlobalStyle`
 
 const StyledHeader = styled.div`
   height: 90px;
-  color: ${props => props.theme.text};
+  color: ${props => props.theme.accent};
   background-color: ${props => props.theme.primary};
   box-shadow: 0px 3px 4px 1px rgba(181, 181, 181, 1);
   z-index: 10;
@@ -83,14 +83,15 @@ const StyledLabel = styled.label`
   font-size: 1.25rem;
   color: ${props => props.theme.secondary_text};
   padding: 0.6rem 0.8rem;
-  border: none;
+  border-radius: 4px;
   background-color: ${props => props.theme.accent};
-  cursor: pointer;
-  ${StyledButton}:focus &,
+  cursor: ${props => (props.disabled ? "default" : "pointer")};
   &:hover {
-    color: ${props => props.theme.primary_text};
+    color: ${props =>
+      props.disabled ? props.theme.secondary_text : props.theme.primary_text};
   }
-  ${StyledButton}:focus & {
+  ${StyledButton}:focus {
+    color: ${props => props.theme.primary_text};
     outline: 1px dotted #000;
   }
 `;
@@ -130,13 +131,17 @@ const App = () => {
         </StyledHeader>
         <StyledContainer>
           <StyledControls>
-            <StyledLabel htmlFor="file">Select an image</StyledLabel>
-            <StyledButton
-              type="file"
-              id="file"
-              name="file"
-              onChange={handleChange}
-            />
+            <StyledLabel htmlFor="file" disabled={!!selectedImage}>
+              {!!selectedImage ? "Image selected!" : "Select an image"}
+            </StyledLabel>
+            {!selectedImage && (
+              <StyledButton
+                type="file"
+                id="file"
+                name="file"
+                onChange={handleChange}
+              />
+            )}
             <button onClick={sendImage}>Send image</button>
           </StyledControls>
           {isDisplayed && (
