@@ -49,6 +49,7 @@ const StyledHeader = styled.div`
   h1 {
     text-align: center;
     font-weight: 200;
+    text-shadow: 2px 2px ${props => props.theme.secondary_text};
     margin: 0;
     padding: 1rem 0;
   }
