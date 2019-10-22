@@ -40,6 +40,8 @@ const StyledHeader = styled.div`
   height: 90px;
   color: ${props => props.theme.text};
   background-color: ${props => props.theme.primary};
+  box-shadow: 0px 3px 4px 1px rgba(181, 181, 181, 1);
+  z-index: 10;
   .status-bar {
     height: 12px;
     background-color: ${props => props.theme.dark_primary};
@@ -57,6 +59,7 @@ const StyledContainer = styled.div`
   height: calc(100vh - 92px);
   margin: 0 auto;
   background-color: ${props => props.theme.bg_container};
+  z-index: 1;
 `;
 
 const StyledControls = styled.div`
