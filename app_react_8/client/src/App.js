@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import axios from "axios";
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 
@@ -97,9 +97,9 @@ const StyledLabel = styled.label`
 `;
 
 const App = () => {
-  const [savedImage, setSavedImage] = React.useState(null);
-  const [selectedImage, selectImage] = React.useState(null);
-  const [isDisplayed, setDisplayed] = React.useState(false);
+  const [savedImage, setSavedImage] = useState(null);
+  const [selectedImage, selectImage] = useState(null);
+  const [isDisplayed, setDisplayed] = useState(false);
 
   const sendImage = () => {
     const formData = new FormData();
