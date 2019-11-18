@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 
@@ -122,37 +122,35 @@ const App = () => {
   };
 
   return (
-    <Fragment>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <StyledHeader>
-          <div className="status-bar"></div>
-          <h1>Image Selector</h1>
-        </StyledHeader>
-        <StyledContainer>
-          <StyledControls>
-            <StyledLabel htmlFor="file" disabled={!!selectedImage}>
-              {!!selectedImage ? "Image selected!" : "Select an image"}
-            </StyledLabel>
-            {!selectedImage && (
-              <StyledButton
-                type="file"
-                id="file"
-                name="file"
-                onChange={handleChange}
-              />
-            )}
-            <button onClick={sendImage}>Send image</button>
-          </StyledControls>
-          {isDisplayed && (
-            <div>
-              <button onClick={showImage}>Show saved image</button>
-              <img src={savedImage} alt="Saved image" />
-            </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <StyledHeader>
+        <div className="status-bar"></div>
+        <h1>Image Selector</h1>
+      </StyledHeader>
+      <StyledContainer>
+        <StyledControls>
+          <StyledLabel htmlFor="file" disabled={!!selectedImage}>
+            {!!selectedImage ? "Image selected!" : "Select an image"}
+          </StyledLabel>
+          {!selectedImage && (
+            <StyledButton
+              type="file"
+              id="file"
+              name="file"
+              onChange={handleChange}
+            />
           )}
-        </StyledContainer>
-      </ThemeProvider>
-    </Fragment>
+          <button onClick={sendImage}>Send image</button>
+        </StyledControls>
+        {isDisplayed && (
+          <div>
+            <button onClick={showImage}>Show saved image</button>
+            <img src={savedImage} alt="Saved image" />
+          </div>
+        )}
+      </StyledContainer>
+    </ThemeProvider>
   );
 };
 
