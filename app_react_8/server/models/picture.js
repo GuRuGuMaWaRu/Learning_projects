@@ -3,8 +3,7 @@ const Schema = mongoose.Schema;
 
 const PictureSchema = new Schema({
   path: {
-    type: String,
-    required: true
+    type: String
   }
 });
 
