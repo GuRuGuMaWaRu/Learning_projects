@@ -147,7 +147,7 @@ const App = () => {
         {isDisplayed && (
           <div>
             <button onClick={showImage}>Show saved image</button>
-            <img src={savedImage} alt="Saved image" />
+            <img src={savedImage} alt="Webwonder" />
           </div>
         )}
       </StyledContainer>
