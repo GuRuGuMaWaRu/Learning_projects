@@ -117,8 +117,9 @@ const App = () => {
     selectImage(event.target.files[0]);
   };
 
-  const showImage = () => {
-    setSavedImage("/uploads/image1.jpeg");
+  const showImage = async () => {
+    const picture = await axios.get("/pictures");
+    setSavedImage(picture.data.payload.path);
   };
 
   return (
