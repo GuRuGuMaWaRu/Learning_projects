@@ -16,8 +16,12 @@ module.exports = {
     }
   },
   get: async (req, res) => {
-    res.status(200).json({
-      message: "Picture retrieved!"
-    });
+    try {
+      const picture = await Picture.findOne();
+      res.status(200).json({ payload: picture, message: "Picture retrieved!" });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json({ error: err });
+    }
   }
 };
