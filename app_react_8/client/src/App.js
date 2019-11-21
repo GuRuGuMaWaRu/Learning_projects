@@ -97,8 +97,8 @@ const StyledLabel = styled.label`
 `;
 
 const App = () => {
-  const [savedImage, setSavedImage] = useState(null);
   const [selectedImage, selectImage] = useState(null);
+  const [savedImage, setSavedImage] = useState(null);
   const [isDisplayed, setDisplayed] = useState(false);
 
   const sendImage = () => {

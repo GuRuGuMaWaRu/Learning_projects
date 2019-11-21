@@ -3,6 +3,7 @@ const Picture = require("../models/picture");
 module.exports = {
   save: async (req, res) => {
     if (req.file && req.file.path) {
+      await Picture.deleteMany();
       Picture.create({ path: req.file.path })
         .then(result => {
           console.log(result);
