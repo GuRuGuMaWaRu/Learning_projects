@@ -3,6 +3,7 @@ const Picture = require("../models/picture");
 module.exports = {
   save: async (req, res) => {
     if (req.file && req.file.path) {
+      await Picture.deleteMany();
       Picture.create({ path: req.file.path })
         .then(result => {
           console.log(result);
@@ -15,8 +16,12 @@ module.exports = {
     }
   },
   get: async (req, res) => {
-    res.status(200).json({
-      message: "Picture retrieved!"
-    });
+    try {
+      const picture = await Picture.findOne();
+      res.status(200).json({ payload: picture, message: "Picture retrieved!" });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json({ error: err });
+    }
   }
 };
