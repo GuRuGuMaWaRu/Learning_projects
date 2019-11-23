@@ -1,5 +1,16 @@
 # Collection of learning projects
 
+## App React-8
+
+#### Ideas:
+
+- [ ] save files to the server
+- [ ] display images saved to the server
+
+#### Result:
+
+File itself is saved to the server and its path is saved to the database. This way I hit database for the path and use it display the image saved on the server.
+
 ## App React-7
 
 #### Ideas:
