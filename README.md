@@ -1,11 +1,28 @@
 # Collection of learning projects
 
+## App React-9
+
+#### Ideas:
+
+- React Next
+  - hooks
+  - context
+- React router
+- Formik & Yup
+- Backend with tests and error-handling
+- Display backend alerts on the client
+- Authorization
+
+#### Result:
+
+_none yet_
+
 ## App React-8
 
 #### Ideas:
 
-- [ ] save files to the server
-- [ ] display images saved to the server
+- save files to the server
+- display images saved to the server
 
 #### Result:
 
@@ -15,10 +32,10 @@ File itself is saved to the server and its path is saved to the database. This w
 
 #### Ideas:
 
-- [ ] for server use express-generator
-- [ ] no create-react-app, set up everything myself
-- [ ] try client-side (react) tests
-- [ ] use glamorous
+- use express-generator
+- no create-react-app, set up everything myself
+- try client-side (react) tests
+- use glamorous
 
 #### Goal & Results:
 
@@ -26,16 +43,16 @@ Set up react myself (no create-react-app). Same CRUD app as before. Use styled-c
 
 ## App React-6
 
-- [ ] React (with hooks)
-- [ ] React-redux (with hooks)
-- [ ] Redux-saga
-- [ ] React-router
-- [ ] Formik
-- [ ] Yup
-- [ ] Axios
-- [ ] Node
-- [ ] Mongo
-- [ ] Server-side Mocha tests for all end-points
+- React (with hooks)
+- React-redux (with hooks)
+- Redux-saga
+- React-router
+- Formik
+- Yup
+- Axios
+- Node
+- Mongo
+- Server-side Mocha tests for all end-points
 
 #### Goal & Results:
 
@@ -45,16 +62,16 @@ The same, but with more hooks (react and react-redux).
 
 #### Tech Stack:
 
-- [ ] React (with hooks)
-- [ ] React-redux
-- [ ] Redux-saga
-- [ ] React-router
-- [ ] Formik
-- [ ] Yup
-- [ ] Axios
-- [ ] Node
-- [ ] Mongo
-- [ ] Server-side Mocha tests for all end-points
+- React (with hooks)
+- React-redux
+- Redux-saga
+- React-router
+- Formik
+- Yup
+- Axios
+- Node
+- Mongo
+- Server-side Mocha tests for all end-points
 
 #### Goal & Results:
 
@@ -64,14 +81,14 @@ Multi-page app with basic CRUD functionality. This time with Mocha test (test-dr
 
 #### Tech Stack:
 
-- [ ] React
-- [ ] React-redux
-- [ ] Redux-saga
-- [ ] React-router
-- [ ] Formik
-- [ ] Axios
-- [ ] Node
-- [ ] Mongo
+- React
+- React-redux
+- Redux-saga
+- React-router
+- Formik
+- Axios
+- Node
+- Mongo
 
 #### Goal:
 
@@ -83,9 +100,9 @@ Multi-page app with basic CRUD functionality.
 
 #### Tech Stack:
 
-- [ ] Node
-- [ ] Mongo
-- [ ] EJS
+- Node
+- Mongo
+- EJS
 
 #### Goal:
 
@@ -97,14 +114,14 @@ Basic journalling app - as simple as possible.
 
 #### Tech Stack:
 
-- [ ] React
-- [ ] React-redux
-- [ ] Redux-saga
-- [ ] React-router
-- [ ] Formik
-- [ ] Axios
-- [ ] Node
-- [ ] Mongo
+- React
+- React-redux
+- Redux-saga
+- React-router
+- Formik
+- Axios
+- Node
+- Mongo
 
 #### Goal:
 
@@ -116,9 +133,9 @@ Multi-page ecommerce app with basic CRUD functionality.
 
 #### Tech Stack:
 
-- [ ] Node
-- [ ] Mongo
-- [ ] EJS
+- Node
+- Mongo
+- EJS
 
 #### Goal:
 
@@ -128,8 +145,8 @@ Multi-page basic ecommerce app, CRUD, Mongoose, Atlas DB, class-based server, mo
 
 #### Tech Stack:
 
-- [ ] React
-- [ ] React Context
+- React
+- React Context
 
 #### Goal:
 
@@ -140,7 +157,7 @@ in different components when currency is selected via Currency Selector.
 
 #### Tech Stack:
 
-- [ ] React
+- React
 
 #### Goal:
 
@@ -150,9 +167,9 @@ Build an order-your-meal page with multiple interlinked components.
 
 #### Tech Stack:
 
-- [ ] Node
-- [ ] Mongo
-- [ ] EJS
+- Node
+- Mongo
+- EJS
 
 #### Goal:
 
@@ -162,9 +179,9 @@ Multi-page app, CRUD, Mongoose, Atlas DB, class-based server, modular routes and
 
 #### Tech Stack:
 
-- [ ] Node
-- [ ] Mongo
-- [ ] EJS
+- Node
+- Mongo
+- EJS
 
 #### Goal:
 
