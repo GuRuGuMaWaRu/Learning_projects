@@ -6,14 +6,25 @@ const app = express();
 app.use(morgan("dev"));
 
 // Define Routes
-app.get("/api/swords", (req, res) => {
+app.use("/api/swords", (req, res) => {
   res.status(200).json({ msg: "Swords route" });
 });
-app.get("/api/user", (req, res) => {
+app.use("/api/user", (req, res) => {
   res.status(200).json({ msg: "User route" });
 });
-app.get("/api/auth", (req, res) => {
+app.use("/api/auth", (req, res) => {
   res.status(200).json({ msg: "Auth route" });
+});
+
+// Handle 404 errors
+app.use((req, res, next) => {
+  const error = new Error("Not Found!");
+  error.status = 404;
+  next(error);
+});
+// Handle all errors
+app.use((err, req, res, next) => {
+  res.status(err.status || 500).json({ msg: err.message });
 });
 
 // Run Server
