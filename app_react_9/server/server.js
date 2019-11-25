@@ -1,9 +1,9 @@
 const express = require("express");
+const morgan = require("morgan");
 const app = express();
 
-app.get("/", (req, res) => {
-  res.status(200).json({ msg: "Swords API" });
-});
+// Init middleware
+app.use(morgan("dev"));
 
 // Define Routes
 app.get("/api/swords", (req, res) => {
