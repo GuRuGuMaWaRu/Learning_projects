@@ -2,15 +2,8 @@
 
 ## App React-9
 
-#### Ideas:
+#### Goals:
 
-- React Next
-  - hooks
-  - context
-- React router
-- Formik & Yup
-- Backend with tests and error-handling
-- Display backend alerts on the client
 - Authorization
 
 #### Result:
