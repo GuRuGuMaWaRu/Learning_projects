@@ -1,6 +1,11 @@
 const express = require("express");
 const morgan = require("morgan");
+const runDatabase = require("./db");
+
 const app = express();
+
+// Run database
+runDatabase();
 
 // Init middleware
 app.use(morgan("dev"));
