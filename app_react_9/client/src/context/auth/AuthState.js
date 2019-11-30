@@ -36,8 +36,13 @@ const AuthState = props => {
 
   // Login User
   const loginUser = () => {
-    console.log("loginUser");
-    dispatch({ type: LOGIN_SUCCESS });
+    try {
+      dispatch({ type: LOGIN_SUCCESS });
+      console.log("loginUser success");
+    } catch (err) {
+      console.error(err);
+      dispatch({ type: LOGIN_FAIL });
+    }
   };
 
   // Logout User
