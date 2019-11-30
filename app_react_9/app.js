@@ -9,17 +9,10 @@ runDatabase();
 
 // Init middleware
 app.use(morgan("dev"));
-
+app.use(express.json());
 // Define Routes
-app.use("/api/swords", (req, res) => {
-  res.status(200).json({ msg: "Swords route" });
-});
-app.use("/api/user", (req, res) => {
-  res.status(200).json({ msg: "User route" });
-});
-app.use("/api/auth", (req, res) => {
-  res.status(200).json({ msg: "Auth route" });
-});
+app.use("/api/user", require("./routes/user"));
+app.use("/api/auth", require("./routes/auth"));
 
 // Handle 404 errors
 app.use((req, res, next) => {

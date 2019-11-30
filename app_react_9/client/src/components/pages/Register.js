@@ -19,7 +19,13 @@ const Register = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    registerUser(user);
+    if (name === "" || email === "" || password1 === "") {
+      console.log("Please fill in all fields");
+    } else if (password1 !== password2) {
+      console.log("Password must match");
+    } else {
+      registerUser(user);
+    }
   };
 
   return (

@@ -8,12 +8,12 @@ const runDatabase = async () => {
   mongoose.connection.on("error", err => {
     console.log("Database error:", err);
   });
-
   try {
-    await mongoose.connect(config.get("mongoURI"), {
+    mongoose.connect(config.get("mongoURI"), {
       useNewUrlParser: true,
       useUnifiedTopology: true
     });
+    mongoose.set("useCreateIndex", true);
   } catch (err) {
     console.log(err.message);
     process.exit(1);

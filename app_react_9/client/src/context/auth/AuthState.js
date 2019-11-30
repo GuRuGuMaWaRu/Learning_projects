@@ -29,18 +29,31 @@ const AuthState = props => {
   };
 
   // Register User
-  const registerUser = () => {
-    console.log("registerUser");
-    dispatch({ type: REGISTER_SUCCESS });
+  const registerUser = async user => {
+    const config = {
+      headers: { "Content-Type": "application/json" }
+    };
+
+    try {
+      const res = await axios.post("/api/user", user, config);
+      dispatch({ type: REGISTER_SUCCESS, payload: res.data });
+    } catch (err) {
+      console.error(err.response.data.msg);
+      dispatch({ type: REGISTER_FAIL });
+    }
   };
 
   // Login User
-  const loginUser = () => {
+  const loginUser = async user => {
+    const config = {
+      headers: { "Content-Type": "application/json" }
+    };
+
     try {
-      dispatch({ type: LOGIN_SUCCESS });
-      console.log("loginUser success");
+      const res = await axios.post("/api/auth", user, config);
+      dispatch({ type: LOGIN_SUCCESS, payload: res.data });
     } catch (err) {
-      console.error(err);
+      console.error(err.response.data.msg);
       dispatch({ type: LOGIN_FAIL });
     }
   };
