@@ -23,12 +23,28 @@ const AuthState = props => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
   // Load User
+  const loadUser = () => {
+    console.log("loadUser");
+    dispatch({ type: USER_LOADED });
+  };
 
   // Register User
+  const registerUser = () => {
+    console.log("registerUser");
+    dispatch({ type: REGISTER_SUCCESS });
+  };
 
   // Login User
+  const loginUser = () => {
+    console.log("loginUser");
+    dispatch({ type: LOGIN_SUCCESS });
+  };
 
-  // Logout
+  // Logout User
+  const logoutUser = () => {
+    console.log("logoutUser");
+    dispatch({ type: LOGOUT });
+  };
 
   return (
     <AuthContext.Provider
@@ -36,7 +52,11 @@ const AuthState = props => {
         token: state.token,
         isAuthenticated: state.isAuthenticated,
         loading: state.loading,
-        user: state.user
+        user: state.user,
+        loadUser,
+        registerUser,
+        loginUser,
+        logoutUser
       }}
     >
       {props.children}
