@@ -22,7 +22,7 @@ const Register = () => {
     if (name === "" || email === "" || password1 === "") {
       console.log("Please fill in all fields");
     } else if (password1 !== password2) {
-      console.log("Password must match");
+      console.log("Passwords must match");
     } else {
       registerUser(user);
     }

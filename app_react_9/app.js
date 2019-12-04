@@ -10,6 +10,7 @@ runDatabase();
 // Init middleware
 app.use(morgan("dev"));
 app.use(express.json());
+
 // Define Routes
 app.use("/api/user", require("./routes/user"));
 app.use("/api/auth", require("./routes/auth"));
