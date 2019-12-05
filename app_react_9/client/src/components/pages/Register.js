@@ -1,7 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import AuthContext from "../../context/auth/authContext";
 
-const Register = () => {
+const Register = ({ history }) => {
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -11,7 +11,14 @@ const Register = () => {
   const authContext = useContext(AuthContext);
 
   const { name, email, password1, password2 } = user;
-  const { registerUser } = authContext;
+  const { registerUser, isAuthenticated } = authContext;
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      history.push("/");
+    }
+    // eslint-disable-next-line
+  }, [isAuthenticated]);
 
   const handleChange = e => {
     setUser({ ...user, [e.target.name]: e.target.value });

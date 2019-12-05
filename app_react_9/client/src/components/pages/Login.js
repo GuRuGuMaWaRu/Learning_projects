@@ -1,7 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import AuthContext from "../../context/auth/authContext";
 
-const Login = () => {
+const Login = ({ history }) => {
   const [user, setUser] = useState({
     email: "",
     password: ""
@@ -9,7 +9,14 @@ const Login = () => {
   const authContext = useContext(AuthContext);
 
   const { email, password } = user;
-  const { loginUser } = authContext;
+  const { loginUser, isAuthenticated } = authContext;
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      history.push("/");
+    }
+    // eslint-disable-next-line
+  }, [isAuthenticated]);
 
   const handleChange = e => {
     setUser({ ...user, [e.target.name]: e.target.value });
