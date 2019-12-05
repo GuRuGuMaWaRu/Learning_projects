@@ -1,5 +1,6 @@
 import React, { useReducer } from "react";
 import axios from "axios";
+
 import AuthContext from "./authContext";
 import authReducer from "./authReducer";
 import {
@@ -11,6 +12,7 @@ import {
   LOGIN_FAIL,
   LOGOUT
 } from "../types";
+import setAuthToken from "../../utils/setAuthToken";
 
 const AuthState = props => {
   const initialState = {
@@ -23,9 +25,20 @@ const AuthState = props => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
   // Load User
-  const loadUser = () => {
-    console.log("loadUser");
-    dispatch({ type: USER_LOADED });
+  const loadUser = async () => {
+    try {
+      if (localStorage.token) {
+        setAuthToken(localStorage.token);
+      } else {
+        throw new Error("No valid token");
+      }
+
+      const { data: user } = await axios.get("/api/auth");
+      dispatch({ type: USER_LOADED, payload: user });
+    } catch (err) {
+      console.log("Error:", err.message);
+      dispatch({ type: AUTH_ERROR, payload: "Authorization error" });
+    }
   };
 
   // Register User
@@ -60,7 +73,6 @@ const AuthState = props => {
 
   // Logout User
   const logoutUser = () => {
-    console.log("logoutUser");
     dispatch({ type: LOGOUT });
   };
 

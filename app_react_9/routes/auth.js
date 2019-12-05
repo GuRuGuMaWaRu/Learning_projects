@@ -5,13 +5,33 @@ const jwt = require("jsonwebtoken");
 const config = require("config");
 
 const User = require("../models/user");
+const auth = require("../middleware/auth");
+
+/*-------------------------
+/ @route    GET api/auth
+/ @desc     Load user
+/ @access   Private
+--------------------------*/
+router.get("/", auth, async (req, res) => {
+  if (!req.user) {
+    return res.status(401).json({ msg: "Wrong credentials" });
+  }
+
+  try {
+    const user = await User.findOne({ _id: req.user }).select("email name");
+
+    res.status(200).json(user);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json({ msg: err.message });
+  }
+});
 
 /*-------------------------
 / @route    POST api/auth
 / @desc     Login user
 / @access   Public
 --------------------------*/
-
 router.post("/", async (req, res) => {
   const { email, password } = req.body;
 
