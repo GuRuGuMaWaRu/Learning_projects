@@ -6,9 +6,12 @@ const config = require("config");
 
 const User = require("../models/user");
 
-// @route     POST api/user
-// @desc      Register a user
-// @access    Public
+/*-------------------------
+/ @route     POST api/user
+/ @desc      Register a user
+/ @access    Public
+/*-----------------------*/
+
 router.post("/", async (req, res) => {
   const { name, email, password1 } = req.body;
 
@@ -41,12 +44,12 @@ router.post("/", async (req, res) => {
       { expiresIn: "1hr" },
       (err, token) => {
         if (err) throw err;
-        res.status(201).json({token});
+        res.status(201).json({ token });
       }
     );
   } catch (err) {
-    console.log(err);
-    res.status(500).json({ msg: err });
+    console.error(err.message);
+    res.status(500).json({ msg: err.message });
   }
 });
 

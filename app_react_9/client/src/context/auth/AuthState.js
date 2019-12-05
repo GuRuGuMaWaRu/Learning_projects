@@ -30,12 +30,12 @@ const AuthState = props => {
 
   // Register User
   const registerUser = async user => {
-    const config = {
-      headers: { "Content-Type": "application/json" }
-    };
+    // const config = {
+    //   headers: { "Content-Type": "application/json" }
+    // };
 
     try {
-      const res = await axios.post("/api/user", user, config);
+      const res = await axios.post("/api/user", user);
       dispatch({ type: REGISTER_SUCCESS, payload: res.data });
     } catch (err) {
       console.error("Error:", err.response.data.msg);
@@ -45,12 +45,13 @@ const AuthState = props => {
 
   // Login User
   const loginUser = async user => {
-    const config = {
-      headers: { "Content-Type": "application/json" }
-    };
+    // const config = {
+    //   headers: { "Content-Type": "application/json" }
+    // };
 
     try {
-      const res = await axios.post("/api/auth", user, config);
+      const res = await axios.post("/api/auth", user);
+      console.log(res.data);
       dispatch({ type: LOGIN_SUCCESS, payload: res.data });
     } catch (err) {
       console.error("Error:", err.response.data.msg);
