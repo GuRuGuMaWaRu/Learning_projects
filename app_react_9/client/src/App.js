@@ -6,6 +6,7 @@ import Home from "./components/pages/Home";
 import Register from "./components/pages/Register";
 import Login from "./components/pages/Login";
 import NotFound from "./components/pages/NotFound";
+import ProtectedRoute from "./components/routing/ProtectedRoute";
 
 import AuthState from "./context/auth/AuthState";
 
@@ -15,7 +16,7 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
-          <Route exact path="/" component={Home} />
+          <ProtectedRoute exact path="/" component={Home} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           <Route component={NotFound} />
